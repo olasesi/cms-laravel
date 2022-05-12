@@ -15,7 +15,7 @@ use Illuminate\Database\Schema\Blueprint;
 */
 
  Route::get('/', function () {
-     return view('welcome');
+     return view('home');
 
  });
 
