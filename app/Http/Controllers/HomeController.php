@@ -11,22 +11,23 @@ class HomeController extends Controller
 {
     //
 
-    public function redirect(){
+//     public function redirect(){
 
-      $usertype= Auth::user()->usertype;
+//       $usertype= Auth::user()->usertype;
 
-        if($usertype == 1){
+//         if($usertype == 1){
 
-           return view('admin.home');
-        }else{
-            return view('user.home');
-        }
- }
+//            return view('admin.home');
+//         }else{
+//             return view('user.home');
+//         }
+//  }
 
 public function index(){
 
-    return view('user.home');
+    return view('home');
 }
+
 
 
 }
