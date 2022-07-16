@@ -50,7 +50,7 @@
 	<!-- Responsive -->
 	<link rel="stylesheet" href="css/responsive.css">
 
-
+    <link rel="stylesheet" href="css/custom.css">
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -98,6 +98,8 @@
 	<script src="js/smoothscroll.js"></script>
 
 	<script src="js/main.js"></script>
+
+    <script src="js/custom.js"></script>
 </body>
 
 
