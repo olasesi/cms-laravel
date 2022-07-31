@@ -1,0 +1,14 @@
+.search-box{
+margin-top:18px !important;
+}
+
+.search-input{
+
+    margin-right:8px !important;
+}
+
+.errors{
+color:rgba(241, 54, 54, 0.788);
+font-size:15px;
+
+}

@@ -16,10 +16,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/admin', [AdminLoginController::class, 'index']);
-Route::post('/admin', [AdminLoginController::class, 'login']);
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::get('/logout', [AdminLoginController::class, 'logout']);
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
-Route::get('/users', [AdminLoginController::class, 'users']);
+
+
+
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/admin/menu', [DashboardController::class, 'menu']);
+
+
+
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('users', [AdminLoginController::class, 'showusers']);
+   //Route::post('edit-user/{id}', [AdminLoginController::class, 'edituser']);
+    Route::get('login', [AdminLoginController::class, 'index']);
+    Route::post('login', [AdminLoginController::class, 'savelogin']);
+    Route::get('logout', [AdminLoginController::class, 'logout']);
+    Route::get('add-user', [AdminLoginController::class, 'createuser']);
+    Route::post('add-user', [AdminLoginController::class, 'saveuser']);
+    Route::post('edit-user/{id}', [AdminLoginController::class, 'edituser']);
+    Route::put('update-user/{id}', [AdminLoginController::class, 'updateuser']);
+    Route::post('delete-user/{id}', [AdminLoginController::class, 'deleteuser']);
+    Route::put('ban-user/{id}', [AdminLoginController::class, 'banuser']);
+});
+
+//Route::get('/admin/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+Route::get('/admin/forget-password', function(){
+    return view('welcome');
+});

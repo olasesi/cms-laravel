@@ -21,6 +21,10 @@ class AdminAuth
         if($request->path() == 'admin' && $request->session()->has('users')){
             return redirect('/dashboard');
         }
+
+        if($request->path() == 'dashboard' && !$request->session()->has('users')){
+            return redirect('/admin');
+        }
         return $next($request);
     }
 }
