@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,30 +17,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('homepage');
-
-
-
-
-Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/', [HomeController::class, 'index'])->name('user.index');
 Route::get('/admin/menu', [DashboardController::class, 'menu']);
 
 
+//
 
+Route::get('/admin/login', [AdminLoginController::class, 'index'])->middleware('alreadyloggin')->name('admin.index');
+Route::post('/admin/login', [AdminLoginController::class, 'savelogin'])->name('admin.savelogin');
 
-
-Route::prefix('admin')->group(function () {
-    Route::get('users', [AdminLoginController::class, 'showusers']);
-   //Route::post('edit-user/{id}', [AdminLoginController::class, 'edituser']);
-    Route::get('login', [AdminLoginController::class, 'index']);
-    Route::post('login', [AdminLoginController::class, 'savelogin']);
-    Route::get('logout', [AdminLoginController::class, 'logout']);
-    Route::get('add-user', [AdminLoginController::class, 'createuser']);
-    Route::post('add-user', [AdminLoginController::class, 'saveuser']);
-    Route::post('edit-user/{id}', [AdminLoginController::class, 'edituser']);
-    Route::put('update-user/{id}', [AdminLoginController::class, 'updateuser']);
-    Route::post('delete-user/{id}', [AdminLoginController::class, 'deleteuser']);
-    Route::put('ban-user/{id}', [AdminLoginController::class, 'banuser']);
+Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('users', [AdminLoginController::class, 'showusers'])->name('admin.show');
+    Route::get('logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
+    Route::get('add-user', [AdminLoginController::class, 'createuser'])->name('admin.create');
+    Route::post('add-user', [AdminLoginController::class, 'saveuser'])->name('admin.save');
+    Route::post('edit-user/{id}', [AdminLoginController::class, 'edituser'])->name('admin.edit');
+    Route::put('update-user/{id}', [AdminLoginController::class, 'updateuser'])->name('admin.update');
+    Route::post('delete-user/{id}', [AdminLoginController::class, 'deleteuser'])->name('admin.delete');
+    Route::put('ban-user/{id}', [AdminLoginController::class, 'banuser'])->name('admin.ban');
+    
+    //Category
+    Route::get('create-category', [CategoryController::class, 'createcategory'])->name('admin.createcategory');
+    Route::post('create-category', [CategoryController::class, 'savecategory'])->name('admin.savecategory');
+    Route::get('show-category', [CategoryController::class, 'showcategory'])->name('admin.showcategory');
 });
 
 //Route::get('/admin/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
