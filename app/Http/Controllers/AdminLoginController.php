@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 
 class AdminLoginController extends Controller
 {
@@ -20,21 +18,23 @@ class AdminLoginController extends Controller
         'email' => 'required|email',
        'password'=> 'required|min:6',
        
-         ]
+            ]
      );
-   
-     $user = DB::table('users')->where('email', $validatedData['email'])->where('active', '1')->first();
-     dd($user);
-    $verifyPassword = Hash::check($validatedData['password'], $user->password); 
      
-if(!$user || !$verifyPassword){
-    return redirect("admin/login")->withSuccess('Sorry! You have entered invalid credentials');
-    }else{
-        $request->session()->put('users', $user);
-       return redirect('/admin/dashboard');
+     $remember_me = $request->has('remember_token') ? true : false; 
 
-              }
-       
+     if (Auth::attempt(['email' => $validatedData['email'], 'password' => $validatedData['password'], 'active' => 1],  $remember_me )) {
+        $request->session()->regenerate();
+
+        return redirect()->intended('/admin/dashboard');
+    }else{
+        return back()->withErrors('errors', 'Sorry! You have entered invalid credentials');
+        //return back()->with('error','your username and password are wrong.');
+        
+        //To be fixed latter
+    }
+
+   
 
     }
 
@@ -57,7 +57,8 @@ if(!$user || !$verifyPassword){
 
     public function logout(){
         
-        Session::flush();
+       
+        Auth::logout();
         return redirect('/admin/login');
     }
 
@@ -147,6 +148,9 @@ if(!$user || !$verifyPassword){
        
     }
 
+    //Category name
+
+   
 }
 
 

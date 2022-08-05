@@ -32,13 +32,13 @@
               
               
                
-                <form action="/admin/login" method="POST">
+                <form action="{{route('admin.savelogin')}}" method="POST">
                     @csrf
                   <div class="form-group">
                     @if($errors->any())
-                    @error('errorMessage')
-                    <div class="errors">{{$message}}</div>
-                    @enderror
+                      @error('errorMessage')
+                      <div class="errors">{{$message}}</div>
+                      @enderror
                     @endif
                     <label>Email *</label>
                     <input type="text" class="form-control p_input @error('email') is-invalid @enderror" name="email" placeholder="Email" value={{ old('email') }}>
@@ -57,7 +57,7 @@
                   <div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">
                       <label class="form-check-label">
-                   <input type="checkbox" class="form-check-input"> Remember me </label>
+                   <input type="checkbox" class="form-check-input" value="on" name="remember_token" {{ old('remember_token') == true ? 'checked' : '' }}> Remember me </label>
                     </div>
                     <a href="/admin/forget-password" class="forgot-pass">Forgot password</a>
                   </div>

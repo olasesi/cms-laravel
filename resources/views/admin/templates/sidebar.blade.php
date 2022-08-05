@@ -12,14 +12,14 @@
               <span class="count bg-success"></span>
             </div>
             <div class="profile-name">
-                @if(Session::has('users'))
+                
                
               <h5 class="mb-0 font-weight-normal">
-                {{Session::get('users')->username}}
+                {{Auth::user()->username}}
            
               </h5>
-              <span> {{Session::get('users')->role}}</span>
-              @endif
+              <span> {{Auth::user()->role}}</span>
+              
             </div>
           </div>
           {{--<a href="#" id="profile-dropdown" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -80,9 +80,9 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Posts</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Create Posts</a></li>
+           
           </ul>
         </div>
       </li>
@@ -96,7 +96,7 @@
       </li>
 
       <li class="nav-item menu-items">
-        <a class="nav-link" data-bs-toggle="collapse" href="#category" aria-expanded="false" aria-controls="auth" href="pages/tables/basic-table.html">
+        <a class="nav-link" data-bs-toggle="collapse" href="#category" aria-expanded="false" aria-controls="category" href="pages/tables/basic-table.html">
           <span class="menu-icon">
             <i class="mdi mdi-table"></i>
           </span>
@@ -106,9 +106,9 @@
 
         <div class="collapse" id="category">
           <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.showcategory')}}"> Categories </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.createcategory')}}"> Add category </a></li>
             
-            <li class="nav-item"> <a class="nav-link" href="/admin/menu"> Add category </a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
           </ul>
         </div>
 
@@ -116,7 +116,7 @@
 
       </li>
       <li class="nav-item menu-items">
-        <a class="nav-link" data-bs-toggle="collapse" href="#authapp" aria-expanded="false" aria-controls="auth" href="pages/tables/basic-table.html">
+        <a class="nav-link" data-bs-toggle="collapse" href="#appearance" aria-expanded="false" aria-controls="appearance" href="pages/tables/basic-table.html">
           <span class="menu-icon">
             <i class="mdi mdi-table-large"></i>
           </span>
@@ -124,7 +124,7 @@
           <i class="menu-arrow"></i>
         </a>
 
-        <div class="collapse" id="authapp">
+        <div class="collapse" id="appearance">
           <ul class="nav flex-column sub-menu">
             
             <li class="nav-item"> <a class="nav-link" href="/admin/menu"> Primary menu </a></li>
@@ -155,6 +155,7 @@
         <div class="collapse" id="auth">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="/admin/users"> Users </a></li>
+            <li class="nav-item"> <a class="nav-link" href="/admin/"> Add users </a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>

@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminAuth
+class AlreadyLoggin
 {
     /**
      * Handle an incoming request.
@@ -16,15 +16,11 @@ class AdminAuth
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
-    {
-
-
-        if(!Auth::check()){
-            return redirect('/admin/login');
+    {   
+        if(Auth::check()){
+            return redirect('/admin/dashboard');
             
         }
         return $next($request);
-
-    }   
-    
+    }
 }

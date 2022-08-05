@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateForgetPasswordsTable extends Migration
+class CreateCategorySectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateForgetPasswordsTable extends Migration
      */
     public function up()
     {
-        Schema::create('forget_passwords', function (Blueprint $table) {
+        Schema::create('category_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('email')->index();
-            $table->string('token')->nullable();
+            $table->string('category', 20)->index();
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateForgetPasswordsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('forget_passwords');
+        Schema::dropIfExists('category_sections');
     }
 }
