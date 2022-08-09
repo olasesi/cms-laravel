@@ -12,16 +12,12 @@ class Post extends Model
     protected $fillable = [
         'title',
         'body',
-        'publishd',
+        'published',
+        'slug',
         'author',
         
     ];
 
-    public function types()
-    {
-        return $this->belongsToMany(Type::class);
-    }
-
-
+ 
 
 }

@@ -35,7 +35,7 @@
                   
                     
                   <td>
-                    <form action="/admin/edit-user/{{$single_item->id}}" method="POST">
+                    <form action="{{route('admin.editcategory', ['id' => $single_item->id])}}" method="POST">
                     @csrf
                    
                 <button type="submit" class="btn btn-info btn-md">Edit</button>

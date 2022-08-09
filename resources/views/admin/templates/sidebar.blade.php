@@ -80,8 +80,8 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Posts</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Create Posts</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.indexpost')}}">Posts</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.createpost')}}">Create Post</a></li>
            
           </ul>
         </div>
@@ -127,6 +127,7 @@
         <div class="collapse" id="appearance">
           <ul class="nav flex-column sub-menu">
             
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.edittopbar')}}"> Topbar menu </a></li>
             <li class="nav-item"> <a class="nav-link" href="/admin/menu"> Primary menu </a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
           </ul>
@@ -166,12 +167,19 @@
       </li>
   
       <li class="nav-item menu-items">
-        <a class="nav-link" href="pages/charts/chartjs.html">
+        <a class="nav-link" data-bs-toggle="collapse" href="#settings" aria-expanded="false" aria-controls="settings">
           <span class="menu-icon">
             <i class="mdi mdi-settings"></i>
           </span>
           <span class="menu-title">Settings</span>
+           <i class="menu-arrow"></i>
         </a>
+        <div class="collapse" id="settings">
+          <ul class="nav flex-column sub-menu">
+           
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.editsocialmedia')}}"> Social media </a></li>
+          </ul>
+        </div>
       </li>
       
     </ul>

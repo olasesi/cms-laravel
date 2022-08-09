@@ -61,13 +61,14 @@
 </head>
 
 <body class="body-color">
+	@include('templates.header')
 
-{{ View::make("templates.header");}}
+{{-- View::make("templates.header");--}}
 
 @yield('content')
 
-
-{{	View::make("templates.footer"); }}
+@include('templates.footer')
+{{--	View::make("templates.footer"); --}}
 
 
 

@@ -18,7 +18,7 @@
       <div class="card-body">
         <h4 class="card-title">Edit {{ucwords($user->name)}}</h4>
         <p class="card-description"> </p>
-        <form class="forms-sample" method="POST" action="/update-user/{{$user->id}}">
+        <form class="forms-sample" method="POST" action="{{route('admin.update', ['id'=>$user->id])}}">
             @csrf
             @method('PUT')
           <div class="form-group">

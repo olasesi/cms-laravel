@@ -4,6 +4,9 @@ use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\TopbarController;
+use App\Http\Controllers\SocialmediaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,10 +40,27 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
     Route::post('delete-user/{id}', [AdminLoginController::class, 'deleteuser'])->name('admin.delete');
     Route::put('ban-user/{id}', [AdminLoginController::class, 'banuser'])->name('admin.ban');
     
+    //Route::put('ban-user/{id}', [AdminLoginController::class, 'banuser'])->name('admin.ban');
+    
+    //Topbar menu
+    Route::get('edit-topbar', [TopbarController::class, 'edittopbar'])->name('admin.edittopbar');
+    Route::patch('update-top-bar', [TopbarController::class, 'updatetopbar'])->name('admin.updatetopbar');
+
+
+    //Social media
+    Route::get('edit-social-media', [SocialmediaController::class, 'editsocialmedia'])->name('admin.editsocialmedia');
+    Route::patch('update-social-media', [SocialmediaController::class, 'updatesocialmedia'])->name('admin.updatesocialmedia');
+
     //Category
     Route::get('create-category', [CategoryController::class, 'createcategory'])->name('admin.createcategory');
     Route::post('create-category', [CategoryController::class, 'savecategory'])->name('admin.savecategory');
     Route::get('show-category', [CategoryController::class, 'showcategory'])->name('admin.showcategory');
+    Route::post('edit-category/{id}', [CategoryController::class, 'editcategory'])->name('admin.editcategory');
+    Route::put('update-category/{id}', [CategoryController::class, 'updatecategory'])->name('admin.updatecategory');
+
+    //Post
+    Route::get('index-post', [PostController::class, 'indexpost'])->name('admin.indexpost');
+    Route::get('create-post', [PostController::class, 'createpost'])->name('admin.createpost');
 });
 
 //Route::get('/admin/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');

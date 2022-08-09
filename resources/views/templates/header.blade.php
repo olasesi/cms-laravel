@@ -23,17 +23,34 @@
 					</div>
 
 					<ul class="ts-top-nav">
+					
 						<li>
-							<a href="#">Blog</a>
+							@if(!empty($top_bar_links[0]->title))
+							<a href="{{$top_bar_links[0]->url}}" title="{{$top_bar_links[0]->title}}" target="_blank">
+								{{$top_bar_links[0]->title}}
+							</a>
+					@endif	
 						</li>
 						<li>
-							<a href="#">Forums</a>
+							@if(!empty($top_bar_links[1]->title))
+							<a href="{{$top_bar_links[1]->url}}" title="{{$top_bar_links[1]->title}}" target="_blank">
+								{{$top_bar_links[1]->title}}
+							</a>
+					@endif	
 						</li>
 						<li>
-							<a href="#">Contact</a>
+							@if(!empty($top_bar_links[2]->title))
+							<a href="{{$top_bar_links[2]->url}}" title="{{$top_bar_links[2]->title}}" target="_blank">
+								{{$top_bar_links[2]->title}}
+							</a>
+					@endif	
 						</li>
 						<li>
-							<a href="#">Advertisement</a>
+							@if(!empty($top_bar_links[3]->title))
+							<a href="{{$top_bar_links[3]->url}}" title="{{$top_bar_links[3]->title}}" target="_blank">
+								{{$top_bar_links[3]->title}}
+							</a>
+					@endif	
 						</li>
 					</ul>
 
@@ -43,21 +60,44 @@
 				<div class="col-lg-6 text-right align-self-center">
 					<ul class="top-social">
 						<li>
-							<a href="#">
-								<i class="fa fa-twitter"></i>
-							</a>
-							<a href="#">
+							
+						
+							
+					@if(!empty($social_media_links[0]->url))
+							<a href="{{$social_media_links[0]->url}}" title="{{$social_media_links[0]->name}}" target="_blank">
 								<i class="fa fa-facebook"></i>
 							</a>
-							<a href="#">
-								<i class="fa fa-google-plus"></i>
-							</a>
-							<a href="#">
-								<i class="fa fa-pinterest"></i>
-							</a>
-							<a href="#">
-								<i class="fa fa-vimeo-square"></i>
-							</a>
+					@endif	
+
+					@if(!empty($social_media_links[1]->url))
+					<a href="{{$social_media_links[1]->url}}" title="{{$social_media_links[1]->name}}" target="_blank">
+						<i class="fa fa-twitter"></i>
+					</a>
+					@endif	
+							
+					@if(!empty($social_media_links[2]->url))
+					<a href="{{$social_media_links[2]->url}}" title="{{$social_media_links[2]->name}}" target="_blank">
+						<i class="fa fa-google-plus"></i>
+					</a>
+					@endif	
+					
+					@if(!empty($social_media_links[3]->url))
+					<a href="{{$social_media_links[3]->url}}" title="{{$social_media_links[3]->name}}" target="_blank">
+						<i class="fa fa-instagram"></i>
+					</a>
+					@endif	
+							
+					@if(!empty($social_media_links[4]->url))
+					<a href="{{$social_media_links[4]->url}}" title="{{$social_media_links[4]->name}}" target="_blank">
+						<i class="fa fa-youtube"></i>
+					</a>
+					@endif	
+
+					@if(!empty($social_media_links[5]->url))
+					<a href="{{$social_media_links[5]->url}}" title="{{$social_media_links[5]->name}}" target="_blank">
+						<i class="fa fa-linkedin"></i>
+					</a>
+					@endif	
 						</li>
 						<li class="ts-date">
 							<i class="fa fa-clock-o"></i>
