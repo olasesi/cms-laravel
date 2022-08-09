@@ -28,10 +28,8 @@ class AdminLoginController extends Controller
 
         return redirect()->intended('/admin/dashboard');
     }else{
-        return back()->withErrors('errors', 'Sorry! You have entered invalid credentials');
-        //return back()->with('error','your username and password are wrong.');
-        
-        //To be fixed latter
+        return back()->with('failed', 'Sorry! You have entered an invalid credentials');
+       
     }
 
    
@@ -92,8 +90,8 @@ class AdminLoginController extends Controller
     }
 
     public function edituser($id){
-        //What if someone enters /1 in the url and 1 is id of the admin
-        $user = User::find($id);
+        //What if someone enters /1 in the url and 1 is id of the admin. Then that's find or fail.
+        $user = User::findOrFail($id);
         return view('admin.edituser', ['user'=>$user]);
     
        

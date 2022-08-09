@@ -19,7 +19,7 @@
       </ul>
       <ul class="navbar-nav navbar-nav-right">
         <li class="nav-item dropdown d-none d-lg-block">
-          <a class="nav-link btn btn-success create-new-button" href="/">View website</a>
+          <a class="nav-link btn btn-primary create-new-button" target="_blank" href="/">View website</a>
          {{-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
            
             

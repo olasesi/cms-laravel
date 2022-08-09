@@ -29,7 +29,14 @@
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
                 <h3 class="card-title text-left mb-3">Login</h3>
-              
+                @if(Session::has('failed'))
+                <div class="errors mb-3">
+                    {{ Session::get('failed') }}
+                    @php
+                        Session::forget('failed');
+                    @endphp
+                </div>
+                @endif
               
                
                 <form action="{{route('admin.savelogin')}}" method="POST">
@@ -41,7 +48,7 @@
                       @enderror
                     @endif
                     <label>Email *</label>
-                    <input type="text" class="form-control p_input @error('email') is-invalid @enderror" name="email" placeholder="Email" value={{ old('email') }}>
+                    <input type="text" class="form-control p_input @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}">
                     @error('email')
                     <div class="errors">{{ $message }}</div>
                 @enderror

@@ -15,35 +15,59 @@
             <div class="col-lg-8 align-self-center">
                 <ul class="footer-social">
                     <li class="ts-facebook">
-                        <a href="#">
-                            <i class="fa fa-facebook"></i>
-                            <span>Facebook</span>
-                        </a>
-                    </li>
-                    <li class="ts-google-plus">
-                        <a href="#">
-                            <i class="fa fa-google-plus"></i>
-                            <span>Google Plus</span>
-                        </a>
+                        @if(!empty($social_media_links[0]->url))
+							<a href="{{$social_media_links[0]->url}}" title="{{$social_media_links[0]->name}}" target="_blank">
+								<i class="fa fa-facebook"></i>
+                                <span>Facebook</span>
+							</a>
+					    @endif	
+                        
                     </li>
                     <li class="ts-twitter">
-                        <a href="#">
-                            <i class="fa fa-twitter"></i>
-                            <span>Twitter</span>
-                        </a>
+                        @if(!empty($social_media_links[1]->url))
+							<a href="{{$social_media_links[1]->url}}" title="{{$social_media_links[1]->name}}" target="_blank">
+								<i class="fa fa-twitter"></i>
+                                <span>Twitter</span>
+							</a>
+					    @endif	
+                        
                     </li>
-                    <li class="ts-pinterest">
-                        <a href="#">
-                            <i class="fa fa-pinterest-p"></i>
-                            <span>pinterest</span>
-                        </a>
+                     <li class="ts-google-plus">
+                        @if(!empty($social_media_links[2]->url))
+							<a href="{{$social_media_links[2]->url}}" title="{{$social_media_links[2]->name}}" target="_blank">
+								<i class="fa fa-google-plus"></i>
+                                <span>Google plus</span>
+							</a>
+					    @endif	
+                        
                     </li>
+                    <li class="ts-instagram">
+                        @if(!empty($social_media_links[3]->url))
+							<a href="{{$social_media_links[3]->url}}" title="{{$social_media_links[3]->name}}" target="_blank">
+								<i class="fa fa-instagram"></i>
+                                <span>Instagram</span>
+							</a>
+					    @endif	
+                        
+                    </li>
+                    <li class="ts-youtube">
+                        @if(!empty($social_media_links[4]->url))
+							<a href="{{$social_media_links[4]->url}}" title="{{$social_media_links[4]->name}}" target="_blank">
+								<i class="fa fa-youtube"></i>
+                                <span>Youtube</span>
+							</a>
+					    @endif	
+                        
+                    </li>
+                    
                     <li class="ts-linkedin">
-                        <a href="#">
-                            <i class="fa fa-linkedin"></i>
-                            <span>Linkedin</span>
-                        </a>
-
+                        @if(!empty($social_media_links[5]->url))
+							<a href="{{$social_media_links[5]->url}}" title="{{$social_media_links[5]->name}}" target="_blank">
+								<i class="fa fa-linkedin"></i>
+                                <span>Linkedin</span>
+							</a>
+					    @endif	
+                        
                     </li>
                 </ul>
             </div>

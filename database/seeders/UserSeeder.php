@@ -20,9 +20,9 @@ class UserSeeder extends Seeder
     DB::table('users')->insert([
         'role' => 'super admin',
         'active' => '1',
-        'name' => 'olusesi eniola',
-        'username' => 'eniola',
-        'email' => 'olusesieniola@gmail.com',
+        'name' => 'olusesi ahmed',
+        'username' => 'ola.sesi',
+        'email' => 'olusesia@gmail.com',
         'password' => Hash::make('password'),
     ]
     
