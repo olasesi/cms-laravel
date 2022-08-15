@@ -16,18 +16,18 @@ class SocialmediaController extends Controller
  
     public function updatesocialmedia(Request $request){
    $request->validate([
-        'url1'=> 'nullable|url',
-        'url2'=> 'nullable|url',
-        'url3'=> 'nullable|url',
-        'url4'=> 'nullable|url',
-        'url5'=> 'nullable|url',
-        'url6'=> 'nullable|url'
+        'facebook'=> 'nullable|url',
+        'twitter'=> 'nullable|url',
+        'googleplus'=> 'nullable|url',
+        'instagram'=> 'nullable|url',
+        'youtube'=> 'nullable|url',
+        'linkedin'=> 'nullable|url'
         
     ]
 );
 
 
-DB::table('social_medias')->where('id', '1')->update(['url' => $request->get('url1') ?? null]);
+DB::table('social_medias')->where('id', '1')->update(['url' => $request->get('facebook') ?? null]);
 DB::table('social_medias')->where('id', '2')->update(['url' => $request->get('url2') ?? null]);
 DB::table('social_medias')->where('id', '3')->update(['url' => $request->get('url3') ?? null]);
 DB::table('social_medias')->where('id', '4')->update(['url' => $request->get('url4') ?? null]);

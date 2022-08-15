@@ -22,20 +22,62 @@
             @method('PATCH')
          
           <div class="form-group">
-            <label for="exampleInputtopbar1">Topbar link 1</label>
+            @error('title1')
+            <div class="errors">{{ $message }}</div>
+            @enderror
+              <label for="exampleInputtopbar1">Topbar link 1</label>
             <input type="text" class="form-control mb-2" id="exampleInputtopbar1" value="{{old('title1', isset($top_bar_links[0]->title)?$top_bar_links[0]->title:'')}}" placeholder="Title" name="title1">
+          </div>
+
+            <div class="form-group">
+                @error('url1')
+                <div class="errors">{{ $message }}</div>
+                @enderror
             <input type="text" class="form-control  mb-5" id="exampleInputtopbar1" value="{{old('url1', isset($top_bar_links[0]->link)?$top_bar_links[0]->link:'')}}" placeholder="URL Link" name="url1">
- 
+            </div>
+
+<div class="form-group">
+    @error('title2')
+    <div class="errors">{{ $message }}</div>
+    @enderror
             <label for="exampleInputtopbar2">Topbar link 2</label>
             <input type="text" class="form-control mb-2" id="exampleInputtopbar2" value="{{old('title2', isset($top_bar_links[1]->title)?$top_bar_links[1]->title:'')}}" placeholder="Title" name="title2">
+</div>
+
+<div class="form-group">
+    @error('url2')
+    <div class="errors">{{ $message }}</div>
+    @enderror
             <input type="text" class="form-control  mb-5" id="exampleInputtopbar2" value="{{old('url2', isset($top_bar_links[1]->link)?$top_bar_links[1]->link:'')}}" placeholder="URL Link" name="url2">
- 
+</div>
+
+<div class="form-group">
+    @error('title3')
+    <div class="errors">{{ $message }}</div>
+    @enderror
             <label for="exampleInputtopbar3">Topbar link 3</label>
             <input type="text" class="form-control mb-2" id="exampleInputtopbar3" value="{{old('title3', isset($top_bar_links[2]->title)?$top_bar_links[2]->title:'')}}" placeholder="Title" name="title3">
+</div>
+      
+<div class="form-group">
+    @error('url3')
+    <div class="errors">{{ $message }}</div>
+    @enderror
             <input type="text" class="form-control  mb-5" id="exampleInputtopbar3" value="{{old('url3', isset($top_bar_links[2]->link)?$top_bar_links[2]->link:'')}}" placeholder="URL Link" name="url3">
- 
+</div>
+
+<div class="form-group">
+    @error('title4')
+    <div class="errors">{{ $message }}</div>
+    @enderror
             <label for="exampleInputtopbar4">Topbar link 4</label>
             <input type="text" class="form-control mb-2" id="exampleInputtopbar4" value="{{old('title4', isset($top_bar_links[3]->title)?$top_bar_links[3]->title:'')}}" placeholder="Title" name="title4">
+</div>
+      
+<div class="form-group">
+    @error('url4')
+    <div class="errors">{{ $message }}</div>
+    @enderror
             <input type="text" class="form-control  mb-5" id="exampleInputtopbar4" value="{{old('url4', isset($top_bar_links[3]->link)?$top_bar_links[3]->link:'')}}" placeholder="URL Link" name="url4">
  
 

@@ -102,7 +102,11 @@
 
     <script src="js/custom.js"></script>
 </body>
+<script>
+	top_bar_time();
 
+	//document.write();
+	</script>
 
 <!-- Mirrored from demo.themewinter.com/html/vinazine/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 May 2022 07:25:18 GMT -->
 </html>

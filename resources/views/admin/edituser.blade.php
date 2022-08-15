@@ -20,7 +20,7 @@
         <p class="card-description"> </p>
         <form class="forms-sample" method="POST" action="{{route('admin.update', ['id'=>$user->id])}}">
             @csrf
-            @method('PUT')
+            @method('PATCH')
           <div class="form-group">
             <label for="exampleInputName1">FullName</label>
             <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" value="{{old('name', $user->name)}}" name="name">
