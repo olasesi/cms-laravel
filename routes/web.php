@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TopbarController;
 use App\Http\Controllers\SocialmediaController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +37,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
     Route::get('add-user', [AdminLoginController::class, 'createuser'])->name('admin.create');
     Route::post('add-user', [AdminLoginController::class, 'saveuser'])->name('admin.save');
     Route::post('edit-user/{id}', [AdminLoginController::class, 'edituser'])->name('admin.edit');
-    Route::put('update-user/{id}', [AdminLoginController::class, 'updateuser'])->name('admin.update');
+    Route::patch('update-user/{id}', [AdminLoginController::class, 'updateuser'])->name('admin.update');
     Route::post('delete-user/{id}', [AdminLoginController::class, 'deleteuser'])->name('admin.delete');
     Route::put('ban-user/{id}', [AdminLoginController::class, 'banuser'])->name('admin.ban');
     
@@ -45,6 +46,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
     //Topbar menu
     Route::get('edit-topbar', [TopbarController::class, 'edittopbar'])->name('admin.edittopbar');
     Route::patch('update-top-bar', [TopbarController::class, 'updatetopbar'])->name('admin.updatetopbar');
+
+    //Main menu
+    Route::get('edit-menu', [MenuController::class, 'editmenu'])->name('admin.editmenu');
+    Route::patch('update-menu', [MenuController::class, 'updatemenu'])->name('admin.updatemenu');
 
 
     //Social media

@@ -79,6 +79,7 @@
   <!-- endinject -->
   <!-- Custom js for this page -->
   <script src="{{URL::asset('administration/assets/js/dashboard.js')}}"></script>
+  <script src="{{URL::asset('administration/assets/js/custom.js')}}"></script>
   <!-- End custom js for this page -->
 </body>
 </html>

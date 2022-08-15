@@ -23,29 +23,56 @@
             @method('PATCH')
          
           <div class="form-group">
+              @error('facebook')
+            <div class="errors">{{ $message }}</div>
+            @enderror
             <label for="exampleInputtopbar1"> Facebook</label>
+            <input type="text" class="form-control  mb-3" id="exampleInputtopbar1" value="{{old('facebook', isset($social_media_link[0]->url)?$social_media_link[0]->url:'')}}" placeholder="URL Link" name="facebook">
             
-            <input type="text" class="form-control  mb-3" id="exampleInputtopbar1" value="{{old('url1', isset($social_media_link[0]->url)?$social_media_link[0]->url:'')}}" placeholder="URL Link" name="url1">
- 
+          </div>
+
+          <div class="form-group">
+            @error('twitter')
+            <div class="errors">{{ $message }}</div>
+            @enderror
             <label for="exampleInputtopbar2">Twitter</label>
-            
-            <input type="text" class="form-control  mb-3" id="exampleInputtopbar2" value="{{old('url2', isset($social_media_link[1]->url)?$social_media_link[1]->url:'')}}" placeholder="URL Link" name="url2">
- 
+            <input type="text" class="form-control  mb-3" id="exampleInputtopbar2" value="{{old('twitter', isset($social_media_link[1]->url)?$social_media_link[1]->url:'')}}" placeholder="URL Link" name="twitter">
+          </div>
+
+          <div class="form-group">
+            @error('googleplus')
+            <div class="errors">{{ $message }}</div>
+            @enderror
             <label for="exampleInputtopbar3">Google plus</label>
             
-            <input type="text" class="form-control  mb-3" id="exampleInputtopbar3" value="{{old('url3', isset($social_media_link[2]->url)?$social_media_link[2]->url:'')}}" placeholder="URL Link" name="url3">
- 
+            <input type="text" class="form-control  mb-3" id="exampleInputtopbar3" value="{{old('googleplus', isset($social_media_link[2]->url)?$social_media_link[2]->url:'')}}" placeholder="URL Link" name="googleplus">
+          </div>
+
+          <div class="form-group">
+            @error('instagram')
+            <div class="errors">{{ $message }}</div>
+            @enderror
             <label for="exampleInputtopbar4">Instagram</label>
             
-            <input type="text" class="form-control  mb-3" id="exampleInputtopbar4" value="{{old('url4', isset($social_media_link[3]->url)?$social_media_link[3]->url:'')}}" placeholder="URL Link" name="url4">
- 
+            <input type="text" class="form-control  mb-3" id="exampleInputtopbar4" value="{{old('instagram', isset($social_media_link[3]->url)?$social_media_link[3]->url:'')}}" placeholder="URL Link" name="instagram">
+          </div>
+
+          <div class="form-group">
+            @error('youtube')
+            <div class="errors">{{ $message }}</div>
+            @enderror
             <label for="exampleInputtopbar5">Youtube</label>
             
-            <input type="text" class="form-control  mb-3" id="exampleInputtopbar5" value="{{old('url5', isset($social_media_link[4]->url)?$social_media_link[4]->url:'')}}" placeholder="URL Link" name="url5">
- 
+            <input type="text" class="form-control  mb-3" id="exampleInputtopbar5" value="{{old('youtube', isset($social_media_link[4]->url)?$social_media_link[4]->url:'')}}" placeholder="URL Link" name="youtube">
+          </div>
+
+          <div class="form-group">
+            @error('linkedin')
+            <div class="errors">{{ $message }}</div>
+            @enderror
             <label for="exampleInputtopbar6">Linkedin</label>
             
-            <input type="text" class="form-control  mb-3" id="exampleInputtopbar6" value="{{old('url6', isset($social_media_link[5]->url)?$social_media_link[5]->url:'')}}" placeholder="URL Link" name="url6">
+            <input type="text" class="form-control  mb-3" id="exampleInputtopbar6" value="{{old('linkedin', isset($social_media_link[5]->url)?$social_media_link[5]->url:'')}}" placeholder="URL Link" name="linkedin">
  
 
           </div>

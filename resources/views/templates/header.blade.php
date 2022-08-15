@@ -9,6 +9,62 @@
 	</div> -->
 
 	<!-- top bar start -->
+
+	@auth
+	<section class="top-bar bg-primary">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 align-self-center md-center-item">
+					<div class="ts-temperature">
+						<a href="{{route('admin.dashboard')}}" title="Dashboard" class="btn btn-dark text-warning ">
+							<i class="fa fa-dashboard"></i>
+							Dashboard
+						</a>
+						
+						
+
+					</div>
+
+					<ul class="ts-top-nav">
+					
+						<li>
+							
+						</li>
+						<li>
+							
+						</li>
+						<li>
+							
+						</li>
+						<li>
+								
+						</li>
+					</ul>
+
+				</div>
+				<!-- end col-->
+
+				<div class="col-lg-6 text-right align-self-center">
+					<ul class="top-social">
+						<li>
+
+						</li>
+						<li class="ts-date">
+							
+							
+						</li>
+					</ul>
+				</div>
+				<!--end col -->
+
+
+			</div>
+			<!-- end row -->
+		</div>
+	</section>
+
+	@endauth
+
 	<section class="top-bar">
 		<div class="container">
 			<div class="row">
@@ -101,7 +157,7 @@
 						</li>
 						<li class="ts-date">
 							<i class="fa fa-clock-o"></i>
-							Sunday, August 24
+							
 						</li>
 					</ul>
 				</div>
@@ -206,22 +262,20 @@
 								</li>
 								
 								<li>
-									<a href="#">fgh</a>
+									@if(!empty($mainmenu_bar_links[0]->title))
+							
+										
+									<a href="#">{{$mainmenu_bar_links[0]->title}}</a>
 									<div class="megamenu-panel">
 										<div class="megamenu-tabs">
 											<ul class="megamenu-tabs-nav">
-												<li class="active">
-													<a href="#">Health</a>
-												</li>
-												<li>
-													<a href="#">Food</a>
-												</li>
-												<li>
-													<a href="#">Fashion</a>
-												</li>
-												<li>
-													<a href="#">Travel</a>
-												</li>
+												@foreach($post_category as $each_post_category)
+												<li class="">
+													<a href="#">{{$each_post_category->category}}</a>
+											</li>
+												@endforeach
+												
+													
 											</ul>
 											<div class="megamenu-tabs-pane active">
 												<div class="row">
@@ -446,12 +500,20 @@
 
 										</div>
 									</div>
+									@endif
 								</li>
+								
+
 								<li>
-									<a href="category-1.html">Category</a>
+									@if(!empty($mainmenu_bar_links[1]->title))
+									<a href="{{$mainmenu_bar_links[1]->content_type}}" title="{{$mainmenu_bar_links[1]->title}}">{{$mainmenu_bar_links[1]->title}}</a>
+									@endif
 								</li>
+								
 								<li>
-									<a href="#">Video</a>
+									@if(!empty($mainmenu_bar_links[2]->title))
+									<a href="#" >{{$mainmenu_bar_links[2]->title}}</a>
+									
 									<div class="megamenu-panel">
 										<div class="row">
 											<div class="col-12 col-lg-3">
@@ -521,11 +583,15 @@
 										</div>
 									</div>
 								</li>
+								@endif
 								<li>
-									<a href="category-2.html">Category 2</a>
+									@if(!empty($mainmenu_bar_links[3]->title))
+									<a href="{{$mainmenu_bar_links[3]->content_type}}" title="{{$mainmenu_bar_links[3]->title}}">{{$mainmenu_bar_links[3]->title}}</a>
+									@endif
 								</li>
 								<li>
-									<a href="#">Featured</a>
+									@if(!empty($mainmenu_bar_links[4]->title))
+									<a href="{{$mainmenu_bar_links[4]->content_type}}" title="{{$mainmenu_bar_links[4]->title}}">{{$mainmenu_bar_links[4]->title}}</a>
 									<ul class="nav-dropdown">
 										<li>
 											<a href="#">Category layout</a>
@@ -606,6 +672,7 @@
 											</ul>
 										</li><!--Pages end-->
 									</ul>
+									@endif
 								</li>
 								
 							</ul>

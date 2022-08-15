@@ -23,6 +23,14 @@ class CreatePostsTable extends Migration
             $table->text('body');
             $table->integer('author');
             $table->string('published', 1);
+            $table->string('recent', 1);
+            $table->string('breaking news', 1);
+            $table->string('most popular', 1);
+            $table->string('favourite', 1);
+            $table->string('hot topics', 1);
+            $table->string('watch now', 1);
+            $table->string('trending', 1);
+            $table->string('more news', 1);
             $table->timestamps();
         });
 

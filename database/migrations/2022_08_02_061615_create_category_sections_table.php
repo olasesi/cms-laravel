@@ -16,6 +16,7 @@ class CreateCategorySectionsTable extends Migration
         Schema::create('category_sections', function (Blueprint $table) {
             $table->id();
             $table->string('category', 20)->index();
+            $table->Integer('rank')->nullable();
             $table->timestamps();
         });
     }
