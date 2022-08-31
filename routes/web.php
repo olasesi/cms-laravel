@@ -8,6 +8,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\TopbarController;
 use App\Http\Controllers\SocialmediaController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\AdController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,15 +22,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', [HomeController::class, 'index'])->name('user.index');
-Route::get('/admin/menu', [DashboardController::class, 'menu']);
+Route::get('/admin/login', [AdminLoginController::class, 'index'])->middleware('alreadyloggin')->name('admin.index');
+Route::post('/admin/login', [AdminLoginController::class, 'savelogin'])->middleware('alreadyloggin')->name('admin.savelogin');
+Route::get('/admin/forgetpassword', [ForgotPasswordController::class, 'showForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.forgetpassword');
+Route::post('/admin/saveforgetpassword', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.saveforgetpassword');
 
+
+
+// Route::group(['middleware'=>'isnotadmin'], function(){
+   
+//     Route::get('/admin/menu', [DashboardController::class, 'menu']);
+// });
 
 //
 
-Route::get('/admin/login', [AdminLoginController::class, 'index'])->middleware('alreadyloggin')->name('admin.index');
-Route::post('/admin/login', [AdminLoginController::class, 'savelogin'])->name('admin.savelogin');
+
 
 Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
@@ -64,8 +73,16 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
     Route::put('update-category/{id}', [CategoryController::class, 'updatecategory'])->name('admin.updatecategory');
 
     //Post
-    Route::get('index-post', [PostController::class, 'indexpost'])->name('admin.indexpost');
-    Route::get('create-post', [PostController::class, 'createpost'])->name('admin.createpost');
+    Route::get('show-post', [PostController::class, 'showpost'])->name('admin.showpost'); //All users would be able to see post list on dasbboard
+    Route::get('create-post', [PostController::class, 'createpost'])->middleware('usertype')->name('admin.createpost');
+    Route::post('save-post', [PostController::class, 'savepost'])->middleware('usertype')->name('admin.savepost');
+    Route::post('edit-post/{id}', [PostController::class, 'editpost'])->middleware('usertype')->name('admin.editpost');
+    //Route::patch('update-post/{id}', [PostController::class, 'editpost'])->middleware('usertype')->name('admin.editpost');
+
+    //Ad
+    Route::get('edit-ad', [AdController::class, 'editad'])->name('admin.editad');
+    Route::patch('update-ad', [AdController::class, 'updatead'])->name('admin.updatead');
+
 });
 
 //Route::get('/admin/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');

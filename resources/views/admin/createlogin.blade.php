@@ -29,26 +29,26 @@
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
                 <h3 class="card-title text-left mb-3">Login</h3>
-                @if(Session::has('failed'))
+                 @if(Session::has('failed'))
                 <div class="errors mb-3">
                     {{ Session::get('failed') }}
-                    @php
+                   @php
                         Session::forget('failed');
-                    @endphp
+                    @endphp 
                 </div>
-                @endif
+                @endif 
               
                
                 <form action="{{route('admin.savelogin')}}" method="POST">
                     @csrf
                   <div class="form-group">
-                    @if($errors->any())
+                    {{-- @if($errors->any())
                       @error('errorMessage')
                       <div class="errors">{{$message}}</div>
                       @enderror
-                    @endif
+                    @endif --}}
                     <label>Email *</label>
-                    <input type="text" class="form-control p_input @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}">
+                    <input type="text" class="form-control p_input @error('email') is-invalid @enderror" name="email" placeholder="Email" value=" {{ old('email') }}">
                     @error('email')
                     <div class="errors">{{ $message }}</div>
                 @enderror
@@ -66,7 +66,7 @@
                       <label class="form-check-label">
                    <input type="checkbox" class="form-check-input" value="on" name="remember_token" {{ old('remember_token') == true ? 'checked' : '' }}> Remember me </label>
                     </div>
-                    <a href="/admin/forget-password" class="forgot-pass">Forgot password</a>
+                    <a href="{{route('admin.forgetpassword')}}" class="forgot-pass">Forgot password</a>
                   </div>
                   <div class="text-center">
                     <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>

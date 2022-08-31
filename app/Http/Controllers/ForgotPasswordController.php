@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Carbon;
 
 class ForgotPasswordController extends Controller
 {
@@ -19,8 +20,8 @@ class ForgotPasswordController extends Controller
        * @return response()
        */
       public function showForgetPasswordForm()
-      {dd('sdsfa');
-         //return view('admin.createforgetpassword');
+      {
+         return view('admin.createforgetpassword');
       }
   
       /**
@@ -40,7 +41,7 @@ class ForgotPasswordController extends Controller
           DB::table('password_resets')->insert([
               'email' => $request->email, 
               'token' => $token, 
-              //'created_at' => Carbon::now()
+              'created_at' => Carbon::now()
             ]);
   
           Mail::send('email.forgetPassword', ['token' => $token], function($message) use($request){

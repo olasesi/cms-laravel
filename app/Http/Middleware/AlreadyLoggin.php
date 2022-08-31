@@ -18,7 +18,7 @@ class AlreadyLoggin
     public function handle(Request $request, Closure $next)
     {   
         if(Auth::check()){
-            return redirect('/admin/dashboard');
+            return redirect(route('admin.dashboard'));
             
         }
         return $next($request);
