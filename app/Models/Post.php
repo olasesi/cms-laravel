@@ -11,13 +11,27 @@ class Post extends Model
 
     protected $fillable = [
         'title',
-        'body',
-        'published',
         'slug',
+        'excerpt',
+        'discussion',
+        'post_category',
+        'body',
+        'image',
+        'video',
+        'publish_time',
+        'visibility',
+        'order',
         'author',
-        
+        'recent',
+        'breaking_news',
+        'most_popular',
+        'favourite',
+        'hot_topics',
+        'watch_now',
+        'trending',
+        'more_news',
     ];
 
- 
+   
 
 }

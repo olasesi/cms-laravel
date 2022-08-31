@@ -10,7 +10,7 @@ class CategorySection extends Model
     use HasFactory;
 
 
-    public function posts()
+    public function categorysection()
     {
         return $this->hasMany('App\Models\Post');
     }

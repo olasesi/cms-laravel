@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
+    <title>Forget password</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('administration/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('administration/assets/vendors/css/vendor.bundle.base.css')}}">
@@ -32,7 +32,7 @@
               
               
                
-                <form action="/admin/login" method="POST">
+                <form action="{{route('admin.saveforgetpassword')}}" method="POST">
                     @csrf
                   <div class="form-group">
                     @if($errors->any())
@@ -40,6 +40,7 @@
                     <div class="errors">{{$message}}</div>
                     @enderror
                     @endif
+
                     <label>Email</label>
                     <input type="text" class="form-control p_input @error('email') is-invalid @enderror" name="email" placeholder="Email" value={{ old('email') }}>
                     @error('email')
@@ -54,6 +55,14 @@
                   </div>
                  
                   
+
+
+                  <div class="form-group d-flex align-items-center justify-content-between">
+                   
+                    <a href="{{route('admin.index')}}" class="forgot-pass">Back to Login</a>
+                  </div>
+
+
                 </form>
               </div>
             </div>

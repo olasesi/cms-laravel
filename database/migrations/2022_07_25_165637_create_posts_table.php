@@ -16,24 +16,33 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 50);
+            $table->string('title', 30);
             $table->string('slug')->index();
-            $table->string('category');
-            $table->string('tag');
-            $table->text('body');
-            $table->integer('author');
-            $table->string('published', 1);
-            $table->string('recent', 1);
-            $table->string('breaking news', 1);
-            $table->string('most popular', 1);
-            $table->string('favourite', 1);
-            $table->string('hot topics', 1);
-            $table->string('watch now', 1);
-            $table->string('trending', 1);
-            $table->string('more news', 1);
+            $table->unsignedBigInteger('category_section_id');
+            $table->text('excerpt')->nullable();
+            $table->text('body')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->string('image')->nullable();
+            $table->string('image_path')->nullable();
+            $table->string('video')->nullable();
+            $table->string('video_path')->nullable();
+            $table->string('publish_time');
+            $table->string('discussion');
+            $table->string('visibility');
+            $table->string('order')->nullable();
+            $table->string('recent')->nullable();
+            $table->string('breaking_news')->nullable();
+            $table->string('most_popular')->nullable();
+            $table->string('favourite')->nullable();
+            $table->string('hot_topics')->nullable();
+            $table->string('watch_now')->nullable();
+            $table->string('trending')->nullable();
+            $table->string('more_news')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreign('category_section_id')->references('id')->on('category_sections')->onUpdate('cascade')->onDelete('cascade'); //This should also be constrained 
             $table->timestamps();
         });
-
+        
       
     }
 

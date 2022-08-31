@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
+
 class AdminLoginController extends Controller
 {
     public function index(){
@@ -20,15 +21,16 @@ class AdminLoginController extends Controller
        
             ]
      );
-     
+
+   
      $remember_me = $request->has('remember_token') ? true : false; 
 
      if (Auth::attempt(['email' => $validatedData['email'], 'password' => $validatedData['password'], 'active' => 1],  $remember_me )) {
         $request->session()->regenerate();
 
-        return redirect()->intended('/admin/dashboard');
+     return redirect()->intended(route('admin.dashboard'));
     }else{
-        return back()->with('failed', 'Sorry! You have entered an invalid credentials');
+        return back()->withInput()->with('failed', 'Sorry! You have entered an invalid credentials');
        
     }
 

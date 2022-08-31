@@ -10,6 +10,10 @@
 
 	<!-- top bar start -->
 
+	@php 
+	use Carbon\Carbon;
+	@endphp
+
 	@auth
 	<section class="top-bar bg-primary">
 		<div class="container">
@@ -50,7 +54,7 @@
 
 						</li>
 						<li class="ts-date">
-							
+						
 							
 						</li>
 					</ul>
@@ -157,7 +161,7 @@
 						</li>
 						<li class="ts-date">
 							<i class="fa fa-clock-o"></i>
-							
+							<span id="top-bar-date"></span>
 						</li>
 					</ul>
 				</div>
@@ -176,9 +180,13 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="banner-img">
-						<a href="index.html">
-							<img class="img-fluid" src="images/banner/banner1.jpg" alt="">
+						
+						@if(($ad_banner[0]->image != NULL &&  Carbon::now()->toDateTimeString() < $ad_banner[0]->end_date))
+						
+						<a href="{{$ad_banner[0]->image_path}}">
+							<img class="img-fluid" src="{{asset('storage/ads/'.$ad_banner[0]->image)}}" alt="{{$ad_banner[0]->banner_name}}" title="{{$ad_banner[0]->banner_name}}">
 						</a>
+						@endif
 					</div>
 				</div>
 				<!-- col end -->

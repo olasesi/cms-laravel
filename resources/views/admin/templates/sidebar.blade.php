@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-      <a class="sidebar-brand brand-logo" href="index.html"><img src="{{asset('administration/assets/images/logo.svg')}}" alt="logo" /></a>
-      <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="{{asset('administration/assets/images/logo-mini.svg')}}" alt="logo" /></a>
+      <a class="sidebar-brand brand-logo" href="{{route('admin.dashboard')}}"><img src="{{asset('administration/assets/images/logo.svg')}}" alt="logo" /></a>
+      <a class="sidebar-brand brand-logo-mini" href="{{route('admin.dashboard')}}"><img src="{{asset('administration/assets/images/logo-mini.svg')}}" alt="logo" /></a>
     </div>
     <ul class="nav">
       <li class="nav-item profile">
@@ -36,6 +36,8 @@
           <span class="menu-title">Dashboard</span>
         </a>
       </li>
+
+@if(Auth::user()->role != 'subscriber')
       <li class="nav-item menu-items">
         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <span class="menu-icon">
@@ -46,12 +48,14 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{route('admin.indexpost')}}">Posts</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.showpost')}}">Posts</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.createpost')}}">Create Post</a></li>
            
           </ul>
         </div>
       </li>
+@endif
+
       <li class="nav-item menu-items">
         <a class="nav-link" href="pages/forms/basic_elements.html">
           <span class="menu-icon">
@@ -61,6 +65,7 @@
         </a>
       </li>
 
+      @if(Auth::user()->role == 'super admin')
       <li class="nav-item menu-items">
         <a class="nav-link" data-bs-toggle="collapse" href="#category" aria-expanded="false" aria-controls="category" href="pages/tables/basic-table.html">
           <span class="menu-icon">
@@ -81,6 +86,8 @@
 
 
       </li>
+      @endif
+
       <li class="nav-item menu-items">
         <a class="nav-link" data-bs-toggle="collapse" href="#appearance" aria-expanded="false" aria-controls="appearance" href="pages/tables/basic-table.html">
           <span class="menu-icon">
@@ -132,6 +139,7 @@
         </div>
       </li>
   
+      @if(Auth::user()->role == 'super admin')
       <li class="nav-item menu-items">
         <a class="nav-link" data-bs-toggle="collapse" href="#settings" aria-expanded="false" aria-controls="settings">
           <span class="menu-icon">
@@ -145,9 +153,10 @@
            
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.editsocialmedia')}}"> Social media </a></li>
             <li class="nav-item"> <a class="nav-link" href="">OpenWeather settings </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.editad')}}">Advertisement </a></li>
           </ul>
         </div>
       </li>
-      
+      @endif
     </ul>
   </nav>
