@@ -17,8 +17,9 @@ class CreateAdsTable extends Migration
             $table->id();
             $table->string('banner_name', 30);
            $table->string('image')->nullable();
-            $table->string('image_path')->nullable();
-           $table->timestamp('end_date');
+           $table->string('image_path')->nullable();
+            $table->string('image_url')->nullable();
+           $table->date('end_date');
             $table->timestamps();
         });
     }

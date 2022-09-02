@@ -64,10 +64,10 @@
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="{{URL::asset('administration/assets/vendors/chart.js/Chart.min.js')}}"></script>
-  <script src="{{URL::asset('administration/assets/vendors/progressbar.js/progressbar.min.')}}js"></script>
-  <script src="{{URL::asset('administration/assets/vendors/jvectormap/jquery-jvectormap.min.')}}js"></script>
-  <script src="{{URL::asset('administration/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.')}}js"></script>
-  <script src="{{URL::asset('administration/assets/vendors/owl-carousel-2/owl.carousel.min.')}}js"></script>
+  <script src="{{URL::asset('administration/assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
+  <script src="{{URL::asset('administration/assets/vendors/jvectormap/jquery-jvectormap.min.js')}}"></script>
+  <script src="{{URL::asset('administration/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+  <script src="{{URL::asset('administration/assets/vendors/owl-carousel-2/owl.carousel.min.js')}}"></script>
   <script src="{{URL::asset('administration/assets/js/jquery.cookie.js')}}" type="text/javascript"></script>
   <!-- End plugin js for this page -->
   <!-- inject:js -->
