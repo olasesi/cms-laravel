@@ -19,7 +19,8 @@ class AdSeeder extends Seeder
             'id' => '1',
             'banner_name' => 'Banner 1',
             'image' => NULL,
-            'image_path' => '#',
+            'image_path' => NULL,
+            'image_url' => '#',
             'created_at' => Carbon::now()
             
         ],
@@ -28,7 +29,8 @@ class AdSeeder extends Seeder
             'id' => '2',
             'banner_name' => 'Banner 2',
             'image' => NULL,
-            'image_path' => '#',
+            'image_path' => NULL,
+            'image_url' => '#',
             'created_at' => Carbon::now()
             
         ],
@@ -36,7 +38,8 @@ class AdSeeder extends Seeder
             'id' => '3',
             'banner_name' => 'Banner 3',
             'image' => NULL,
-            'image_path' => '#',
+            'image_path' => NULL,
+            'image_url' => '#',
             'created_at' => Carbon::now()
             
         ],
@@ -44,7 +47,8 @@ class AdSeeder extends Seeder
             'id' => '4',
             'banner_name' => 'Banner 4',
             'image' => NULL,
-            'image_path' => '#',
+            'image_path' => NULL,
+            'image_url' => '#',
             'created_at' => Carbon::now()
             
         ]

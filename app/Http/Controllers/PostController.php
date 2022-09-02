@@ -84,7 +84,7 @@ class PostController extends Controller
     
         $post->update([
             'video' => $file_name,
-            'video_path' => $file_path
+            'video_path' => $file_path  //Get file path fixed
         ]);
     }
     
@@ -94,7 +94,7 @@ class PostController extends Controller
     
         $post->update([
             'image' => $file_name,
-            'image_path' => $file_path
+            'image_path' => $file_path      //Get file path fixed
         ]);
     }
     

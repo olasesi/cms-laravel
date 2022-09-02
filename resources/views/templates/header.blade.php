@@ -181,10 +181,11 @@
 				<div class="col-lg-12">
 					<div class="banner-img">
 						
-						@if(($ad_banner[0]->image != NULL &&  Carbon::now()->toDateTimeString() < $ad_banner[0]->end_date))
+						@if(($ad_banner[0]->image != NULL &&  $ad_banner[0]->end_date >= Carbon::now()->toDateString()))
 						
-						<a href="{{$ad_banner[0]->image_path}}">
-							<img class="img-fluid" src="{{asset('storage/ads/'.$ad_banner[0]->image)}}" alt="{{$ad_banner[0]->banner_name}}" title="{{$ad_banner[0]->banner_name}}">
+						<a href="{{$ad_banner[0]->image_url}}">
+							{{-- <img class="img-fluid" src="{{asset('storage/ads/'.$ad_banner[0]->image)}}" alt="{{$ad_banner[0]->banner_name}}" title="{{$ad_banner[0]->banner_name}}"> --}}
+							<img class="img-fluid" src="{{asset('storage/'.$ad_banner[0]->image_path)}}" alt="{{$ad_banner[0]->banner_name}}" title="{{$ad_banner[0]->banner_name}}">
 						</a>
 						@endif
 					</div>
