@@ -10,6 +10,7 @@ use App\Http\Controllers\SocialmediaController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\AdController;
+use App\Http\Controllers\WebsiteInfoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -82,6 +83,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
     //Ad
     Route::get('edit-ad', [AdController::class, 'editad'])->name('admin.editad');
     Route::patch('update-ad', [AdController::class, 'updatead'])->name('admin.updatead');
+    
+    //Website info
+    Route::get('edit-website-info', [WebsiteInfoController::class, 'editwebsiteinfo'])->name('admin.editwebsiteinfo');
+    Route::patch('update-website-info', [WebsiteInfoController::class, 'updatewebsiteinfo'])->name('admin.updatewebsiteinfo');
 
 });
 

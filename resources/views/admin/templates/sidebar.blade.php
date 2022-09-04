@@ -150,7 +150,8 @@
         </a>
         <div class="collapse" id="settings">
           <ul class="nav flex-column sub-menu">
-           
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.editwebsiteinfo')}}"> Website info </a></li>
+
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.editsocialmedia')}}"> Social media </a></li>
             <li class="nav-item"> <a class="nav-link" href="">OpenWeather settings </a></li>
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.editad')}}">Advertisement </a></li>

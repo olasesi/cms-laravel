@@ -17,8 +17,10 @@ class HomeController extends Controller
        $mainmenu_bar_links = DB::table('menus')->select('title', 'content_type')->get();
        $post_category = DB::table('category_sections')->select('category', 'rank')->where('category','!=','Uncategorized')->orderBy('rank', 'asc')->get();
        $ad_banner = DB::table('ads')->select('end_date','banner_name', 'image', 'image_path', 'image_url')->get();
+       $website_info = DB::table('website_info')->select('website_name', 'logo_image_path')->get();
 
-        return view('welcome', ['social_media_links'=>$social_media_links, 'top_bar_links'=>$top_bar_links, 'mainmenu_bar_links'=>$mainmenu_bar_links, 'post_category'=>$post_category, 'ad_banner'=>$ad_banner]);
+
+        return view('welcome', ['social_media_links'=>$social_media_links, 'top_bar_links'=>$top_bar_links, 'mainmenu_bar_links'=>$mainmenu_bar_links, 'post_category'=>$post_category, 'ad_banner'=>$ad_banner, 'website_info'=>$website_info]);
     }
 
   
