@@ -204,8 +204,8 @@
 			<div class="row">
 				<div class="col-lg-2 pr-0">
 					<div class="logo">
-						<a href="index.html">
-							<img src="images/logo/banner_logo.png" alt="">
+						<a href="/">
+							<img src="{{asset('storage/'.$website_info[0]->logo_image_path)}}" alt="{{$website_info[0]->website_name}}">
 						</a>
 					</div>
 
@@ -278,14 +278,22 @@
 									<div class="megamenu-panel">
 										<div class="megamenu-tabs">
 											<ul class="megamenu-tabs-nav">
-												@foreach($post_category as $each_post_category)
+												
+												{{-- @foreach($post_category as $each_post_category)
 												<li class="">
 													<a href="#">{{$each_post_category->category}}</a>
-											</li>
-												@endforeach
+												</li>
+												@endforeach --}}
+
+
+												
+
+												
 												
 													
 											</ul>
+
+											@if($mainmenu_bar_links[0]->content_type == 'Post')
 											<div class="megamenu-tabs-pane active">
 												<div class="row">
 													<div class="col-12 col-lg-4">
@@ -304,7 +312,7 @@
 															</div>
 														</div>
 													</div>
-													<div class="col-12 col-lg-4">
+													{{-- <div class="col-12 col-lg-4">
 														<div class="item">
 
 															<div class="ts-post-thumb">
@@ -319,8 +327,8 @@
 																</h3>
 															</div>
 														</div>
-													</div>
-													<div class="col-12 col-lg-4">
+													</div> --}}
+													{{-- <div class="col-12 col-lg-4">
 														<div class="item">
 
 															<div class="ts-post-thumb">
@@ -335,11 +343,16 @@
 																</h3>
 															</div>
 														</div>
-													</div>
+													</div> --}}
 
 												</div>
 
 											</div>
+
+											@elseif($mainmenu_bar_links[0]->content_type == 'Videos')
+
+
+
 											<!-- mega menu end-->
 											<div class="megamenu-tabs-pane">
 												<div class="row">
@@ -359,7 +372,7 @@
 															</div>
 														</div>
 													</div>
-													<div class="col-12 col-lg-4">
+													{{-- <div class="col-12 col-lg-4">
 														<div class="item">
 
 															<div class="ts-post-thumb">
@@ -374,8 +387,8 @@
 																</h3>
 															</div>
 														</div>
-													</div>
-													<div class="col-12 col-lg-4">
+													</div> --}}
+													{{-- <div class="col-12 col-lg-4">
 														<div class="item">
 
 															<div class="ts-post-thumb">
@@ -390,11 +403,13 @@
 																</h3>
 															</div>
 														</div>
-													</div>
+													</div> --}}
 
 												</div>
 
 											</div>
+
+											@elseif($mainmenu_bar_links[0]->content_type == 'Category')
 											<!-- mega menu end-->
 											<div class="megamenu-tabs-pane">
 												<div class="row">
@@ -450,6 +465,7 @@
 												</div>
 
 											</div>
+											@endif
 											<!-- mega menu end-->
 											<div class="megamenu-tabs-pane">
 												<div class="row">

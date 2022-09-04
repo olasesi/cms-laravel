@@ -38,15 +38,6 @@ class DashboardController extends Controller
      
   ]);
 
-  DB::table('menus')->insertOrIgnore([
-   ['id' => 1, 'title'=>'Menu 1'],
-   ['id' => 2, 'title'=>'Menu 2'],
-   ['id' => 3, 'title'=>'Menu 3'],
-   ['id' => 4, 'title'=>'Menu 4'],
-   ['id' => 5, 'title'=>'Menu 5']
-   
-]);
-
 
   DB::table('category_sections')->insertOrIgnore([
    ['id' => 1,'category' => config('constants.uncategorized_posts')]
