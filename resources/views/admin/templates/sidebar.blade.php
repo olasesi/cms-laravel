@@ -102,8 +102,8 @@
             
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.edittopbar')}}"> Topbar menu </a></li>
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.editmenu')}}"> Primary menu </a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{route('admin.edittheme')}}"> Themes </a></li>
-        
+            {{-- <li class="nav-item"> <a class="nav-link" href="{{route('admin.edittheme')}}"> Themes </a></li> --}}
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.editquicklink')}}"> Footer links </a></li>
           </ul>
         </div>
 
