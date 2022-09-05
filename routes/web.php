@@ -11,6 +11,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\AdController;
 use App\Http\Controllers\WebsiteInfoController;
+use App\Http\Controllers\QuickLinkController;
 use App\Http\Controllers\ThemeController;
 
 use Illuminate\Support\Facades\Route;
@@ -96,9 +97,13 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
     //Route::get('createtheme', [ThemeController::class, 'createtheme'])->name('admin.createtheme');
     //And also choose/activate theme
 
-
     //Route::patch('edittheme', [ThemeController::class, 'edittheme'])->name('admin.edittheme');
     //Route::post('deletetheme', [ThemeController::class, 'deletetheme'])->name('admin.deletetheme');
+
+    //Quicklinks
+    Route::get('editquicklink', [QuickLinkController::class, 'editquicklink'])->name('admin.editquicklink');
+    Route::patch('updatequicklink', [QuickLinkController::class, 'updatequicklink'])->name('admin.updatequicklink');
+
 });
 
 //Route::get('/admin/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');

@@ -6,3 +6,9 @@ function top_bar_time(){
    
 }
 
+function footer_year(){
+     var footer_year = new Date();
+     document.getElementById('footer-year').innerHTML=footer_year.getFullYear();
+
+}
+
