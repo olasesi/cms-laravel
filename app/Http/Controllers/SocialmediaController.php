@@ -28,14 +28,14 @@ class SocialmediaController extends Controller
 
 
 DB::table('social_medias')->where('id', '1')->update(['url' => $request->get('facebook') ?? null]);
-DB::table('social_medias')->where('id', '2')->update(['url' => $request->get('url2') ?? null]);
-DB::table('social_medias')->where('id', '3')->update(['url' => $request->get('url3') ?? null]);
-DB::table('social_medias')->where('id', '4')->update(['url' => $request->get('url4') ?? null]);
-DB::table('social_medias')->where('id', '5')->update(['url' => $request->get('url5') ?? null]);
-DB::table('social_medias')->where('id', '6')->update(['url' => $request->get('url5') ?? null]);
+DB::table('social_medias')->where('id', '2')->update(['url' => $request->get('twitter') ?? null]);
+DB::table('social_medias')->where('id', '3')->update(['url' => $request->get('googleplus') ?? null]);
+DB::table('social_medias')->where('id', '4')->update(['url' => $request->get('instagram') ?? null]);
+DB::table('social_medias')->where('id', '5')->update(['url' => $request->get('youtube') ?? null]);
+DB::table('social_medias')->where('id', '6')->update(['url' => $request->get('linkedin') ?? null]);
 
 
-     return back()->with('success', 'Details was successfully updated');
+     return back()->with('success', 'Details has successfully been updated');
 
 }
 
