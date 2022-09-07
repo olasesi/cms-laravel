@@ -4,8 +4,9 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="footer-logo">
-                    <a href="#">
-                        <img src="images/logo/footer_logo.png" alt="">
+                    <a href="/">
+                        
+                        <img src="{{asset('storage/'.$website_info[0]->logo_image_path)}}" alt="{{$website_info[0]->website_name}}">
                     </a>
                 </div>
                 <!-- footer logo end-->
@@ -120,28 +121,48 @@
             <div class="col-lg-12">
                 <div class="footer-menu text-center">
                     <ul>
+                        @if($quick_links[0]->link_title != NULL)
                         <li>
-                            <a href="#">Support</a>
+                            <a href="{{$quick_links[0]->url}}">{{$quick_links[0]->link_title}}</a>
                         </li>
+                        @endif
+                       
+                        @if($quick_links[1]->link_title != NULL)
                         <li>
-                            <a href="#">Suggestion</a>
+                            <a href="{{$quick_links[1]->url}}">{{$quick_links[1]->link_title}}</a>
                         </li>
+                        @endif
+
+                        @if($quick_links[2]->link_title != NULL)
                         <li>
-                            <a href="#">Privacy</a>
+                            <a href="{{$quick_links[2]->url}}">{{$quick_links[2]->link_title}}</a>
                         </li>
+                        @endif
+                        @if($quick_links[3]->link_title != NULL)
                         <li>
-                            <a href="#">About</a>
+                            <a href="{{$quick_links[3]->url}}">{{$quick_links[3]->link_title}}</a>
                         </li>
+                        @endif
+                        @if($quick_links[4]->link_title != NULL)
                         <li>
-                            <a href="#">Our Ads </a>
+                            <a href="{{$quick_links[4]->url}}">{{$quick_links[4]->link_title}}</a>
                         </li>
+                        @endif
+                        @if($quick_links[5]->link_title != NULL)
                         <li>
-                            <a href="#">Terms</a>
+                            <a href="{{$quick_links[5]->url}}">{{$quick_links[5]->link_title}}</a>
                         </li>
+                        @endif
                     </ul>
                 </div>
                 <div class="copyright-text text-center">
-                    <p>&copy; 2018, Vinazine. All rights reserved</p>
+                    <script>
+                       footer_year();
+                    </script>
+                    <p>&copy; 
+                        <span id="footer-year">
+                            
+                        <span>, Vinazine. All rights reserved</p>
                 </div>
             </div><!-- col end -->
         </div><!-- row end -->
