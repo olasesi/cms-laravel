@@ -25,7 +25,10 @@
 							Dashboard
 						</a>
 						
-						
+						<a href="{{route('admin.createpost')}}" title="Create post" class="btn btn-dark text-warning ">
+							<i class="fa fa-pencil-square"></i>
+							Create Post
+						</a>
 
 					</div>
 
