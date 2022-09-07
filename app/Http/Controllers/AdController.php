@@ -33,11 +33,17 @@ class AdController extends Controller
          ]
      );
      
-     $select_for_delete = DB::table('ads')->select('image_path')->where('id', '1')->get();
-
+     $select_for_delete = DB::table('ads')->where('id', '1')->value('image_path');
      DB::table('ads')->where('id', '1')->update(['banner_name' => $request->get('banner_1_name'), 'image_url' => $request->get('banner_1_url') ?? NULL, 'end_date' => $request->get('end_1_date') ?? NULL ,'image' => $request->get('image_1_banner')]);
-
+    
+    
      if ($request->file('image_1_banner')){
+       // dd('public/storage/'.$select_for_delete);
+        if(File::exists('public/storage/'.$select_for_delete)) {
+            dd('select_for_delete');
+            File::delete($select_for_delete);
+     }
+
         $file_name = time().'_'.$request->image_1_banner->getClientOriginalName();
         $file_path = $request->file('image_1_banner')->storeAs('ads', $file_name, 'public');
     
@@ -46,18 +52,15 @@ class AdController extends Controller
         DB::table('ads')->where('id', 1)->update(['image_path' => $file_path]);
     }
    
-    $destinationPath = public_path('/ads/'.$select_for_delete);
-    dd($destinationPath); 
- if(File::exists('public/storage/'.$destinationPath)) {
-    
-     File::delete($destinationPath);
- }
+   
+
+    //$destinationPath = public_path('storage/'.$select_for_delete);
+   
     
 
-    return back()->with('success', 'Ad banner has been updated');
+    return back()->with('success', 'Details has been updated');
        
-        //return view('admin.editad');
-        
+       
        
     } 
 }
