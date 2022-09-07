@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 30);
+            $table->string('title');
             $table->string('slug')->index();
             $table->unsignedBigInteger('category_section_id');
             $table->text('excerpt')->nullable();
@@ -38,7 +38,7 @@ class CreatePostsTable extends Migration
             $table->string('watch_now')->nullable();
             $table->string('trending')->nullable();
             $table->string('more_news')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             //$table->foreign('category_section_id')->references('id')->on('category_sections')->onUpdate('cascade')->onDelete('cascade'); //This should also be constrained 
             $table->timestamps();
         });

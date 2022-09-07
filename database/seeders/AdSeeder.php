@@ -21,8 +21,9 @@ class AdSeeder extends Seeder
             'image' => NULL,
             'image_path' => NULL,
             'image_url' => '#',
-            'created_at' => Carbon::now()
-            
+            'end_date' => Carbon::now(),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ],
     
         [
@@ -31,7 +32,9 @@ class AdSeeder extends Seeder
             'image' => NULL,
             'image_path' => NULL,
             'image_url' => '#',
-            'created_at' => Carbon::now()
+            'end_date' => Carbon::now(),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
             
         ],
         [
@@ -40,7 +43,9 @@ class AdSeeder extends Seeder
             'image' => NULL,
             'image_path' => NULL,
             'image_url' => '#',
-            'created_at' => Carbon::now()
+            'end_date' => Carbon::now(),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
             
         ],
         [
@@ -49,7 +54,9 @@ class AdSeeder extends Seeder
             'image' => NULL,
             'image_path' => NULL,
             'image_url' => '#',
-            'created_at' => Carbon::now()
+            'end_date' => Carbon::now(),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
             
         ]
     ]);

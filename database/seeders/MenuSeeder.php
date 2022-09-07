@@ -19,6 +19,7 @@ class MenuSeeder extends Seeder
             'id' => 1,
            
             'title' => 'Lifestyle',
+            'content_type'=>'Post',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ],
@@ -26,6 +27,7 @@ class MenuSeeder extends Seeder
             'id' => 2,
            
             'title' => 'Technology',
+            'content_type'=>'https://facebook.com',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ],
@@ -33,6 +35,7 @@ class MenuSeeder extends Seeder
             'id' => 3,
            
             'title' => 'Video',
+            'content_type'=>'Video',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
            
@@ -41,6 +44,7 @@ class MenuSeeder extends Seeder
             'id' => 4,
            
             'title' => 'Travel',
+            'content_type'=>'https://facebook.com',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
 
@@ -49,6 +53,7 @@ class MenuSeeder extends Seeder
             'id' => 5,
            
             'title' => 'Features',
+            'content_type'=>'Category',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
            
