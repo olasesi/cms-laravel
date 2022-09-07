@@ -20,28 +20,31 @@ class TopBarSeeder extends Seeder
             'id' => '1',
             'title' => 'Blog',
             'url' => '#',
-            'created_at' => Carbon::now()
-            
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ],
         [
             'id' => '2',
             'title' => 'Forums',
             'url' => '#',
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
             
         ],
         [
             'id' => '3',
             'title' => 'Contact',
             'url' => '#',
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
             
         ],
         [
             'id' => '4',
             'title' => 'Advertisement',
             'url' => '#',
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
             
         ]
         ]
