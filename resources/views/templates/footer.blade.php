@@ -121,6 +121,7 @@
             <div class="col-lg-12">
                 <div class="footer-menu text-center">
                     <ul>
+                      
                         @if($quick_links[0]->link_title != NULL)
                         <li>
                             <a href="{{$quick_links[0]->url}}">{{$quick_links[0]->link_title}}</a>
@@ -153,6 +154,7 @@
                             <a href="{{$quick_links[5]->url}}">{{$quick_links[5]->link_title}}</a>
                         </li>
                         @endif
+                   
                     </ul>
                 </div>
                 <div class="copyright-text text-center">

@@ -16,7 +16,7 @@ class SocialMediaSeeder extends Seeder
     public function run()
     {
         DB::table('social_medias')->insert([[
-            
+            'id' => '1',
             'name' => 'Facebook',
             'url' => '#',
             'updated_at'=> Carbon::now(),
@@ -24,7 +24,7 @@ class SocialMediaSeeder extends Seeder
             
         ],
         [
-            
+            'id' => '2',
             'name' => 'Twitter',
             'url' => '#',
             'updated_at'=> Carbon::now(),
@@ -32,7 +32,7 @@ class SocialMediaSeeder extends Seeder
             
         ],
         [
-            
+            'id' => '3',
             'name' => 'Google Plus',
             'url' => '#',
             'updated_at'=> Carbon::now(),
@@ -40,7 +40,7 @@ class SocialMediaSeeder extends Seeder
             
         ],
         [
-            
+            'id' => '4',
             'name' => 'Instagram',
             'url' => '#',
             'updated_at'=> Carbon::now(),
@@ -48,7 +48,7 @@ class SocialMediaSeeder extends Seeder
             
         ],
         [
-            
+            'id' => '5',
             'name' => 'YouTube',
             'url' => '#',
             'updated_at'=> Carbon::now(),
@@ -56,7 +56,7 @@ class SocialMediaSeeder extends Seeder
             
         ],
         [
-            
+            'id' => '6',
             'name' => 'LinkedIn',
             'url' => '#',
             'updated_at'=> Carbon::now(),
