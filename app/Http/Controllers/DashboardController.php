@@ -11,15 +11,7 @@ use App\Models\Menu;
 class DashboardController extends Controller
 {
     public function index(){
-      DB::table('social_medias')->insertOrIgnore([
-         ['id' => 1, 'name' => 'Facebook'],
-         ['id' => 2, 'name' => 'Twitter'],
-         ['id' => 3, 'name' => 'Google plus'],
-         ['id' => 4, 'name' => 'Instagram'],
-         ['id' => 5, 'name' => 'Youtube'],
-         ['id' => 6, 'name' => 'Linkedin'],
-     ]);
-
+     
      DB::table('user_types')->insertOrIgnore([
       ['id' => 1, 'user_type' => 'super admin'],
       ['id' => 2, 'user_type' => 'editor'],
