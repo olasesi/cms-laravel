@@ -78,6 +78,7 @@
 				<div class="col-lg-6 align-self-center md-center-item">
 					<div class="ts-temperature">
 						<i class="icon-weather"></i>
+						{{-- {{$weather}} --}}
 						<span>25.8
 							<b>c</b>
 						</span>
