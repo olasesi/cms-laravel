@@ -91,6 +91,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
     Route::get('edit-website-info', [WebsiteInfoController::class, 'editwebsiteinfo'])->name('admin.editwebsiteinfo');
     Route::patch('update-website-info', [WebsiteInfoController::class, 'updatewebsiteinfo'])->name('admin.updatewebsiteinfo');
 
+    //Weather API
+    Route::get('show-weather', [OpenWeatherController::class, 'showweather'])->name('admin.showweather');
+    Route::patch('show-weather', [OpenWeatherController::class, 'updateweather'])->name('admin.updateweather');
+
     //Theme
     //To discuss the theme resourses
     //Route::get('showtheme', [ThemeController::class, 'showtheme'])->name('admin.showtheme');
