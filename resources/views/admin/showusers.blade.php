@@ -38,9 +38,9 @@
                   <td> {{$admin->email}} </td>
                  
                   
-                    
+                  
                   <td>
-                    <form action="/admin/edit-user/{{$admin->id}}" method="POST">
+                    <form action="{{ route('admin.edit-user', ['id' => $admin->id]) }}" method="POST">
                     @csrf
                    
                 <button type="submit" class="btn btn-info btn-md">Edit</button>
@@ -51,7 +51,7 @@
                    
                      @if($admin->active == 1)
                     <td>
-                        <form action="/admin/ban-user/{{$admin->id}}" method="POST">
+                        <form action="{{ route('admin.ban-user', ['id' => $admin->id]) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <input name="active" value="{{$admin->active}}" type="hidden"/>

@@ -96,13 +96,15 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
     Route::patch('show-weather', [OpenWeatherController::class, 'updateweather'])->name('admin.updateweather');
 
     //Theme
-    //To discuss the theme resourses
-    //Route::get('showtheme', [ThemeController::class, 'showtheme'])->name('admin.showtheme');
-    //Route::get('createtheme', [ThemeController::class, 'createtheme'])->name('admin.createtheme');
-    //And also choose/activate theme
+    Route::get('create-theme', [ThemeController::class, 'createtheme'])->name('admin.createtheme');
+    Route::get('show-theme', [ThemeController::class, 'showtheme'])->name('admin.showtheme');
+    Route::post('save-theme', [ThemeController::class, 'savetheme'])->name('admin.savetheme');
+    Route::get('edit-theme/{id}', [ThemeController::class, 'edittheme'])->name('admin.edittheme');
+    Route::patch('update-theme/{id}', [ThemeController::class, 'updatetheme'])->name('admin.updatetheme');
+    Route::patch('activate-theme/{id}', [ThemeController::class, 'activatetheme'])->name('admin.activatetheme');
+    Route::delete('delete-theme/{id}', [ThemeController::class, 'deletetheme'])->name('admin.deletetheme');
+    
 
-    //Route::patch('edittheme', [ThemeController::class, 'edittheme'])->name('admin.edittheme');
-    //Route::post('deletetheme', [ThemeController::class, 'deletetheme'])->name('admin.deletetheme');
 
     //Quicklinks
     Route::get('editquicklink', [QuickLinkController::class, 'editquicklink'])->name('admin.editquicklink');

@@ -15,10 +15,11 @@ class CreateThemesTable extends Migration
     {
         Schema::create('themes', function (Blueprint $table) {
             $table->id();
-            $table->string('theme_name', 30)->unique();;
-            $table->string('active')->unique();
+            $table->string('theme_name', 30)->unique();
+            $table->string('active')->default('0');
             $table->string('primary_color')->nullable();
             $table->string('secondary_color')->nullable();
+            $table->string('tertiary_color')->nullable();
             $table->string('body_color')->nullable();
             $table->string('light_color')->nullable();
             $table->string('dark_color')->nullable();

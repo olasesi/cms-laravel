@@ -1,56 +1,55 @@
 @extends('admin.templates.master')
 @section('content')
+    <div class="main-panel">
+        <div class="row ">
+            <div class="col-12 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Posts</h4>
+                        {{-- {{ route('admin.createtheme') }} --}}<!--To add a named route latter-->
+                        <a href="/admin/add-user" class="btn btn-success btn-fw"><i
+                                class="mdi mdi-account-plus btn-icon-prepend"></i>Add new user</a>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+
+                                        <th> Title </th>
+                                        <th> Author </th>
+
+                                        <th> Categories </th>
+                                        {{-- <th> More details </th> --}}
+                                        <th> Date </th>
 
 
-<div class="main-panel">
-<div class="row ">
-    <div class="col-12 grid-margin">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Posts</h4>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($posts as $post)
+                                        <tr>
 
-          <a href="/admin/add-user" class="btn btn-success btn-fw"><i class="mdi mdi-account-plus btn-icon-prepend"></i>Add new user</a>
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                 
-                  <th> Title </th>
-                  <th> Author </th>
-                 
-                  <th> Categories </th>
-                  {{-- <th> More details </th> --}}
-                  <th> Date </th>
-                  
-                 
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($posts as $post)
-                <tr>
-                  
-                  <td>
-                   
-                    <span class="ps-2">{{$post->title}}</span>
-                  </td>
-                  <td> {{$post->role}} </td>
-                  {{-- <td> {{$post->category_sections.category}} </td> --}}
-                  <td> {{$post->created_at}} </td>
-                  
-                 
-                  
-                    
-                  {{-- <td>
+                                            <td>
+
+                                                <span class="ps-2">{{ $post->title }}</span>
+                                            </td>
+                                            <td> {{ $post->role }} </td>
+                                            {{-- <td> {{$post->category_sections.category}} </td> --}}
+                                            <td> {{ $post->created_at }} </td>
+
+
+
+
+                                            {{-- <td>
                     <form action="/admin/edit-post/{{$post->id}}" method="POST">
                     @csrf
                    
                 <button type="submit" class="btn btn-info btn-md">Edit</button>
                     </form>
-            </td>   --}}
+            </td> --}}
 
-                    {{-- @if($admin->role != 'super admin')
+                                            {{-- @if ($admin->role != 'super admin')
                    
-                     @if($admin->active == 1)
+                     @if ($admin->active == 1)
                     <td>
                         <form action="/admin/ban-user/{{$admin->id}}" method="POST">
                         @csrf
@@ -87,21 +86,17 @@
                 </td>
 
                   @endif --}}
-                 
-                </tr>
-                @endforeach
-               
-              </tbody>
-            </table>
-          </div>
+
+                                        </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-@endsection
-<!-- partial -->
+    @endsection
+    <!-- partial -->
 </div>
