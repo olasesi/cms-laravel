@@ -4,3 +4,27 @@
 }
 
 }
+
+li.ts-date, 
+.nav-menu > li.active > a, 
+.nav-search-button, 
+.ts-title:before, 
+.owl-dots .owl-dot.active span,
+.owl-dots .owl-dot span,
+.topic-list
+{
+   /* background-color:  #000000 !important; */
+}
+
+.ts-grid-box-heighlight,.ts-footer{
+    /* background-color:  #000000 !important; */
+}
+
+.ts-newslatter .newsletter-form .ts-submit-btn .btn, .btn.btn-primary {
+
+    /* background-color:  #000000 !important; */
+}
+
+.body-color{
+/* background-color:  #000000 !important; */
+}

@@ -297,57 +297,27 @@
 												<div class="row">
 
 												
-
-													<div class="col-12 col-lg-4">
+												@foreach($post as $each_post)
+													
+												<div class="col-12 col-lg-4">
 														<div class="item">
 
 															<div class="ts-post-thumb">
-																<a class="post-cat ts-purple-bg" href="#">Health</a>
-																<a href="#">
-																	<img class="img-fluid" src="images/news/health/health1.jpg" alt="">
+																<a class="post-cat ts-purple-bg" href="{{--route('category.show.post')--}}">{{$each_post->category}}</a>
+																<a href="{{--route('category.show.post')--}}">
+																	<img class="img-fluid" src="storage/{{$each_post->image_path}}" alt="{{$each_post->title}}">
 																</a>
 															</div>
 															<div class="post-content">
 																<h3 class="post-title">
-																	<a href="#">Can't shed those Gym? The problem might be in</a>
+																	<a href="{{--route('category.show.post')--}}">{{$each_post->title}}</a>
 																</h3>
 															</div>
 														</div>
 													</div>
-		
-													{{-- <div class="col-12 col-lg-4">
-														<div class="item">
-
-															<div class="ts-post-thumb">
-																<a class="post-cat ts-purple-bg" href="#">Health</a>
-																<a href="#">
-																	<img class="img-fluid" src="images/news/health/health2.jpg" alt="">
-																</a>
-															</div>
-															<div class="post-content">
-																<h3 class="post-title">
-																	<a href="#">Smart packs parking sensor tech and beeps</a>
-																</h3>
-															</div>
-														</div>
-													</div> --}}
-													{{-- <div class="col-12 col-lg-4">
-														<div class="item">
-
-															<div class="ts-post-thumb">
-																<a class="post-cat ts-purple-bg" href="#">Health</a>
-																<a href="#">
-																	<img class="img-fluid" src="images/news/health/health3.jpg" alt="">
-																</a>
-															</div>
-															<div class="post-content">
-																<h3 class="post-title">
-																	<a href="#">Deleting fears from the brain means you might never</a>
-																</h3>
-															</div>
-														</div>
-													</div> --}}
-
+												@endforeach
+													
+													
 												</div>
 
 											</div>
@@ -359,112 +329,145 @@
 											<!-- mega menu end-->
 											<div class="megamenu-tabs-pane">
 												<div class="row">
+													
+													@foreach($post as $each_post)
+													
 													<div class="col-12 col-lg-4">
 														<div class="item">
 
 															<div class="ts-post-thumb">
-																<a class="post-cat ts-yellow-bg" href="#">Food</a>
-																<a href="#">
-																	<img class="img-fluid" src="images/news/foods/food1.jpg" alt="">
+																<a class="post-cat ts-yellow-bg" href="{{--route('category.show.post')--}}">{{$each_post->category}}</a>
+																<a href="{{--route('category.show.post')--}}">
+																	<img class="img-fluid" src="storage/{{$each_post->image_path}}" alt="{{$each_post->title}}">
 																</a>
 															</div>
 															<div class="post-content">
 																<h3 class="post-title">
-																	<a href="#">Tourism in Dubai is booming by international tourist</a>
+																	<a href="{{--route('category.show.post')--}}">{{$each_post->title}}</a>
 																</h3>
 															</div>
 														</div>
 													</div>
-													{{-- <div class="col-12 col-lg-4">
-														<div class="item">
 
-															<div class="ts-post-thumb">
-																<a class="post-cat ts-yellow-bg" href="#">Food</a>
-																<a href="#">
-																	<img class="img-fluid" src="images/news/foods/food2.jpg" alt="">
-																</a>
-															</div>
-															<div class="post-content">
-																<h3 class="post-title">
-																	<a href="#">Tourism in Dubai is booming by international tourist</a>
-																</h3>
-															</div>
-														</div>
-													</div> --}}
-													{{-- <div class="col-12 col-lg-4">
-														<div class="item">
+													@endforeach
 
-															<div class="ts-post-thumb">
-																<a class="post-cat ts-yellow-bg" href="#">Food</a>
-																<a href="#">
-																	<img class="img-fluid" src="images/news/foods/food3.jpg" alt="">
-																</a>
-															</div>
-															<div class="post-content">
-																<h3 class="post-title">
-																	<a href="#">Tourism in Dubai is booming by international tourist</a>
-																</h3>
-															</div>
-														</div>
-													</div> --}}
 
 												</div>
 
 											</div>
 
 											@elseif($mainmenu_bar_links[0]->content_type == 'Category')
+											
+												@if(!empty($mainmenu_bar_links[4]->title))
+												<a href="{{$mainmenu_bar_links[4]->content_type}}" title="{{$mainmenu_bar_links[4]->title}}">{{$mainmenu_bar_links[4]->title}}</a>
+												<ul class="nav-dropdown">
+													<li>
+														<a href="#">Category layout</a>
+														<ul class="nav-dropdown">
+															<li>
+																<a href="category-1.html">Category layout 1</a>
+															</li>
+															<li>
+																<a href="category-2.html">Category layout 2 </a>
+															</li>
+															<li>
+																<a href="category-3.html">Category layout 3</a>
+															</li>
+															<li>
+																<a href="category-4.html">Category layout 4</a>
+															</li>
+															<li>
+																<a href="category-5.html">Category layout 5</a>
+															</li>
+															<li>
+																<a href="category-6.html">Category layout 6</a>
+															</li>
+														</ul>
+													</li>
+													<li>
+														<a href="#">Posts Formate</a>
+														<ul class="nav-dropdown">
+															<li>
+																<a href="single-post-1.html">Single Post 1</a>
+															</li>
+															<li>
+																<a href="single-post-2.html">Single Post 2 </a>
+															</li>
+															<li>
+																<a href="single-post-3.html">Single Post 3 </a>
+															</li>
+															<li>
+																<a href="single-post-4.html">Single Post 4 </a>
+															</li>
+															<li>
+																<a href="single-post-5.html">Single Post 5</a>
+															</li>
+															<li>
+																<a href="single-post-6.html">Single Post 6</a>
+															</li>
+															<li>
+																<a href="single-post-7.html">Single Post 7</a>
+															</li>
+															<li>
+																<a href="single-post-8.html">Single Post 8</a>
+															</li>
+															<li>
+																<a href="single-post-9.html">Single Post 9</a>
+															</li>
+															<li>
+																<a href="single-post-10.html">Single Post 10</a>
+															</li>
+														</ul>
+													</li>
+													<li>
+														<a href="#">Pages</a>
+														<ul class="nav-dropdown">
+															<li>
+																<a href="author.html">Author</a>
+															</li>
+															<li>
+																<a href="contact.html">Contact Us</a>
+															</li>
+															<li>
+																	<a href="login.html">Log In</a>
+															</li>
+															<li>
+																	<a href="registration.html">registration</a>
+															</li>
+															<li>
+																<a href="404.html">404 </a>
+															</li>
+														</ul>
+													</li><!--Pages end-->
+												</ul>
+												@endif
+											
+
+											@elseif($mainmenu_bar_links[0]->content_type == '')
 											<!-- mega menu end-->
 											<div class="megamenu-tabs-pane">
 												<div class="row">
+													
+													@foreach($post as $each_post)
 													<div class="col-12 col-lg-4">
 														<div class="item">
 
 															<div class="ts-post-thumb">
-																<a class="post-cat ts-pink-bg" href="#">Fashion</a>
-																<a href="#">
-																	<img class="img-fluid" src="images/news/tech/tech1.jpg" alt="">
+																<a class="post-cat ts-pink-bg" href="{{--route('category.show.post')--}}">{{$each_post->category}}</a>
+																<a href="{{--route('category.show.post')--}}">
+																	<img class="img-fluid" src="storage/{{$each_post->image_path}}" alt="{{$each_post->title}}">
 																</a>
 															</div>
 															<div class="post-content">
 																<h3 class="post-title">
-																	<a href="#">Tourism in Dubai is booming by international tourist</a>
-																</h3>
-															</div>
-														</div>
-													</div>
-													<div class="col-12 col-lg-4">
-														<div class="item">
-
-															<div class="ts-post-thumb">
-																<a class="post-cat ts-pink-bg" href="#">Fashion</a>
-																<a href="#">
-																	<img class="img-fluid" src="images/news/tech/tech2.jpg" alt="">
-																</a>
-															</div>
-															<div class="post-content">
-																<h3 class="post-title">
-																	<a href="#">Tourism in Dubai is booming by international tourist</a>
-																</h3>
-															</div>
-														</div>
-													</div>
-													<div class="col-12 col-lg-4">
-														<div class="item">
-
-															<div class="ts-post-thumb">
-																<a class="post-cat ts-pink-bg" href="#">Fashion</a>
-																<a href="#">
-																	<img class="img-fluid" src="images/news/tech/tech3.jpg" alt="">
-																</a>
-															</div>
-															<div class="post-content">
-																<h3 class="post-title">
-																	<a href="#">Tourism in Dubai is booming by international tourist</a>
+																	<a href="{{--route('category.show.post')--}}">{{$each_post->title}}</a>
 																</h3>
 															</div>
 														</div>
 													</div>
 
+													@endforeach
+													
 												</div>
 
 											</div>
