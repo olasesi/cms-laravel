@@ -17,6 +17,7 @@ class CreateCategorySectionsTable extends Migration
             $table->id();
             $table->string('category', 20)->index();
             $table->integer('rank')->nullable();
+            $table->string('color')->nullable();
             $table->timestamps();
         });
     }

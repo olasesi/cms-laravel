@@ -14,8 +14,6 @@ class PostController extends Controller
         $posts = DB::table('posts')->join('users', 'posts.id', '=', 'users.post_id')->select( 'title', 'role')->get();
         return view('admin.showpost',['posts'=>$posts]);
 
-
-       
     }
 
 
@@ -31,40 +29,47 @@ class PostController extends Controller
     public function savepost(Request $request){
        
          $request->validate([
-            'title' => 'required|max:30|min:3',
+            'title' => 'required|max:100|min:3|unique:posts',
             'excerpt' => 'nullable|min:3',
             'discussion' => 'required',
             'category' => 'required',
-            'body'=> 'nullable',
-            'image'=> 'nullable|mimes:jpeg,png|max:2048',
             'publish_time'=> 'required',
+            'body'=> 'nullable',          
+            'image'=> 'nullable|mimes:jpeg,png|max:2048',
+            'recent' => 'nullable',
             'visibility'=> 'required',
             'order'=> 'nullable|numeric',
-            'video' => 'nullable|mimes:mp4',
+            'video_path' => 'nullable|url',
+            'video_placeholder' => 'nullable',
+            'breaking_news' => 'nullable',
+            'most_popular' => 'nullable',
+            'favourite' => 'nullable',
+            'hot_topics' => 'nullable',
+            'watch_now' => 'nullable',
+            'trending' => 'nullable',
+            'more_news' => 'nullable',
+            
+        
 
 
              ]
     );
-
-    //dd($request->all());
-    // function create_slug($string){
-    //     $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
-    //     return $slug;
-    //  }
-
+  
+   
     $post= Post::create([
         'title' => $request->title,
         'slug' => Str::slug($request->title),
-        'author' => auth()->id(),
+        'user_id' => auth()->id(),
         'excerpt' => $request->excerpt,
         'discussion' => $request->discussion,
-        'category' => $request->category,
+        'category_section_id' => $request->category,
         'body' => $request->body,
         'image' => $request->image,
         'publish_time' => $request->publish_time,
         'visibility' => $request->visibility,
         'order' => $request->order,
-        'video' => $request->video,
+        'video_path' => $request->video_path,
+        'video_placeholder' => ($request->video_placeholder != null)?'https://img.youtube.com/vi/'.$request->video_placeholder.'/default.jpg':null,
         'recent' => $request->recent,
         'breaking_news' => $request->breaking_news,
         'most_popular' => $request->most_popular,
@@ -77,27 +82,34 @@ class PostController extends Controller
     ]);
     
 
-
-    if($request->file('video')) {
-        $file_name = time().'_'.$request->video->getClientOriginalName();
-        $file_path = $request->file('video')->storeAs('contents/video', $file_name, 'public');
-    
-        $post->update([
-            'video' => $file_name,
-            'video_path' => $file_path  //Get file path fixed
-        ]);
-    }
-    
+       
     if ($request->file('image')){
         $file_name = time().'_'.$request->image->getClientOriginalName();
-        $file_path = $request->file('image')->storeAs('contents/image', $file_name, 'public');
+        $file_path = $request->file('image')->storeAs('image/posts/'.$request->category, $file_name, 'public');
     
         $post->update([
             'image' => $file_name,
             'image_path' => $file_path      //Get file path fixed
         ]);
+    }else{
+
+        $post->update([
+            'image' => 'default.jpg',
+            'image_path' => 'images/logo/default.jpg',     
+        ]);
     }
     
+
+    // if($request->file('video')) {
+    //     $file_name = time().'_'.$request->video->getClientOriginalName();
+    //     $file_path = $request->file('video')->storeAs('videos/posts/'.$request->category, $file_name, 'public');
+    
+    //     $post->update([
+    //         'video' => $file_name,
+    //         'video_path' => $file_path  //Get file path fixed
+    //     ]);
+    // }
+ 
 
     return back()->with('success', 'Post has been uploaded successfully');
 

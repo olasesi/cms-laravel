@@ -124,6 +124,8 @@
 
                                 </tbody>
                             </table>
+
+                            {{$showtheme->links()}}
                         </div>
                     </div>
                 </div>

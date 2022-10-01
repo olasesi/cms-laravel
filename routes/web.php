@@ -13,6 +13,9 @@ use App\Http\Controllers\AdController;
 use App\Http\Controllers\WebsiteInfoController;
 use App\Http\Controllers\QuickLinkController;
 use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\PostPageController;
+use App\Http\Controllers\PostTypeSingleController;
+use App\Http\Controllers\SinglePostController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -26,12 +29,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//HomePage
 Route::get('/', [HomeController::class, 'index'])->name('user.index');
+//All posts
+Route::get('/posts', [PostPageController::class, 'index'])->name('postpage.index');
+//Single post category
+Route::get('/show-single-category/{id}', [PostTypeSingleController::class, 'showsinglecategory'])->name('showsinglecategory');
+//Single post
+Route::get('/show-single-post/{id}', [SinglePostController::class, 'showsinglepost'])->name('showsinglepost');
+
+
+//Admin
 Route::get('/admin/login', [AdminLoginController::class, 'index'])->middleware('alreadyloggin')->name('admin.index');
 Route::post('/admin/login', [AdminLoginController::class, 'savelogin'])->middleware('alreadyloggin')->name('admin.savelogin');
 Route::get('/admin/forgetpassword', [ForgotPasswordController::class, 'showForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.forgetpassword');
 Route::post('/admin/saveforgetpassword', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.saveforgetpassword');
-
 
 
 // Route::group(['middleware'=>'isnotadmin'], function(){

@@ -27,7 +27,7 @@ class MenuSeeder extends Seeder
             'id' => 2,
            
             'title' => 'Technology',
-            'content_type'=>'https://facebook.com',
+            'content_type'=>'#',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ],
@@ -44,7 +44,7 @@ class MenuSeeder extends Seeder
             'id' => 4,
            
             'title' => 'Travel',
-            'content_type'=>'https://facebook.com',
+            'content_type'=>'#',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
 
@@ -58,6 +58,80 @@ class MenuSeeder extends Seeder
             'updated_at' => Carbon::now()
            
         ],
+
+
+        [
+            'id' => 6,
+           
+            'title' => 'Recent category',
+            'content_type'=>'Recent',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+           
+        ],
+        [
+            'id' => 7,
+           
+            'title' => 'Breaking news category',
+            'content_type'=>'Breaking news',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+           
+        ],
+        [
+            'id' => 8,
+           
+            'title' => 'Most popular category',
+            'content_type'=>'Most popular',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+           
+        ],
+        [
+            'id' => 9,
+           
+            'title' => 'Favourite category',
+            'content_type'=>'Favourite',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+           
+        ],
+        [
+            'id' => 10,
+           
+            'title' => 'Hot topics category',
+            'content_type'=>'Hot topics',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+           
+        ],
+        [
+            'id' => 11,
+           
+            'title' => 'Watch now category',
+            'content_type'=>'Watch now',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+           
+        ],
+        [
+            'id' => 12,
+           
+            'title' => 'Trending category',
+            'content_type'=>'Trending',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+           
+        ],
+        [
+            'id' => 13,
+           
+            'title' => 'More news category',
+            'content_type'=>'More news',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+           
+        ]
 
         ]
         );

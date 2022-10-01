@@ -17,7 +17,7 @@ class CreateWebsiteInfoTable extends Migration
             $table->id();
             $table->string('website_name');
             $table->string('logo_name')->default('default.jpg');
-            $table->string('logo_image_path')->nullable('images/logo/default.jpg');
+            $table->string('logo_image_path')->default('/images/logo/default.jpg');
             $table->timestamps();
         });
     }

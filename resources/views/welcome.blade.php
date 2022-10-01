@@ -7,6 +7,9 @@
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div id="featured-slider" class="owl-carousel ts-overlay-style ts-featured">
+                   
+                   @foreach()
+                   
                     <div class="item" style="background-image:url(images/news/travel/travel1.jpg)">
                         <a class="post-cat ts-orange-bg" href="#">TRAVEL</a>
                         <div class="overlay-post-content">
@@ -34,8 +37,10 @@
                         <!--/ Featured post end -->
 
                     </div>
+
+                    @endforeach
                     <!-- Item 1 end -->
-                    <div class="item" style="background-image:url(images/news/travel/travel2.jpg)">
+                    {{-- <div class="item" style="background-image:url(images/news/travel/travel2.jpg)">
                         <a class="post-cat ts-orange-bg" href="#">TRAVEL</a>
                         <div class="overlay-post-content">
                             <div class="post-content">
@@ -60,10 +65,10 @@
                             </div>
                         </div>
                         <!--/ Featured post end -->
-                    </div>
+                    </div> --}}
                     <!-- Item 2 end -->
 
-                    <div class="item" style="background-image:url(images/news/travel/travel3.jpg)">
+                    {{-- <div class="item" style="background-image:url(images/news/travel/travel3.jpg)">
                         <a class="post-cat ts-orange-bg" href="#">TRAVEL</a>
                         <div class="overlay-post-content">
                             <div class="post-content">
@@ -88,7 +93,7 @@
                             </div>
                         </div>
                         <!--/ Featured post end -->
-                    </div>
+                    </div> --}}
                     <!-- Item 3 end -->
                 </div>
                 <!-- Featured owl carousel end-->

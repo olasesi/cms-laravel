@@ -14,8 +14,10 @@ class ThemeController extends Controller
     }
 
     public function showtheme(){
-    $showtheme = DB::table('themes')->select('id','theme_name', 'active','primary_color', 'secondary_color', 'tertiary_color','body_color','light_color','dark_color')->get();
+        $showtheme = DB::table('themes')->select('id','theme_name', 'active','primary_color', 'secondary_color', 'tertiary_color','body_color','light_color','dark_color')->get();
 
+    // $showtheme = DB::table('themes')->select('id','theme_name', 'active','primary_color', 'secondary_color', 'tertiary_color','body_color','light_color','dark_color')->paginate(2);
+    
 //query order
     
     return view('admin.showtheme', ['showtheme'=>$showtheme]);

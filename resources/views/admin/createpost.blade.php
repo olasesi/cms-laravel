@@ -50,17 +50,19 @@
                     @foreach($category as $single_category) 
                     
                       
-                    <option {{(old('category') == $single_category->category)?'selected':''}} value="{{$single_category->id}}">{{$single_category->category}}</option>
+                    <option {{(old('category') == $single_category->category)?'selected':''}} value="{{$single_category->category}}">{{$single_category->category}}</option>
                     @endforeach
                   </select>
                   
                 </div>
-                <div class="form-group">
+
+               
+           <div class="form-group">
                   <label for="exampleSelectpublish">Publish</label>
                   <select class="form-control" id="exampleSelectpublish" name="publish_time">
-                     <option value="">Published</option>
-                    <option value="">Pending preview</option>
-                    <option value="">Draft</option>
+                     <option value="Published" {{(old('publish_time') == 'Published')?'selected':''}}>Published</option>
+                    <option value="Pending preview" {{(old('publish_time') == 'Pending preview')?'selected':''}}>Pending preview</option>
+                    <option value="Draft" {{(old('publish_time') == 'Draft')?'selected':''}}>Draft</option>
                   </select>
                   
                  
@@ -74,10 +76,9 @@
               @endif
                 </div>
 
-                <button type="submit" class="btn btn-secondary me-2  mt-4" name="draft">Save as draft</button>
-          <button type="submit" class="btn btn-primary me-2  mt-4" name="save">Update</button>
-          
-              
+               
+          <button type="submit" class="btn btn-primary me-2  mt-4">Create post</button>
+     
             </div>
           </div>
         </div>
@@ -93,23 +94,39 @@
                   <label for="exampleSelectDiscussion">Discussion</label>
                   <select class="form-control" id="exampleSelectDiscussion" name="discussion">
                   
-                    <option>Allow comment</option>
-                    <option>No commenting allowed</option>
+                    <option {{(old('discussion') == 'Allow comment')?'selected':''}}>Allow comment</option>
+                    <option {{(old('discussion') == 'No commenting allowed')?'selected':''}}>No commenting allowed</option>
                   </select>
                 </div>
                 <div class="form-group row">
                   <label for="exampleSelectvisibilty">Visibilty</label>
                   <select class="form-control" id="exampleSelectvisibilty" name="visibility">
                   
-                    <option selected>Public</option>
-                    <option>Private</option>
-                    <option>Password Protected</option>
+                    <option {{(old('visibility') == 'Public')?'selected':''}}>Public</option>
+                    <option {{(old('visibility') == 'Private')?'selected':''}}>Private</option>
+                    <option {{(old('visibility') == 'Password protected')?'selected':''}}>Password protected</option>
                   </select>
                 </div>
                 <div class="form-group row">
                   <label for="exampleInputorder">Order</label>
                   <input value="{{old('order')}}" type="number" min="0" class="form-control" id="exampleInputorder" name="order">
                  
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputvideopath">Youtube video link</label>
+                  <input value="{{old('video_path')}}" type="text" class="form-control" id="exampleInputvideopath" placeholder="Youtube video link" name="video_path">
+                  @if ($errors->has('video_path'))
+                      <span class="errors">{{ $errors->first('path') }}</span>
+                  @endif
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputvideoid">Youtube video ID</label>
+                  <input value="{{old('video_placeholder')}}" type="text" class="form-control" id="exampleInputvideoid" placeholder="Youtube video ID" name="video_placeholder">
+                  @if ($errors->has('video_placeholder'))
+                      <span class="errors">{{ $errors->first('video_placeholder') }}</span>
+                  @endif
                 </div>
                 
                 <div class="row">
@@ -163,14 +180,14 @@
 
 
                 
-                <div class="input-group col-xs-12 mb-3">
+                {{-- <div class="input-group col-xs-12 mb-3">
                   <label for="exampleSelectvideo" >Video</label>
                   <input type="file" name="video" class="file-upload-default" id="exampleSelectvideo">                  <span class="input-group-append">
                     @if ($errors->has('video'))
                 <span class="errors">{{ $errors->first('video') }}</span>
             @endif
                 </div>
-               
+                --}}
               
                
                

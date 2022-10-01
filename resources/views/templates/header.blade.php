@@ -208,7 +208,7 @@
 			<div class="row">
 				<div class="col-lg-2 pr-0">
 					<div class="logo">
-						<a href="/">
+						<a href="{{URL::to('/')}}">
 							<img src="{{asset('storage/'.$website_info[0]->logo_image_path)}}" alt="{{$website_info[0]->website_name}}">
 						</a>
 					</div>
@@ -217,13 +217,13 @@
 				<!-- logo end-->
 				<div class="col-lg-10 header-nav-item">
 					<div class="ts-breaking-news clearfix">
-						@if(count($post) > 0)
+						@if(count($breaking_news) > 0)
 						<h2 class="breaking-title float-left">
 							
 							<i class="fa fa-bolt"></i> Breaking News :</h2>
 							
 						<div class="breaking-news-content owl-carousel float-left" id="breaking_slider">
-							@foreach($post as $single_post)
+							@foreach($breaking_news as $single_post)
 								@if($single_post->breaking_news == 'on')
 								<div class="breaking-post-content">
 									<p>
@@ -269,8 +269,8 @@
 
 							<!-- nav menu start-->
 							<ul class="nav-menu">
-								<li class="active">
-									<a href="/">Home</a>
+								<li class="active"> <!-- Deal with "active"-->
+									<a href="{{URL::to('/')}}">Home</a>
 									
 								</li>
 								
@@ -278,19 +278,10 @@
 									@if(!empty($mainmenu_bar_links[0]->title))
 							
 										
-									<a href="#">{{$mainmenu_bar_links[0]->title}}</a>
+									<a href="{{route('postpage.index')}}">{{$mainmenu_bar_links[0]->title}}</a> 	
 									<div class="megamenu-panel">
 										<div class="megamenu-tabs">
-											<ul class="megamenu-tabs-nav">
-												
-												{{-- @foreach($post_category as $each_post_category)
-												<li class="">
-													<a href="#">{{$each_post_category->category}}</a>
-												</li>
-												@endforeach --}}
-
-													
-											</ul>
+											
 
 											@if($mainmenu_bar_links[0]->content_type == 'Post')
 											<div class="megamenu-tabs-pane active">
@@ -303,14 +294,15 @@
 														<div class="item">
 
 															<div class="ts-post-thumb">
-																<a class="post-cat ts-purple-bg" href="{{--route('category.show.post')--}}">{{$each_post->category}}</a>
-																<a href="{{--route('category.show.post')--}}">
+																<a class="post-cat ts-purple-bg" style="background:{{$each_post->color}};" href="{{route('showsinglecategory', ['id'=>$each_post->category])}}">{{$each_post->category}}</a>
+
+																<a href="{{route('showsinglepost', ['id'=>$each_post->slug])}}">
 																	<img class="img-fluid" src="storage/{{$each_post->image_path}}" alt="{{$each_post->title}}">
 																</a>
 															</div>
 															<div class="post-content">
 																<h3 class="post-title">
-																	<a href="{{--route('category.show.post')--}}">{{$each_post->title}}</a>
+																	<a href="{{route('showsinglepost', ['id'=>$each_post->slug])}}">{{$each_post->title}}</a>
 																</h3>
 															</div>
 														</div>
@@ -330,24 +322,25 @@
 											<div class="megamenu-tabs-pane">
 												<div class="row">
 													
-													@foreach($post as $each_post)
+													@foreach($post_video as $each_post_video)
 													
 													<div class="col-12 col-lg-4">
 														<div class="item">
 
 															<div class="ts-post-thumb">
-																<a class="post-cat ts-yellow-bg" href="{{--route('category.show.post')--}}">{{$each_post->category}}</a>
-																<a href="{{--route('category.show.post')--}}">
-																	<img class="img-fluid" src="storage/{{$each_post->image_path}}" alt="{{$each_post->title}}">
+																<a class="post-cat ts-yellow-bg" style="background:{{$post_video->color}};" href="{{route('showsinglecategory', ['id'=>$post_video->category])}}">{{$each_post_video->category}}</a>
+																<a href="{{route('showsinglepost', ['id'=>$each_post_video->slug])}}">
+																	<img class="img-fluid" src="{{$each_post_video->video_placeholder}}" alt="{{$each_post_video->title}}">
 																</a>
 															</div>
 															<div class="post-content">
 																<h3 class="post-title">
-																	<a href="{{--route('category.show.post')--}}">{{$each_post->title}}</a>
+																	<a href="{{route('showsinglepost', ['id'=>$each_post_video->slug])}}">{{$each_post_video->title}}</a>
 																</h3>
 															</div>
 														</div>
 													</div>
+
 
 													@endforeach
 
@@ -358,93 +351,28 @@
 
 											@elseif($mainmenu_bar_links[0]->content_type == 'Category')
 											
-												@if(!empty($mainmenu_bar_links[4]->title))
-												<a href="{{$mainmenu_bar_links[4]->content_type}}" title="{{$mainmenu_bar_links[4]->title}}">{{$mainmenu_bar_links[4]->title}}</a>
 												<ul class="nav-dropdown">
+													@foreach($post_category as $each_post_category)
+													
 													<li>
-														<a href="#">Category layout</a>
-														<ul class="nav-dropdown">
-															<li>
-																<a href="category-1.html">Category layout 1</a>
-															</li>
-															<li>
-																<a href="category-2.html">Category layout 2 </a>
-															</li>
-															<li>
-																<a href="category-3.html">Category layout 3</a>
-															</li>
-															<li>
-																<a href="category-4.html">Category layout 4</a>
-															</li>
-															<li>
-																<a href="category-5.html">Category layout 5</a>
-															</li>
-															<li>
-																<a href="category-6.html">Category layout 6</a>
-															</li>
-														</ul>
+													
+																<a href="{{route('showsinglecategory', ['id'=>$each_post_category->category])}}">{{$each_post_category->category}}</a>
+														
 													</li>
-													<li>
-														<a href="#">Posts Formate</a>
-														<ul class="nav-dropdown">
-															<li>
-																<a href="single-post-1.html">Single Post 1</a>
-															</li>
-															<li>
-																<a href="single-post-2.html">Single Post 2 </a>
-															</li>
-															<li>
-																<a href="single-post-3.html">Single Post 3 </a>
-															</li>
-															<li>
-																<a href="single-post-4.html">Single Post 4 </a>
-															</li>
-															<li>
-																<a href="single-post-5.html">Single Post 5</a>
-															</li>
-															<li>
-																<a href="single-post-6.html">Single Post 6</a>
-															</li>
-															<li>
-																<a href="single-post-7.html">Single Post 7</a>
-															</li>
-															<li>
-																<a href="single-post-8.html">Single Post 8</a>
-															</li>
-															<li>
-																<a href="single-post-9.html">Single Post 9</a>
-															</li>
-															<li>
-																<a href="single-post-10.html">Single Post 10</a>
-															</li>
-														</ul>
-													</li>
-													<li>
-														<a href="#">Pages</a>
-														<ul class="nav-dropdown">
-															<li>
-																<a href="author.html">Author</a>
-															</li>
-															<li>
-																<a href="contact.html">Contact Us</a>
-															</li>
-															<li>
-																	<a href="login.html">Log In</a>
-															</li>
-															<li>
-																	<a href="registration.html">registration</a>
-															</li>
-															<li>
-																<a href="404.html">404 </a>
-															</li>
-														</ul>
-													</li><!--Pages end-->
+													@endif
+												
 												</ul>
-												@endif
+												
 											
 
-											@elseif($mainmenu_bar_links[0]->content_type == '')
+											@else
 											<!-- mega menu end-->
+
+
+											@foreach($mainmenu_all as $each_mainmenu_all)
+											
+											@if($mainmenu_bar_links[0]->content_type == $each_mainmenu_all)
+											
 											<div class="megamenu-tabs-pane">
 												<div class="row">
 													
@@ -471,6 +399,9 @@
 												</div>
 
 											</div>
+
+											@endif
+										@endforeach
 											@endif
 											<!-- mega menu end-->
 											<div class="megamenu-tabs-pane">
