@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             ThemeSeeder::class,
             TopBarSeeder::class,
             WebsiteInfoSeeder::class,
-            
+            CategorySeeder::class,
 
 
         ]);

@@ -44,6 +44,15 @@
                 @enderror
            
           </div>
+          <div class="form-group">
+            <label for="exampleInputColor">Color</label>
+            <input value="{{old('color')}}" type="color" class="form-control" id="exampleInputColor" placeholder="Select color" name="color">
+            @error('color')
+                    <div class="errors">{{ $message }}</div>
+                @enderror
+           
+          </div>
+          
          
           <button type="submit" class="btn btn-primary me-2">Add category</button>
          

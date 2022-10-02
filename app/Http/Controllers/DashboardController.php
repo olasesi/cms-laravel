@@ -31,10 +31,10 @@ class DashboardController extends Controller
   ]);
 
 
-  DB::table('category_sections')->insertOrIgnore([
-   ['id' => 1,'category' => config('constants.uncategorized_posts')]
+//   DB::table('category_sections')->insertOrIgnore([
+//    ['id' => 1,'category' => config('constants.uncategorized_posts')]
    
-]);
+// ]);
        return view('admin.dashboard');
     }
 

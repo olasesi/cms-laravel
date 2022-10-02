@@ -17,8 +17,9 @@ class CategoryController extends Controller
     public function savecategory(Request $request)
     {
         $request->validate([
-            'category_name' => 'required|min:3|max:20',      //shall I make it unique
-            'rank' => 'nullable|numeric'
+            'category_name' => 'required|min:3|max:20|unique:category_sections',      
+            'rank' => 'nullable|numeric',
+            'color' => 'nullable'
            ]);
             
            $confirmcategory = DB::table('category_sections')->where('category', '=', $request['category_name'])->count();
@@ -26,6 +27,7 @@ class CategoryController extends Controller
             $name = new CategorySection;
             $name->category = $request->category_name;
             $name->rank = $request->rank;
+            $name->color = $request->color;
             $name->save();
            return back()->with('success', '"'.$request->category_name.'" category has been successfully added');
  }else{

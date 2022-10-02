@@ -38,7 +38,7 @@
               
               {{-- @include('admin.includes.posttype') --}}
                   
-              <option value="Post" {{ old('category1') }}>Post</option>
+              <option value="Post" {{ old('category1', $main_menu[0]->content_type) == 'Post' ? 'selected' : '' }}>Post</option>
               <option value="Videos" {{ old('category1', $main_menu[0]->content_type) == 'Videos' ? 'selected' : '' }}>Videos</option>
               <option value="Category" {{ old('category1', $main_menu[0]->content_type) == 'Category' ? 'selected' : '' }}>Category</option>
               <option value="Recent" {{ old('category1', $main_menu[0]->content_type) == 'Recent' ? 'selected' : '' }}>Recent</option>
@@ -83,7 +83,7 @@
             @enderror--}}
               <select class="form-control" id="exampleInput3" name="category3" placeholder="Category 3" >
                
-                <option value="Post" {{ old('category3') }}>Post</option>
+                <option value="Post" {{ old('category3', $main_menu[2]->content_type) == 'Post' ? 'selected' : ''  }}>Post</option>
               <option value="Videos" {{ old('category3', $main_menu[2]->content_type) == 'Videos' ? 'selected' : '' }}>Videos</option>
               <option value="Category" {{ old('category3', $main_menu[2]->content_type) == 'Category' ? 'selected' : '' }}>Category</option>
               <option value="Recent" {{ old('category3', $main_menu[2]->content_type) == 'Recent' ? 'selected' : '' }}>Recent</option>
@@ -123,7 +123,7 @@
             <div class="errors">{{ $message }}</div>
             @enderror--}}
               <select class="form-control" id="exampleInput5" name="category5" placeholder="Title 5" >
-                <option value="Post" {{ old('category5') }}>Post</option>
+                <option value="Post" {{ old('category5', $main_menu[4]->content_type) == 'Post' ? 'selected' : '' }}>Post</option>
               <option value="Videos" {{ old('category5', $main_menu[4]->content_type) == 'Videos' ? 'selected' : '' }}>Videos</option>
               <option value="Category" {{ old('category5', $main_menu[4]->content_type) == 'Category' ? 'selected' : '' }}>Category</option>
               <option value="Recent" {{ old('category5', $main_menu[4]->content_type) == 'Recent' ? 'selected' : '' }}>Recent</option>

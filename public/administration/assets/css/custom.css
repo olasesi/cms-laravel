@@ -12,3 +12,7 @@ color:rgba(241, 54, 54, 0.788);
 font-size:15px;
 
 }
+
+.input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu){
+    margin-right:5px;
+}

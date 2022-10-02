@@ -14,14 +14,16 @@ class Post extends Model
         'slug',
         'excerpt',
         'discussion',
-        'post_category',
+        'category_section_id',
         'body',
         'image',
-        'video',
+        'image_path',
+        'video_path',
+        'video_placeholder',
         'publish_time',
         'visibility',
         'order',
-        'author',
+        'user_id',
         'recent',
         'breaking_news',
         'most_popular',
@@ -30,6 +32,8 @@ class Post extends Model
         'watch_now',
         'trending',
         'more_news',
+        'updated_at',
+        
     ];
 
    
