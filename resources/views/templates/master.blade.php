@@ -59,7 +59,21 @@
 </head>
 
 <body class="body-color">
-    @include('templates.header')
+<!--facebook-->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v15.0&appId=571331564159090&autoLogAppEvents=1" nonce="0xJOAAx1"></script>
+ 
+<!--twitter-->
+<script type="text/javascript">// <![CDATA[
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+    if(!d.getElementById(id)){js=d.createElement(s);js.id=id;
+    js.async=true;
+    js.src="//platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js,fjs);
+    }}(document,"script","twitter-wjs");
+    // ]]></script>
+
+@include('templates.header')
 
     {{-- View::make("templates.header"); --}}
 
@@ -101,6 +115,7 @@
     <script type="text/javascript" src="{{ URL::asset('js/custom.js') }}"></script>
     <script type="text/javascript">
         top_bar_time();
+        footer_year();
     </script>
 </body>
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TopbarController;
 use App\Http\Controllers\SocialmediaController;
+use App\Http\Controllers\SocialLikeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\AdController;
@@ -16,6 +17,8 @@ use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\PostPageController;
 use App\Http\Controllers\PostTypeSingleController;
 use App\Http\Controllers\SinglePostController;
+use App\Http\Controllers\AuthorController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +41,8 @@ Route::get('/posts', [PostPageController::class, 'index'])->name('postpage.index
 Route::get('/show-single-category/{id}', [PostTypeSingleController::class, 'showsinglecategory'])->name('showsinglecategory');
 //Single post
 Route::get('/show-single-post/{id}', [SinglePostController::class, 'showsinglepost'])->name('showsinglepost');
+//Single author
+Route::get('/show-author/{id}', [AuthorController::class, 'showauthor'])->name('showauthor');
 
 
 //Admin
@@ -82,6 +87,11 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
     Route::get('edit-social-media', [SocialmediaController::class, 'editsocialmedia'])->name('admin.editsocialmedia');
     Route::patch('update-social-media', [SocialmediaController::class, 'updatesocialmedia'])->name('admin.updatesocialmedia');
 
+    //Social media likes code
+    Route::get('edit-social-media-likes-code', [SocialLikeController::class, 'editsociallikes'])->name('admin.editsociallikes');
+    Route::patch('update-social-media-likes-code', [SocialLikeController::class, 'updatesociallikes'])->name('admin.updatesociallikes');
+
+
     //Category
     Route::get('create-category', [CategoryController::class, 'createcategory'])->name('admin.createcategory');
     Route::post('create-category', [CategoryController::class, 'savecategory'])->name('admin.savecategory');
@@ -99,7 +109,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
     //Ad
     Route::get('edit-ad', [AdController::class, 'editad'])->name('admin.editad');
     Route::patch('update-ad', [AdController::class, 'updatead'])->name('admin.updatead');
-    
+    // Route::patch('update-ad', [AdController::class, 'updatead2'])->name('admin.updatead2');
+    // Route::patch('update-ad', [AdController::class, 'updatead2'])->name('admin.updatead3');
+    // Route::patch('update-ad', [AdController::class, 'updatead2'])->name('admin.updatead4');
+
     //Website info
     Route::get('edit-website-info', [WebsiteInfoController::class, 'editwebsiteinfo'])->name('admin.editwebsiteinfo');
     Route::patch('update-website-info', [WebsiteInfoController::class, 'updatewebsiteinfo'])->name('admin.updatewebsiteinfo');

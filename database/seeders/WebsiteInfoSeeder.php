@@ -17,8 +17,9 @@ class WebsiteInfoSeeder extends Seeder
     {
         DB::table('website_info')->insert([
             'id' => 1,
-           'website_name'=>'Website name',
-           'logo_image_path'=>'/images/logo/default.jpg',
+           'website_name'=>'News',
+           'logo_name'=>'logo.jpg',
+           'logo_image_path'=>'/images/logo/logo.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);

@@ -75,18 +75,57 @@ class AdminLoginController extends Controller
         //Not finished done
         $validatedData = $request->validate([
             'name' => 'required|max:30|min:3',
-             'username' => 'required|unique:users|min:3|max:30|regex:/^[A-Z0-9_-]$/i',
+             'username' => array('required', 'unique:users', 'min:3', 'max:30', 'regex:/^[A-Z0-9_-]{3,30}$/i'),
              'email' => 'required|email|unique:users',
              'password'=> 'required|min:6|confirmed',
-            
-             'role'=> 'required'
+             'role'=> 'required',
+             'facebook'=>'nullable|url',
+             'twitter' =>'nullable|url',
+             'google_plus' =>'nullable|url',
+             'linkedin' =>'nullable|url',
+             'bio' => 'nullable|min:3',
+             'image' => 'nullable|mimes:jpeg,jpg,png|max:2048',
         ]
     );
     
-      $validatedData['password'] = bcrypt($validatedData['password']);
-        User::create($validatedData);
-      
-          return redirect("/admin/users")->withSuccess('User has been successfully created');
+   
+      //$validatedData['password'] = bcrypt($validatedData['password']);
+       $user_create = User::create([
+        'name' => $request->name,
+        'username' => $request->username,
+        'email' => $request->email,
+        'password' => bcrypt($request->password),
+        'role' => $request->role,
+        'facebook' => $request->facebook,
+        'twitter' => $request->twitter,
+        'google_plus' => $request->google_plus,
+        'linkedin' => $request->linkedin,
+        'bio' => $request->bio,
+        'user_image' => $request->image,
+        
+        
+        ]);
+
+        if ($request->file('image')){
+            $file_name = time().'_'.$request->image->getClientOriginalName();
+            $file_path = $request->file('image')->storeAs('images/users', $file_name, 'public');
+        
+            $user_create->update([
+                'user_image' => $file_name,
+                'user_image_path' => $file_path      //Get file path fixed
+            ]);
+        }else{
+    
+            $user_create->update([
+                'user_image' => 'user_avatar.png',
+                'user_image_path' => 'images/logo/user_avatar.png',     
+            ]);
+        }
+
+
+        
+        return back()->with('success', 'User has been successfully created');
+         
         
     }
 

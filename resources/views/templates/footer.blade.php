@@ -158,13 +158,11 @@
                     </ul>
                 </div>
                 <div class="copyright-text text-center">
-                    <script>
-                       footer_year();
-                    </script>
                     <p>&copy; 
                         <span id="footer-year">
-                            
-                        <span>, Vinazine. All rights reserved</p>
+                        </span>, 
+                        {{$website_info[0]->website_name}} .All rights reserved
+                    </p>
                 </div>
             </div><!-- col end -->
         </div><!-- row end -->

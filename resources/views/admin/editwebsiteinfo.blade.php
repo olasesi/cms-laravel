@@ -38,7 +38,7 @@
             <div class="col-md-6 col-xl-4 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Website Logo (970x90)</h4>
+                  <p class="card-title">Website Logo (175px x 115px)</p>
                   
                     <div class="item">
                       <img src="{{asset('storage/'.$website_info[0]->logo_image_path)}}" alt="{{$website_info[0]->website_name}}">
@@ -80,14 +80,14 @@
           </div>
        
           <div class="input-group col-xs-12">
-            <label for="exampleSelectimage" >Change Website logo</label>
+            <label for="exampleSelectimage" >Change logo</label>
           <input type="file" name="website_logo" class="file-upload-default" id="exampleSelectimage">
           @error('website_logo')
           <div class="errors">{{ $message }}</div>
           @enderror
         </div>
 
-          <button type="submit" class="btn btn-primary me-2">Update website info</button>
+          <button type="submit" class="btn btn-primary me-2 mt-4">Update website info</button>
          
         </form>
       </div>

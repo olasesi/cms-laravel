@@ -1,11 +1,15 @@
-require('./bootstrap');
-import Editor from '@toast-ui/editor'
-import 'codemirror/lib/codemirror.css';
-import '@toast-ui/editor/dist/toastui-editor.css';
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes React and other helpers. It's a great starting point while
+ * building robust, powerful web applications using React + Laravel.
+ */
 
-const editor = new Editor({
-  el: document.querySelector('#editor'),
-  height: '400px',
-  initialEditType: 'markdown',
-  placeholder: 'Write something cool!',
-})
+require('./bootstrap');
+
+/**
+ * Next, we will create a fresh React component instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
+require('./components/Example');

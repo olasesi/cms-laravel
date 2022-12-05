@@ -35,7 +35,7 @@ class PostController extends Controller
             'category' => 'required',
             'publish_time'=> 'required',
             'body'=> 'nullable',          
-            'image'=> 'nullable|mimes:jpeg,png|max:2048',
+            'image'=> 'nullable|mimes:jpeg,,jpg,png|max:2048',
             'recent' => 'nullable',
             'visibility'=> 'required',
             'order'=> 'nullable|numeric',
@@ -85,7 +85,7 @@ class PostController extends Controller
        
     if ($request->file('image')){
         $file_name = time().'_'.$request->image->getClientOriginalName();
-        $file_path = $request->file('image')->storeAs('image/posts/'.$request->category, $file_name, 'public');
+        $file_path = $request->file('image')->storeAs('images/posts/'.$request->category, $file_name, 'public');
     
         $post->update([
             'image' => $file_name,
