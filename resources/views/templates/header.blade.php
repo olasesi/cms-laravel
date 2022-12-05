@@ -1,15 +1,4 @@
-	<!-- <div id="preloader">
-		<div class="spinner">
-			<div class="double-bounce1"></div>
-			<div class="double-bounce2"></div>
-		</div>
-		<div class="preloader-cancel-btn-wraper">
-			<a href="#" class="btn btn-primary preloader-cancel-btn">Cancel Preloader</a>
-		</div>
-	</div> -->
-
-	<!-- top bar start -->
-
+	
 	@php 
 	use Carbon\Carbon;
 	@endphp
@@ -32,22 +21,6 @@
 
 					</div>
 
-					<ul class="ts-top-nav">
-					
-						<li>
-							
-						</li>
-						<li>
-							
-						</li>
-						<li>
-							
-						</li>
-						<li>
-								
-						</li>
-					</ul>
-
 				</div>
 				<!-- end col-->
 
@@ -57,8 +30,6 @@
 
 						</li>
 						<li class="ts-date">
-						
-							
 						</li>
 					</ul>
 				</div>
@@ -115,9 +86,11 @@
 								{{$top_bar_links[3]->title}}
 							</a>
 					@endif	
+
+					
+
 						</li>
 					</ul>
-
 				</div>
 				<!-- end col-->
 
@@ -188,7 +161,7 @@
 						@if(($ad_banner[0]->image != NULL &&  $ad_banner[0]->end_date >= Carbon::now()->toDateString()))
 						
 						<a href="{{$ad_banner[0]->image_url}}">
-							{{-- <img class="img-fluid" src="{{asset('storage/ads/'.$ad_banner[0]->image)}}" alt="{{$ad_banner[0]->banner_name}}" title="{{$ad_banner[0]->banner_name}}"> --}}
+							
 							<img class="img-fluid" src="{{asset('storage/'.$ad_banner[0]->image_path)}}" alt="{{$ad_banner[0]->banner_name}}" title="{{$ad_banner[0]->banner_name}}">
 						</a>
 						@endif
@@ -227,7 +200,7 @@
 								@if($single_post->breaking_news == 'on')
 								<div class="breaking-post-content">
 									<p>
-										<a href="#">{{$single_post->excerpt}}</a>
+										<a href="{{route('showsinglepost', ['id'=>$single_post->slug])}}">{{$single_post->excerpt}}</a>
 									</p>
 								</div>
 								@endif
@@ -275,10 +248,11 @@
 								</li>
 								
 								<li>
+								
 									@if(!empty($mainmenu_bar_links[0]->title))
 							
 										
-									<a href="{{route('postpage.index')}}">{{$mainmenu_bar_links[0]->title}}</a> 	
+									<a href="#">{{$mainmenu_bar_links[0]->title}}</a> 	
 									<div class="megamenu-panel">
 										<div class="megamenu-tabs">
 											
@@ -314,10 +288,10 @@
 
 											</div>
 
-											@elseif($mainmenu_bar_links[0]->content_type == 'Videos')
-
-
-
+											@elseif($mainmenu_bar_links[0]->content_type == 'Video')
+											
+											
+											
 											<!-- mega menu end-->
 											<div class="megamenu-tabs-pane">
 												<div class="row">
@@ -328,7 +302,7 @@
 														<div class="item">
 
 															<div class="ts-post-thumb">
-																<a class="post-cat ts-yellow-bg" style="background:{{$post_video->color}};" href="{{route('showsinglecategory', ['id'=>$post_video->category])}}">{{$each_post_video->category}}</a>
+																<a class="post-cat ts-yellow-bg" style="background:{{$each_post_video->color}};" href="{{route('showsinglecategory', ['id'=>$each_post_video->category])}}">{{$each_post_video->category}}</a>
 																<a href="{{route('showsinglepost', ['id'=>$each_post_video->slug])}}">
 																	<img class="img-fluid" src="{{$each_post_video->video_placeholder}}" alt="{{$each_post_video->title}}">
 																</a>
@@ -348,7 +322,7 @@
 												</div>
 
 											</div>
-
+											
 											@elseif($mainmenu_bar_links[0]->content_type == 'Category')
 											
 												<ul class="nav-dropdown">
@@ -359,42 +333,41 @@
 																<a href="{{route('showsinglecategory', ['id'=>$each_post_category->category])}}">{{$each_post_category->category}}</a>
 														
 													</li>
-													@endif
+													@endforeach
 												
 												</ul>
 												
 											
 
 											@else
-											<!-- mega menu end-->
-
+											<!-- Other type of category-->
 
 											@foreach($mainmenu_all as $each_mainmenu_all)
 											
-											@if($mainmenu_bar_links[0]->content_type == $each_mainmenu_all)
+									@if($mainmenu_bar_links[0]->content_type == $each_mainmenu_all->content_type)
 											
 											<div class="megamenu-tabs-pane">
 												<div class="row">
 													
-													@foreach($post as $each_post)
+													{{-- @foreach($post as $each_post)
 													<div class="col-12 col-lg-4">
 														<div class="item">
 
 															<div class="ts-post-thumb">
-																<a class="post-cat ts-pink-bg" href="{{--route('category.show.post')--}}">{{$each_post->category}}</a>
-																<a href="{{--route('category.show.post')--}}">
+																<a class="post-cat ts-pink-bg" href="">{{$each_post->category}}</a>
+																<a href="">
 																	<img class="img-fluid" src="storage/{{$each_post->image_path}}" alt="{{$each_post->title}}">
 																</a>
 															</div>
 															<div class="post-content">
 																<h3 class="post-title">
-																	<a href="{{--route('category.show.post')--}}">{{$each_post->title}}</a>
+																	<a href="">{{$each_post->title}}</a>
 																</h3>
 															</div>
 														</div>
 													</div>
 
-													@endforeach
+													@endforeach --}}
 													
 												</div>
 
@@ -404,7 +377,7 @@
 										@endforeach
 											@endif
 											<!-- mega menu end-->
-											<div class="megamenu-tabs-pane">
+											{{-- <div class="megamenu-tabs-pane">
 												<div class="row">
 													<div class="col-12 col-lg-4">
 														<div class="item">
@@ -457,7 +430,7 @@
 
 												</div>
 
-											</div>
+											</div> --}}
 											<!-- mega menu end-->
 
 										</div>

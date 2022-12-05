@@ -129,8 +129,8 @@
         </a>
         <div class="collapse" id="auth">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="/admin/users"> Users </a></li>
-            <li class="nav-item"> <a class="nav-link" href="/admin/"> Add users </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.show')}}"> Users </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.create')}}"> Add users </a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
@@ -154,6 +154,7 @@
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.editwebsiteinfo')}}"> Website info </a></li>
 
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.editsocialmedia')}}"> Social media </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.editsociallikes')}}"> Social media likes code</a></li>
             <li class="nav-item"> <a class="nav-link" href="">OpenWeather settings </a></li>
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.editad')}}">Advertisement </a></li>
           </ul>

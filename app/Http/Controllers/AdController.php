@@ -10,17 +10,9 @@ class AdController extends Controller
 {
       public function editad(){
        
- 
-        //$item = CategorySection::findOrFail($id);
-        // $users = DB::table('users')
-        //         ->whereColumn('updated_at', '>', 'created_at')
-        //         ->get();
-
         $ad_banners = DB::table('ads')->select('end_date', 'banner_name', 'image', 'image_path', 'image_url')->get();
         return view('admin.editad', ['ad_banner'=>$ad_banners]);
-        
-        
-       
+      
     } 
 
     public function updatead(Request $request){
@@ -38,9 +30,9 @@ class AdController extends Controller
     
     
      if ($request->file('image_1_banner')){
-       // dd('public/storage/'.$select_for_delete);
+       
         if(File::exists('public/storage/'.$select_for_delete)) {
-            dd('select_for_delete');
+            
             File::delete($select_for_delete);
      }
 

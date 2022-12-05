@@ -48,12 +48,12 @@
                                                 <span class="ps-2">{{ $showtheme_each->theme_name }}</span>
                                             </td>
                                             <td> {{ $showtheme_each->active == 1 ? 'Active' : '' }} </td>
-                                            <td> <input type="color" value="{{$showtheme_each->primary_color }}"></td>
-                                            <td><input type="color" value="{{$showtheme_each->secondary_color}}"></td>
-                                            <td><input type="color" value="{{$showtheme_each->tertiary_color }}"></td>
-                                            <td><input type="color" value="{{$showtheme_each->body_color }}"></td>
-                                            <td><input type="color" value="{{$showtheme_each->light_color}}"></td>
-                                            <td><input type="color" value="{{$showtheme_each->dark_color}}"></td>
+                                            <td> <input type="color" value="{{$showtheme_each->primary_color }}" disabled></td>
+                                            <td><input type="color" value="{{$showtheme_each->secondary_color}}" disabled></td>
+                                            <td><input type="color" value="{{$showtheme_each->tertiary_color }}" disabled></td>
+                                            <td><input type="color" value="{{$showtheme_each->body_color }}" disabled></td>
+                                            <td><input type="color" value="{{$showtheme_each->light_color}}" disabled></td>
+                                            <td><input type="color" value="{{$showtheme_each->dark_color}}" disabled></td>
 
 
                                             @if (Auth::user()->role == 'super admin')

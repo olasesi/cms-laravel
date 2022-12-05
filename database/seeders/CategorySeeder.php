@@ -43,6 +43,60 @@ class CategorySeeder extends Seeder
        'created_at' => Carbon::now(),
        'updated_at' => Carbon::now()
     
-        ]]);
+        ],
+    
+        [
+        'id' => '4',
+        'category' => 'Travel',
+        'color' => '#005575',
+        'rank' => null,
+       'created_at' => Carbon::now(),
+       'updated_at' => Carbon::now()
+    
+        ],
+
+        
+        [
+            'id' => '5',
+            'category' => 'Music',
+            'color' => '#00a57c',
+            'rank' => null,
+           'created_at' => Carbon::now(),
+           'updated_at' => Carbon::now()
+        
+            ],
+
+        
+        [
+                'id' => '6',
+                'category' => 'Sports',
+                'color' => '#bba700',
+                'rank' => null,
+               'created_at' => Carbon::now(),
+               'updated_at' => Carbon::now()
+            
+        ],
+
+        
+        [
+            'id' => '7',
+            'category' => 'Technology',
+            'color' => '#c31f1f',
+            'rank' => null,
+           'created_at' => Carbon::now(),
+           'updated_at' => Carbon::now()
+        
+            ],
+[
+            'id' => '8',
+            'category' => 'Food',
+            'color' => '#23c31f',
+            'rank' => null,
+           'created_at' => Carbon::now(),
+           'updated_at' => Carbon::now()
+        
+            ],
+    
+    ]);
     }
 }

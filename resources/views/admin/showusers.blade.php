@@ -9,7 +9,7 @@
         <div class="card-body">
           <h4 class="card-title">Users</h4>
 
-          <a href="/admin/add-user" class="btn btn-success btn-fw"><i class="mdi mdi-account-plus btn-icon-prepend"></i>Add new user</a>
+          <a href="{{route('admin.create')}}" class="btn btn-success btn-fw"><i class="mdi mdi-account-plus btn-icon-prepend"></i>Add new user</a>
           <div class="table-responsive">
             <table class="table">
               <thead>
@@ -29,8 +29,11 @@
                 <tr>
                   
                   <td>
-                   
+                    <a href="{{ route('showauthor', ['id' => $admin->id]) }}" style="text-decoration:none;">
+                    <img src="storage/{{$admin->user_image_path}}" alt="{{$admin->name}}" />
+                    
                     <span class="ps-2">{{$admin->name}}</span>
+                    </a>
                   </td>
                   <td> {{$admin->username}} </td>
                   <td> {{$admin->role}} </td>
@@ -40,7 +43,7 @@
                   
                   
                   <td>
-                    <form action="{{ route('admin.edit-user', ['id' => $admin->id]) }}" method="POST">
+                    <form action="{{ route('admin.edit', ['id' => $admin->id]) }}" method="POST">
                     @csrf
                    
                 <button type="submit" class="btn btn-info btn-md">Edit</button>
@@ -51,7 +54,7 @@
                    
                      @if($admin->active == 1)
                     <td>
-                        <form action="{{ route('admin.ban-user', ['id' => $admin->id]) }}" method="POST">
+                        <form action="{{ route('admin.ban', ['id' => $admin->id]) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <input name="active" value="{{$admin->active}}" type="hidden"/>
@@ -74,7 +77,7 @@
                     <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuSizeButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Delete </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
                       <h6 class="dropdown-header">Delete user?</h6>
-                      <form action="/admin/delete-user/{{$admin->id}}" method="POST">
+                      <form action="{{route('admin.delete', ['id' => $admin->id]) }}" method="POST">
                         @csrf
 
                         <button type="submit" class="btn btn-danger btn-md" name="delete">delete</button>

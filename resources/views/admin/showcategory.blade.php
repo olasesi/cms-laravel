@@ -16,7 +16,10 @@
                 <tr>
                  
                   <th> Category Name </th>
+                  <th> Color </th>
                   <th> Rank </th>
+                  <th> Edit </th>
+                  <th> Delete </th>
                 </tr>
               </thead>
               <tbody>
@@ -25,8 +28,11 @@
                   <td>
                    <span class="ps-2">{{$single_item->category}}</span>
                   </td>
+                 <td>
+                  <input type="color" value="{{$single_item->color }}" disabled>
+                 </td>
                   <td>
-                    <span class="ps-2">{{$single_item->rank}}</span>
+                    <span class="ps-2">{{($single_item->rank == null)?'0':$single_item->rank}}</span>
                    </td>
                 @if($single_item->category != 'Uncategorized')
                   <td>

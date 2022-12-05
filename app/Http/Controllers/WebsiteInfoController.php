@@ -23,25 +23,31 @@ class WebsiteInfoController extends Controller
          ]
      );
      
-     $select_for_delete = DB::table('website_info')->select('logo_image_path')->where('id', '1')->get();
-
+     //current website info
+     $select_for_delete = DB::table('website_info')->where('id', '1')->value('logo_name');
+    
+     //update website info
      DB::table('website_info')->where('id', '1')->update(['website_name' => $request->get('website_name')]);
 
      if ($request->file('website_logo')){
-        $file_name = time().'_'.$request->website_logo->getClientOriginalName();
-        $file_path = $request->file('website_logo')->storeAs('images/logo', $file_name, 'public');
-    
+           
 
-        DB::table('website_info')->where('id', 1)->update(['logo_name' => $file_name]);
-        DB::table('website_info')->where('id', 1)->update(['logo_image_path' => $file_path]);
-    }
-   
-    $destinationPath = public_path('/images/'.$select_for_delete);
-    //dd($destinationPath); 
- if(File::exists('public/storage/'.$destinationPath)) {
-    File::delete($destinationPath);
- }
+ $file_name = time().'_'.$request->website_logo->getClientOriginalName();
+ $file_path = $request->file('website_logo')->storeAs('images/logo', $file_name, 'public');
     
+ DB::table('website_info')->where('id', 1)->update(['logo_name' => $file_name]);
+ DB::table('website_info')->where('id', 1)->update(['logo_image_path' => $file_path]);
+    
+        //$image_name = public_path('images/logo/'.$select_for_delete);
+        //unlink('images/logo/'.$select_for_delete);
+        //File::delete($image_name);
+        //Image::where("id", $image->id)->delete();
+   
+  if(File::exists('images/logo/'.$select_for_delete)) {
+      
+     //File::delete($image_name);
+  }
+}  
 
     return back()->with('success', 'Website info has now been updated');
        
