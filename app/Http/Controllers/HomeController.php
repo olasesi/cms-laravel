@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 //use App\Models\Menu;
 //use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-
+use Torann\GeoIP\Facades\GeoIP;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Config;
 
 class HomeController extends Controller
 {
@@ -54,9 +55,13 @@ class HomeController extends Controller
         $more_news = DB::table('posts')->join('category_sections', 'category_sections.category', '=', 'posts.category_section_id')->join('users', 'users.id', '=', 'posts.user_id')->where([['category', '!=', 'Uncategorized'], ['visibility', '=', 'Public'], ['publish_time', '=', 'Published'], ['more_news', '=', 'on']])->take(6)->orderBy('order', 'desc')->orderBy('posts.id', 'desc')->get();
 
 
-        // $open_weathers = DB::table('open_weathers')->select('api_key', 'latitude', 'longitude', 'language')->get();
-        // $weather = Http::get("https://api.openweathermap.org/data/2.5/weather?lat=" . $open_weathers[0]->latitude . "&lon=" . $open_weathers[0]->longitude . "&appid=" . $open_weathers[0]->api_key)->json();
+       //$ipaddress = GeoIP::getLocation($ip = null);   //This will give out currect IP address
+       $key = Config::get('services.openweather.key');
+       $ip_address = (geoip()->getLocation('105.112.188.236'));
 
-        return view('welcome', ['social_media_links' => $social_media_links, 'top_bar_links' => $top_bar_links, 'mainmenu_bar_links' => $mainmenu_bar_links, 'post_category' => $post_category, 'ad_banner' => $ad_banner, 'website_info' => $website_info, 'quick_links' => $quick_links, 'breaking_news' => $breaking_news, 'post' => $post, 'post_video' => $post_video, 'mainmenu_all' => $mainmenu_all, 'body_post_slider' => $body_post_slider, 'two_side_post' => $two_side_post, 'sidebar_recent' => $sidebar_recent, 'sidebar_favourites' => $sidebar_favourites, 'most_popular' => $most_popular, 'hot_topics' => $hot_topics, 'watch_now' => $watch_now, 'random_news' => $random_news, 'trending' => $trending, 'watch_now_side'=>$watch_now_side,  'hot_topics_sidebar'=>$hot_topics_sidebar, 'more_news'=>$more_news]);
+    $weather = Http::get("https://api.openweathermap.org/data/2.5/weather?lat=".$ip_address->lat."&lon=".$ip_address->lon."&appid=".$key."&units=metric")->json();
+
+
+        return view('welcome', ['social_media_links' => $social_media_links, 'top_bar_links' => $top_bar_links, 'mainmenu_bar_links' => $mainmenu_bar_links, 'post_category' => $post_category, 'ad_banner' => $ad_banner, 'website_info' => $website_info, 'quick_links' => $quick_links, 'breaking_news' => $breaking_news, 'post' => $post, 'post_video' => $post_video, 'mainmenu_all' => $mainmenu_all, 'body_post_slider' => $body_post_slider, 'two_side_post' => $two_side_post, 'sidebar_recent' => $sidebar_recent, 'sidebar_favourites' => $sidebar_favourites, 'most_popular' => $most_popular, 'hot_topics' => $hot_topics, 'watch_now' => $watch_now, 'random_news' => $random_news, 'trending' => $trending, 'watch_now_side'=>$watch_now_side,  'hot_topics_sidebar'=>$hot_topics_sidebar, 'more_news'=>$more_news, 'weather'=>$weather]);
     }
 }

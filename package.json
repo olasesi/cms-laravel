@@ -24,6 +24,7 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
-        "@toast-ui/editor": "^3.2.0"
+        "@toast-ui/editor": "^3.2.0",
+        "sweetalert2": "^11.6.15"
     }
 }
