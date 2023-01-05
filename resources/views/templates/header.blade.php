@@ -48,12 +48,16 @@
 			<div class="row">
 				<div class="col-lg-6 align-self-center md-center-item">
 					<div class="ts-temperature">
-						<i class="icon-weather"></i>
+						{{$weather['weather'][0]['main']}}
+						@php
+						$weather_icon = $weather['weather'][0]['icon'];
+						@endphp
+						<i class=""><img src="http://openweathermap.org/img/wn/{{$weather_icon}}.png"/></i>
 						{{-- {{$weather}} --}}
-						<span>25.8
+						<span>{{$weather['main']['temp']}}
 							<b>c</b>
 						</span>
-						<span>Dubai</span>
+						<span>{{$weather['name']}}</span>
 
 					</div>
 

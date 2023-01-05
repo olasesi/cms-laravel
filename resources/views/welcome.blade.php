@@ -5,6 +5,7 @@
 @endphp
 
 <!-- block post area start-->
+<div id="example"></div>
 <section class="block-wrapper mt-15">
     <div class="container">
         <div class="row">
