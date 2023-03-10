@@ -20,6 +20,8 @@
     <link rel="shortcut icon" href="{{asset('administration/assets/images/favicon.png')}}" />
     
    
+
+    
   </head>
   <body>
     <div class="container-scroller">
