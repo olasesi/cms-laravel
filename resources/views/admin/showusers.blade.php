@@ -14,7 +14,7 @@
             <table class="table">
               <thead>
                 <tr>
-                 
+                 <td>S/N</td>
                   <th> Name </th>
                   <th> Username </th>
                   <th> Role </th>
@@ -27,28 +27,37 @@
               <tbody>
                 @foreach($user as $admin)
                 <tr>
-                  
+                  <td>
+                  {{$loop->iteration}}
+                  </td>
                   <td>
                     <a href="{{ route('showauthor', ['id' => $admin->id]) }}" style="text-decoration:none;">
                     <img src="storage/{{$admin->user_image_path}}" alt="{{$admin->name}}" />
                     
                     <span class="ps-2">{{$admin->name}}</span>
                     </a>
+                    <div class="mt-3">   
+                      <form action="{{ route('admin.edit', ['id' => $admin->id]) }}" method="POST">
+                      @csrf
+                     
+                  <button type="submit" class="btn btn-outline-primary btn-sm">Edit</button>
+                      </form>
+              </div>
                   </td>
-                  <td> {{$admin->username}} </td>
+                  <td> 
+                   
+                      
+                    {{$admin->username}} 
+                      
+                     
+                  </td>
                   <td> {{$admin->role}} </td>
                   <td> {{$admin->active == 1?'Active':'Inactive'}} </td>
                   <td> {{$admin->email}} </td>
                  
                   
                   
-                  <td>
-                    <form action="{{ route('admin.edit', ['id' => $admin->id]) }}" method="POST">
-                    @csrf
-                   
-                <button type="submit" class="btn btn-info btn-md">Edit</button>
-                    </form>
-            </td>  
+                 
 
                     @if($admin->role != 'super admin')
                    
@@ -58,7 +67,7 @@
                         @csrf
                         @method('PUT')
                         <input name="active" value="{{$admin->active}}" type="hidden"/>
-                    <button type="submit" class="btn btn-warning btn-md">Ban</button>
+                    <button type="submit" class="btn btn-light btn-sm">Ban</button>
                         </form>
                 </td>  
                    @else
@@ -67,7 +76,7 @@
                     @csrf
                     
                     <input name="/admin/unban" value="" type="hidden"/>
-                <button type="submit" class="btn btn-warning btn-md">Unban</button>
+                <button type="submit" class="btn btn-warning btn-sm">Unban</button>
                     </form>
             </td>  
                    @endif 
@@ -80,7 +89,7 @@
                       <form action="{{route('admin.delete', ['id' => $admin->id]) }}" method="POST">
                         @csrf
 
-                        <button type="submit" class="btn btn-danger btn-md" name="delete">delete</button>
+                        <button type="submit" class="btn btn-danger btn-sm" name="delete">delete</button>
                       
                       </form>
                     </div>

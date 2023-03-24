@@ -1,66 +1,71 @@
 @extends('admin.templates.master')
 @section('content')
+    <div class="main-panel">
+        <div class="row ">
 
-<div class="main-panel">
-    <div class="row ">
+            @if (Session::has('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                    @php
+                        Session::forget('success');
+                    @endphp
+                </div>
+            @endif
 
-        @if(Session::has('success'))
-        <div class="alert alert-success">
-            {{ Session::get('success') }}
-            @php
-                Session::forget('success');
-            @endphp
-        </div>
-        @endif
+            
+
+            <div class="col-md-8 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Create post</h4>
+                        <p class="card-description"> </p>
 
 
-
-        <div class="col-md-6 grid-margin stretch-card">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Create post</h4>
-              <p class="card-description">  </p>
-              <form class="forms-sample" method="POST" action="{{route('admin.savepost')}}" enctype="multipart/form-data">
-                @csrf
+                      
+                      <form class="forms-sample" method="POST" action="{{route('admin.savepost')}}" enctype="multipart/form-data">
+                            @csrf
 
                 <div class="form-group">
-                  <label for="exampleInputName1">Post title</label>
-                  <input value="{{old('title')}}" type="text" class="form-control" id="exampleInputName1" placeholder="Post title" name="title">
+                  <label for="exampleInputName1">Post title *</label>
+             
+                  <input value="{{old('title')}}" type="text" class="form-control" id="exampleInputName1" placeholder="Post title" name="title" required="required"> 
+                  
+
                   @if ($errors->has('title'))
                       <span class="errors">{{ $errors->first('title') }}</span>
                   @endif
                 </div>
                 <div class="form-group">
-                  <label for="exampleExcerpt">Excerpt/breaking news (optional)</label>
-                  <textarea value="" class="form-control" id="exampleExcerpt" rows="4" name="excerpt" placeholder="Excerpt">{{(old('excerpt'))?old('excerpt'):''}}</textarea>
+                  <label for="exampleExcerpt">Summary/Breaking news (optional)</label>
+                  <input value="{{(old('excerpt'))}}" type="text" class="form-control" id="exampleExcerpt" name="excerpt" placeholder="Summary">
                   @if ($errors->has('excerpt'))
                   <span class="errors">{{ $errors->first('excerpt') }}</span>
-              @endif
+                @endif
                 </div>
-                <div class="form-group">
-                  <label for="exampleTextarea1">Body</label>
-                  <textarea  class="form-control" id="exampleTextarea1" rows="4" name="body" placeholder="body">{{(old('body'))?old('body'):''}}</textarea>
-                  @if ($errors->has('body'))
-                  <span class="errors">{{ $errors->first('body') }}</span>
-              @endif
-                </div>
+             
                 <div class="form-group">
                   <label for="exampleSelectGender">Category</label>
                   <select class="form-control" id="exampleSelectGender" name="category">
-                    @foreach($category as $single_category) 
-                    
-                      
+                    @foreach ($category as $single_category) 
                     <option {{(old('category') == $single_category->category)?'selected':''}} value="{{$single_category->category}}">{{$single_category->category}}</option>
                     @endforeach
                   </select>
                   
                 </div>
 
+                <div class="form-group">
+                  <label for="exampleTextarea1">Body</label>
+                <textarea name="body" id="editor" class="editor">{{(old('body'))?old('body'):''}}</textarea>
+                </div>
                
-           <div class="form-group">
+
+               
+
+               
+                <div class="form-group">
                   <label for="exampleSelectpublish">Publish</label>
                   <select class="form-control" id="exampleSelectpublish" name="publish_time">
-                     <option value="Published" {{(old('publish_time') == 'Published')?'selected':''}}>Published</option>
+                     <option value="Published" {{(old('publish_time') == 'Published')?'selected':''}}>Publish</option>
                     <option value="Pending preview" {{(old('publish_time') == 'Pending preview')?'selected':''}}>Pending preview</option>
                     <option value="Draft" {{(old('publish_time') == 'Draft')?'selected':''}}>Draft</option>
                   </select>
@@ -68,23 +73,26 @@
                  
                 </div>
 
+                <div class="form-group">
+                  <label for="exampleSelectimage" >Featured Image</label>
+                </div>
                   <div class="input-group col-xs-12">
-                    <label for="exampleSelectimage" >Featured Image</label>
+                    
                   <input type="file" name="image" class="file-upload-default" id="exampleSelectimage">
                    @if ($errors->has('image'))
                   <span class="errors">{{ $errors->first('image') }}</span>
-              @endif
+                   @endif
                 </div>
-
+              
                
-          <button type="submit" class="btn btn-primary me-2  mt-4">Create post</button>
+                <button type="submit" class="btn btn-primary me-2  mt-4">Create post</button>
      
             </div>
           </div>
         </div>
 
 
-        <div class="col-md-6 grid-margin stretch-card">
+        <div class="col-md-4 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">Additional options</h4>
@@ -110,14 +118,16 @@
                 <div class="form-group row">
                   <label for="exampleInputorder">Order</label>
                   <input value="{{old('order')}}" type="number" min="0" class="form-control" id="exampleInputorder" name="order">
-                 
+                  @if ($errors->has('order'))
+                  <span class="errors">{{ $errors->first('order') }}</span>
+              @endif
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputvideopath">Youtube video link</label>
                   <input value="{{old('video_path')}}" type="text" class="form-control" id="exampleInputvideopath" placeholder="Youtube video link" name="video_path">
                   @if ($errors->has('video_path'))
-                      <span class="errors">{{ $errors->first('path') }}</span>
+                      <span class="errors">{{ $errors->first('video_path') }}</span>
                   @endif
                 </div>
 
@@ -178,30 +188,25 @@
 
 
 
-
-                
-                {{-- <div class="input-group col-xs-12 mb-3">
-                  <label for="exampleSelectvideo" >Video</label>
-                  <input type="file" name="video" class="file-upload-default" id="exampleSelectvideo">                  <span class="input-group-append">
-                    @if ($errors->has('video'))
-                <span class="errors">{{ $errors->first('video') }}</span>
-            @endif
-                </div>
-                --}}
-              
-               
-               
+                <script>
+                  ClassicEditor
+                      .create( document.querySelector( '#editor' ) )
+                      .catch( error => {
+                          console.error( error );
+                      } );
+              </script>
               </form>
+                    </div>
+                </div>
             </div>
-          </div>
+
+
+
+
+
         </div>
-
-
-
-
-
-</div>
-
-  @endsection
-<!-- partial -->
-</div>
+      
+  
+    @endsection
+    <!-- partial -->
+  </div>

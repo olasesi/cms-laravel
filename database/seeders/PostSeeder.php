@@ -20,7 +20,7 @@ class PostSeeder extends Seeder
             'id' => 1,
            'title' => 'Netcix cuts out the chill with an integrated personal trainer on running.',
             'slug' => Str::slug('Netcix cuts out the chill with an integrated personal trainer on running.'),
-            'category_section_id' => 'Health',
+            'category_section_id' => '2',
             'excerpt' => 'Netcix cuts out the chill with an integrated personal1.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -36,7 +36,7 @@ class PostSeeder extends Seeder
             'id' => 2,
            'title' => 'Netcix cuts out the chill with an integrated personal trainer on running2. ',
             'slug' => Str::slug('Netcix cuts out the chill with an integrated personal trainer on running2.'),
-            'category_section_id' => 'Health',
+            'category_section_id' => '2',
             'excerpt' => 'Netcix cuts out the chill with an integrated personal2.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -52,7 +52,7 @@ class PostSeeder extends Seeder
             'id' => 3,
            'title' => 'Parquet Courts on Resisting Nihilism 1',
             'slug' => Str::slug('Parquet Courts on Resisting Nihilism 1'),
-            'category_section_id' => 'Travel',
+            'category_section_id' => '4',
             'excerpt' => 'Parquet Courts on Resisting Nihilism & Why Tourism in Dubai is booming the world 1.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -67,7 +67,7 @@ class PostSeeder extends Seeder
             'id' => 4,
            'title' => 'Parquet Courts on Resisting Nihilism 2',
             'slug' => Str::slug('Parquet Courts on Resisting Nihilism 2'),
-            'category_section_id' => 'Travel',
+            'category_section_id' => '4',
             'excerpt' => 'Parquet Courts on Resisting Nihilism & Why Tourism in Dubai is booming the world 2.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -83,7 +83,7 @@ class PostSeeder extends Seeder
             'id' => 5,
            'title' => 'Parquet Courts on Resisting Nihilism 3',
             'slug' => Str::slug('Parquet Courts on Resisting Nihilism 3'),
-            'category_section_id' => 'Travel',
+            'category_section_id' => '4',
             'excerpt' => 'Parquet Courts on Resisting Nihilism & Why Tourism in Dubai is booming the world 3.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -100,7 +100,7 @@ class PostSeeder extends Seeder
             'id' => 6,
            'title' => '18 month old shoots himself by gun',
             'slug' => Str::slug('18 month old shoots himself by gun'),
-            'category_section_id' => 'Sports',
+            'category_section_id' => '6',
             'excerpt' => '18 month old shoots himself by gun.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -115,7 +115,7 @@ class PostSeeder extends Seeder
             'id' => 7,
            'title' => 'Hands on with Apple Watch Series 4',
             'slug' => Str::slug('Hands on with Apple Watch Series 4'),
-            'category_section_id' => 'Technology',
+            'category_section_id' => '7',
             'excerpt' => 'Hands on with Apple Watch Series 4.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -130,7 +130,7 @@ class PostSeeder extends Seeder
             'id' => 8,
            'title' => 'Easy lemon rice (yellow rice)',
             'slug' => Str::slug('Easy lemon rice (yellow rice)'),
-            'category_section_id' => 'Health',
+            'category_section_id' => '2',
             'excerpt' => 'Easy lemon rice (yellow rice).',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -145,7 +145,7 @@ class PostSeeder extends Seeder
             'id' => 9,
            'title' => '18 month old shoots himself by gun',
             'slug' => Str::slug('18 month old shoots himself by gun'),
-            'category_section_id' => 'Fashion',
+            'category_section_id' => '3',
             'excerpt' => '18 month old shoots himself by gun.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.",
@@ -159,7 +159,7 @@ class PostSeeder extends Seeder
             'id' => 10,
            'title' => 'Apple introduces larger Apple Watch',
             'slug' => Str::slug('Apple introduces larger Apple Watch'),
-            'category_section_id' => 'Travel',
+            'category_section_id' => '4',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -172,7 +172,7 @@ class PostSeeder extends Seeder
             'id' => 11,
            'title' => 'easy teriyaki chicken broccoli',
             'slug' => Str::slug('easy teriyaki chicken broccoli'),
-            'category_section_id' => 'Sports',
+            'category_section_id' => '6',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -186,7 +186,7 @@ class PostSeeder extends Seeder
             'id' => 12,
            'title' => 'easy teriyaki chicken broccoli',
             'slug' => Str::slug('easy teriyaki chicken broccoli'),
-            'category_section_id' => 'Sports',
+            'category_section_id' => '6',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -200,7 +200,7 @@ class PostSeeder extends Seeder
             'id' => 13,
            'title' => 'easy teriyaki chicken broccoli',
             'slug' => Str::slug('easy teriyaki chicken broccoli'),
-            'category_section_id' => 'Technology',
+            'category_section_id' => '7',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -214,7 +214,7 @@ class PostSeeder extends Seeder
             'id' => 14,
            'title' => 'easy teriyaki chicken broccoli',
             'slug' => Str::slug('easy teriyaki chicken broccoli'),
-            'category_section_id' => 'Health',
+            'category_section_id' => '2',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -228,7 +228,7 @@ class PostSeeder extends Seeder
             'id' => 15,
            'title' => 'easy teriyaki chicken broccoli',
             'slug' => Str::slug('easy teriyaki chicken broccoli'),
-            'category_section_id' => 'Fashion',
+            'category_section_id' => '3',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -242,7 +242,7 @@ class PostSeeder extends Seeder
             'id' => 16,
            'title' => 'easy teriyaki chicken broccoli',
             'slug' => Str::slug('easy teriyaki chicken broccoli'),
-            'category_section_id' => 'Travel',
+            'category_section_id' => '4',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -256,7 +256,7 @@ class PostSeeder extends Seeder
             'id' => 17,
            'title' => 'easy teriyaki chicken broccoli',
             'slug' => Str::slug('easy teriyaki chicken broccoli'),
-            'category_section_id' => 'Sports',
+            'category_section_id' => '6',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -270,7 +270,7 @@ class PostSeeder extends Seeder
             'id' => 18,
            'title' => 'easy teriyaki chicken broccoli',
             'slug' => Str::slug('easy teriyaki chicken broccoli'),
-            'category_section_id' => 'Travel',
+            'category_section_id' => '4',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -284,7 +284,7 @@ class PostSeeder extends Seeder
             'id' => 19,
            'title' => 'easy teriyaki chicken broccoli',
             'slug' => Str::slug('easy teriyaki chicken broccoli'),
-            'category_section_id' => 'Technology',
+            'category_section_id' => '7',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -298,7 +298,7 @@ class PostSeeder extends Seeder
             'id' => 20,
            'title' => 'easy teriyaki chicken broccoli',
             'slug' => Str::slug('easy teriyaki chicken broccoli'),
-            'category_section_id' => 'Fashion',
+            'category_section_id' => '3',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -312,7 +312,7 @@ class PostSeeder extends Seeder
             'id' => 21,
            'title' => 'easy teriyaki chicken broccoli',
             'slug' => Str::slug('easy teriyaki chicken broccoli'),
-            'category_section_id' => 'Sports',
+            'category_section_id' => '6',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -326,7 +326,7 @@ class PostSeeder extends Seeder
             'id' => 22,
            'title' => 'easy teriyaki chicken broccoli',
             'slug' => Str::slug('easy teriyaki chicken broccoli'),
-            'category_section_id' => 'Music',
+            'category_section_id' => '5',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
@@ -340,7 +340,7 @@ class PostSeeder extends Seeder
             'id' => 23,
            'title' => 'easy teriyaki chicken broccoli',
             'slug' => Str::slug('easy teriyaki chicken broccoli'),
-            'category_section_id' => 'Travel',
+            'category_section_id' => '4',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.

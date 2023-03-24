@@ -38,23 +38,7 @@ class AdminLoginController extends Controller
 
     }
 
-    // public function postRegistration(Request $request)
-    // {
-    //     $request->validate([
-    //         'name' => 'required',
-    //         'email' => 'required|email|unique:users',
-    //         'password' => 'required|min:6',
-    //     ]);
-            
-    //        $usersignup = new User;
-    //        $usersignup->name      = $request->name;
-    //        $usersignup->email     = $request->email;
-    //        $usersignup->password  = Hash::make($request->password);
-    //        $usersignup->save();
-    //        return redirect()->route('user.login');
- 
-    // }
-
+  
     public function logout(){
 
         Auth::logout();

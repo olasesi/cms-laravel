@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             TopBarSeeder::class,
             WebsiteInfoSeeder::class,
             CategorySeeder::class,
-
+            SettingSeeder::class,
 
         ]);
         // \App\Models\User::factory(10)->create();

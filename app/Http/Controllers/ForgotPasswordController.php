@@ -7,9 +7,11 @@ use Illuminate\Support\Str;
 //use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\ForgetPassword;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Carbon;
+
 
 class ForgotPasswordController extends Controller
 {
@@ -32,22 +34,19 @@ class ForgotPasswordController extends Controller
       public function submitForgetPasswordForm(Request $request)
       {
           $request->validate([
-            'email' => 'required|email'
-              //'email' => 'required|email|exists:users',
+            'email' => 'required|email|exists:users'
           ]);
   
+        
           $token = Str::random(64);
-  
-          DB::table('password_resets')->insert([
-              'email' => $request->email, 
-              'token' => $token, 
-              'created_at' => Carbon::now()
-            ]);
-  
-          Mail::send('email.forgetPassword', ['token' => $token], function($message) use($request){
-              $message->to($request->email);
-              $message->subject('Reset Password');
-          });
+
+          $flight = User::where('email', $request->get('email'));
+          $flight->token = $token;
+          $flight->updated_at = Carbon::now();
+          $flight->save();
+
+   
+          Mail::to($request->get('email'))->send(new ForgetPassword());
   
           return back()->with('message', 'We have e-mailed your password reset link. Please check your Inbox or spam mail.');
       }
@@ -57,7 +56,7 @@ class ForgotPasswordController extends Controller
        * @return response()
        */
       public function showResetPasswordForm($token) { 
-         return view('auth.forgetPasswordLink', ['token' => $token]);
+         return view('admin.createresetpassword', ['token' => $token]);
       }
   
       /**
@@ -70,7 +69,7 @@ class ForgotPasswordController extends Controller
           $request->validate([
               'email' => 'required|email|exists:users',
               'password' => 'required|string|min:6|confirmed',
-              'password_confirmation' => 'required'
+              'password_confirm' => 'required'
           ]);
   
           $updatePassword = DB::table('password_resets')

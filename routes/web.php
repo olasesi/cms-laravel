@@ -20,6 +20,8 @@ use App\Http\Controllers\SinglePostController;
 use App\Http\Controllers\AuthorController;
 
 
+use App\Mail\ForgetPassword;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,8 +50,7 @@ Route::get('/show-author/{id}', [AuthorController::class, 'showauthor'])->name('
 //Admin
 Route::get('/admin/login', [AdminLoginController::class, 'index'])->middleware('alreadyloggin')->name('admin.index');
 Route::post('/admin/login', [AdminLoginController::class, 'savelogin'])->middleware('alreadyloggin')->name('admin.savelogin');
-Route::get('/admin/forgetpassword', [ForgotPasswordController::class, 'showForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.forgetpassword');
-Route::post('/admin/saveforgetpassword', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.saveforgetpassword');
+
 
 
 // Route::group(['middleware'=>'isnotadmin'], function(){
@@ -139,9 +140,21 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
 });
 
 //Route::get('/admin/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
-Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
-Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
-Route::get('/admin/forget-password', function(){
-    return view('welcome');
+Route::get('/admin/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.forgetpassword');
+Route::post('/admin/save-forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.saveforgetpassword');
+Route::get('/admin/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->middleware('alreadyloggin')->name('admin.showresetpassword');
+Route::post('/admin/save-reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->middleware('alreadyloggin')->name('admin.saveresetpassword');
+
+
+//Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+
+
+// Route::get('/admin/forget-password', function(){
+//     return view('welcome');
+// });
+
+
+
+Route::get('/email', function(){
+return new ForgetPassword();
 });
