@@ -1,3 +1,4 @@
+form-group label
 /*-------------------------------------------------------------------
   ===== Table of Contents =====
 
@@ -8973,7 +8974,9 @@ progress {
   border: 1px solid #2c2e33;
   appearance: none;
   border-radius: 2px;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+color:white;
+}
   @media (prefers-reduced-motion: reduce) {
     .form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
     .jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
@@ -15734,7 +15737,8 @@ button:focus {
   outline-width: 0;
   outline-color: transparent;
   box-shadow: none;
-  outline-style: none; }
+  outline-style: none;
+color:white; }
 
 textarea {
   resize: none;
@@ -15902,7 +15906,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
   font-weight: 500; }
 
 p {
-  font-size: 0.875rem; }
+  font-size: 0.875rem;
+  }
+
+  .ck.ck-editor__editable_inline{
+    color:black;
+  }
 
 h1, .h1,
 .h1 {
@@ -17456,7 +17465,8 @@ select.tt-hint {
 .form-group label {
   font-size: 0.875rem;
   line-height: 1;
-  vertical-align: top; }
+  vertical-align: top;
+  margin-bottom: 4px; }
 
 .form-group.has-danger .form-control, .form-group.has-danger .asColorPicker-input, .form-group.has-danger .dataTables_wrapper select, .dataTables_wrapper .form-group.has-danger select, .form-group.has-danger .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], .jsgrid .jsgrid-table .jsgrid-filter-row .form-group.has-danger input[type=text],
 .form-group.has-danger .jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row .form-group.has-danger select, .form-group.has-danger .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .jsgrid .jsgrid-table .jsgrid-filter-row .form-group.has-danger input[type=number], .form-group.has-danger .select2-container--default .select2-selection--single, .select2-container--default .form-group.has-danger .select2-selection--single, .form-group.has-danger .select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-selection--single .form-group.has-danger .select2-search__field, .form-group.has-danger .typeahead,

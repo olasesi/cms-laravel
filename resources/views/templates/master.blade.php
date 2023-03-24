@@ -10,11 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Site Title- -->
-    <title>@yield('title', 'The news')</title> <!-- To use the name of the website name from the config -->
+    <title>@yield('title', 'The news')</title> <!-- To get data from the boot method in the database -->
 
     <!-- CSS
    ==================================================== -->
     <!-- Bootstrap -->
+    
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
     <!-- Font Awesome -->
@@ -49,6 +50,8 @@
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

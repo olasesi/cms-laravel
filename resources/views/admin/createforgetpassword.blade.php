@@ -1,29 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Forget password</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="{{asset('administration/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
-    <link rel="stylesheet" href="{{asset('administration/assets/vendors/css/vendor.bundle.base.css')}}">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="{{asset('administration/assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('administration/assets/css/custom.css')}}">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{asset('administration/assets/images/favicon.png')}}" />
-    
-   
-
-    
-  </head>
-  <body>
+@extends('admin.templates.masterlogin')
+@section('title', 'Forgot password')
+@section('content')
     <div class="container-scroller">
       <div class="container-fluid page-body-wrapper full-page-wrapper">
         <div class="row w-100 m-0">
@@ -32,19 +9,17 @@
               <div class="card-body px-5 py-5">
                 <h3 class="card-title text-left mb-3">Forget Password</h3>
               
-              
-               
-                <form action="{{route('admin.saveforgetpassword')}}" method="POST">
+              <form action="{{route('admin.saveforgetpassword')}}" method="POST">
                     @csrf
                   <div class="form-group">
-                    @if($errors->any())
+                     @if($errors->any())
                     @error('errorMessage')
                     <div class="errors">{{$message}}</div>
                     @enderror
-                    @endif
+                    @endif 
 
-                    <label>Email</label>
-                    <input type="text" class="form-control p_input @error('email') is-invalid @enderror" name="email" placeholder="Email" value={{ old('email') }}>
+                    <label>Email *</label>
+                    <input type="text" class="form-control p_input @error('email') is-invalid @enderror" name="email" placeholder="Email" value={{ old('email') }} >
                     @error('email')
                     <div class="errors">{{ $message }}</div>
                 @enderror
@@ -75,18 +50,4 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="{{asset('administration/assets/vendors/js/vendor.bundle.base.js')}}"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="{{asset('administration/assets/js/off-canvas.js')}}"></script>
-    <script src="{{asset('administration/assets/js/hoverable-collapse.js')}}"></script>
-    <script src="{{asset('administration/assets/js/misc.js')}}"></script>
-    <script src="{{asset('administration/assets/js/settings.js')}}"></script>
-    <script src="{{asset('administration/assets/js/todolist.js')}}"></script>
-    <!-- endinject -->
-  </body>
-</html>
+@endsection

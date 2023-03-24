@@ -16,7 +16,6 @@
 
                                         <th> Title </th>
                                         <th> Author </th>
-
                                         <th> Categories </th>
                                         {{-- <th> More details </th> --}}
                                         <th> Date </th>
@@ -25,16 +24,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    
                                     @foreach ($posts as $post)
                                         <tr>
 
                                             <td>
-
                                                 <span class="ps-2">{{ $post->title }}</span>
                                             </td>
                                             <td> {{ $post->role }} </td>
-                                            {{-- <td> {{$post->category_sections.category}} </td> --}}
-                                            <td> {{ $post->created_at }} </td>
+                                             <td>{{-- {{$post->category}}--}} </td>
+                                            <td> </td>
 
 
 

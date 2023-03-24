@@ -4,8 +4,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Admin</title>
-    <!-- plugins:css -->
+    <title>Admin</title> <!-- App name to be put there latter -->
+    
+   
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{URL::asset('administration/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{URL::asset('administration/assets/vendors/css/vendor.bundle.base.css')}}">
     <!-- endinject -->
@@ -22,9 +24,16 @@
     <link rel="stylesheet" href="{{URL::asset('administration/assets/css/custom.css')}}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{URL::asset('administration/assets/images/favicon.png')}}" />
+    
+    
+    <!-- Styles -->
+   
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
   </head>
+  
   <body>
     <div class="container-scroller">
+      
       {{-- <div class="row p-0 m-0 proBanner" id="proBanner">
         <div class="col-md-12 p-0 m-0">
           <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
@@ -56,7 +65,7 @@
         {{View::make('admin.templates.footer');}}
 
     </div>
-    <!-- page-body-wrapper ends -->
+   
   </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
@@ -80,6 +89,7 @@
   <!-- Custom js for this page -->
   <script src="{{URL::asset('administration/assets/js/dashboard.js')}}"></script>
   <script src="{{URL::asset('administration/assets/js/custom.js')}}"></script>
+  <script src="{{ asset('js/app.js') }}" defer></script>
   <!-- End custom js for this page -->
 </body>
 </html>

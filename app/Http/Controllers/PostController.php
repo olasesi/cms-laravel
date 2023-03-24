@@ -11,7 +11,8 @@ class PostController extends Controller
 {
 
     public function showpost(){
-        $posts = DB::table('posts')->join('users', 'posts.id', '=', 'users.post_id')->select( 'title', 'role')->get();
+        // $posts = DB::table('users')->rightJoin('posts', 'users.id', '=', 'posts.user_id')->select( 'title', 'role')->get();
+        $posts = DB::table('users')->rightJoin('posts', 'users.id', '=', 'posts.user_id')->select( 'title', 'role')->get();
         return view('admin.showpost',['posts'=>$posts]);
 
     }
@@ -20,22 +21,21 @@ class PostController extends Controller
 
     public function createpost(){
 
-        //$confirmcategory = DB::table('users')->select('role')->where('category', '=', $request['category_name'])->count();
-        $category = DB::table('category_sections')->select('category', 'id')->get();
-        $user = DB::table('user_types')->whereNotIn('id', [5])->get();
-       return view('admin.createpost', ['user'=>$user, 'category'=>$category]);
+        $category = DB::table('category_sections')->select('category', 'id')->orderBy('id', 'asc')->get();
+    
+       return view('admin.createpost', ['category'=>$category]);
     }
 
     public function savepost(Request $request){
        
          $request->validate([
-            'title' => 'required|max:100|min:3|unique:posts',
-            'excerpt' => 'nullable|min:3',
+            'title' => 'required|max:100|min:5|unique:posts',
+            'excerpt' => 'nullable|min:5',
             'discussion' => 'required',
             'category' => 'required',
             'publish_time'=> 'required',
             'body'=> 'nullable',          
-            'image'=> 'nullable|mimes:jpeg,,jpg,png|max:2048',
+            'image'=> 'nullable|mimes:jpeg,jpg,png|max:2048',
             'recent' => 'nullable',
             'visibility'=> 'required',
             'order'=> 'nullable|numeric',
@@ -110,7 +110,7 @@ class PostController extends Controller
     //     ]);
     // }
  
-
+    //return response()->json('Post has been uploaded successfully');
     return back()->with('success', 'Post has been uploaded successfully');
 
     }

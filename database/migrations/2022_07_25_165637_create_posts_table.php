@@ -18,10 +18,8 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title', 100)->index();
             $table->string('slug');
-            $table->string('category_section_id')->nullable();
             $table->text('excerpt')->nullable();
             $table->text('body')->nullable();
-            $table->unsignedBigInteger('user_id');
             $table->string('image')->nullable();
             $table->string('image_path')->nullable();
             $table->string('video_placeholder')->nullable();
@@ -38,8 +36,9 @@ class CreatePostsTable extends Migration
             $table->string('watch_now','3')->nullable();
             $table->string('trending','3')->nullable();
             $table->string('more_news','3')->nullable();
-            //$table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            //$table->foreign('category_section_id')->references('id')->on('category_sections')->onUpdate('cascade')->onDelete('cascade'); //This should also be constrained 
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->string('category_section_id')->nullable();  //To replace this with contrained like that above
+            //$table->foreignId('category_section_id')->constrained('category_section');
             $table->timestamps();
         });
         
