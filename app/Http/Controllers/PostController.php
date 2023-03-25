@@ -21,7 +21,7 @@ class PostController extends Controller
 
     public function createpost(){
 
-        $category = DB::table('category_sections')->select('category', 'id')->orderBy('id', 'asc')->get();
+        $category = DB::table('sections')->select('category', 'id')->orderBy('id', 'asc')->get();
     
        return view('admin.createpost', ['category'=>$category]);
     }

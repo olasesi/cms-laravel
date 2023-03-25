@@ -24,8 +24,9 @@ class DatabaseSeeder extends Seeder
             ThemeSeeder::class,
             TopBarSeeder::class,
             WebsiteInfoSeeder::class,
-            CategorySeeder::class,
+            SectionSeeder::class,
             SettingSeeder::class,
+            AdminSeeder::class,
 
         ]);
         // \App\Models\User::factory(10)->create();

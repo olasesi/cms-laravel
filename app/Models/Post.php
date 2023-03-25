@@ -14,7 +14,7 @@ class Post extends Model
         'slug',
         'excerpt',
         'discussion',
-        'category_section_id',
+        'section_id',
         'body',
         'image',
         'image_path',
