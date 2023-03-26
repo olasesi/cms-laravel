@@ -24,6 +24,7 @@ class Post extends Model
         'visibility',
         'order',
         'user_id',
+        'admin_id',
         'recent',
         'breaking_news',
         'most_popular',

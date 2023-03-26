@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->text('bio')->nullable();
             $table->string('user_image')->nullable();
             $table->string('user_image_path')->nullable();
-            $table->unsignedBigInteger('admin_id');
+            $table->unsignedBigInteger('admin_id')->nullable();
            
             $table->rememberToken();
             $table->timestamps();

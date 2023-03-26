@@ -47,7 +47,7 @@
                   <label for="exampleSelectGender">Category</label>
                   <select class="form-control" id="exampleSelectGender" name="category">
                     @foreach ($category as $single_category) 
-                    <option {{(old('category') == $single_category->category)?'selected':''}} value="{{$single_category->category}}">{{$single_category->category}}</option>
+                    <option {{(old('category') == $single_category->id)?'selected':''}} value="{{$single_category->id}}">{{$single_category->category}}</option>
                     @endforeach
                   </select>
                   
@@ -125,7 +125,7 @@
 
                 <div class="form-group">
                   <label for="exampleInputvideopath">Youtube video link</label>
-                  <input value="{{old('video_path')}}" type="text" class="form-control" id="exampleInputvideopath" placeholder="Youtube video link" name="video_path">
+                  <input value="{{old('video_path')}}" type="text" class="form-control" id="exampleInputvideopath" placeholder="e.g http://xyz.com" name="video_path">
                   @if ($errors->has('video_path'))
                       <span class="errors">{{ $errors->first('video_path') }}</span>
                   @endif
