@@ -48,7 +48,7 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{route('admin.showpost')}}">Posts</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.showpost')}}">All Posts</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.createpost')}}">Create Post</a></li>
            
           </ul>
@@ -77,7 +77,7 @@
 
         <div class="collapse" id="category">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{route('admin.showcategory')}}"> Categories </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.showcategory')}}">All Categories </a></li>
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.createcategory')}}"> Add category </a></li>
             
           </ul>
@@ -129,7 +129,7 @@
         </a>
         <div class="collapse" id="auth">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{route('admin.show')}}"> Users </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.show')}}">All Users </a></li>
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.create')}}"> Add users </a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>

@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
-class CategorySeeder extends Seeder
+class SectionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('category_sections')->insert([[
+        DB::table('sections')->insert([[
             'id' => '1',
             'category' => 'Uncategorized',
             'color' => '#000000',

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -46,7 +47,8 @@ class AdminLoginController extends Controller
     }
 
     public function showusers(){
-        $user = User::all();
+        //$user = User::all();
+        $user = User::all()->posts()->where('image', 'health1.jpg')->get();
         return view('admin.showusers', ['user'=>$user]);
     }
 

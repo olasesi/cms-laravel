@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         
     DB::table('users')->insert([[
         'id'=> 1,
-        'role' => 'super admin',
+        'admin_id' => '1',
         'active' => '1',
         'name' => 'olusesi ahmed',
         'username' => 'ola.sesi',
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
     ],
     [
         'id'=> 2,
-        'role' => 'editor',
+        'admin_id' => '2',
         'active' => '1',
         'name' => 'Wale Mutiat',
         'username' => 'waleat',
@@ -55,7 +55,7 @@ class UserSeeder extends Seeder
     ],
     [
         'id'=> 3,
-        'role' => 'contributor',
+        'admin_id' => '3',
         'active' => '1',
         'name' => 'Aminu Mobolaji',
         'username' => 'aminuji',
@@ -73,7 +73,7 @@ class UserSeeder extends Seeder
     ],
     [
         'id'=> 4,
-        'role' => 'author',
+        'admin_id' => '4',
         'active' => '1',
         'name' => 'Funmilade Adeoluwa',
         'username' => 'funmiwa',
@@ -91,7 +91,7 @@ class UserSeeder extends Seeder
     ],
     [
         'id'=> 5,
-        'role' => 'subscriber',
+        'admin_id' => '5',
         'active' => '1',
         'name' => 'Toke Amaechi',
         'username' => 'tokeamchi',

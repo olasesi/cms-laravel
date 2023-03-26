@@ -112,7 +112,7 @@
                             </div>
                             @endforeach
                            @else
-<h5 class="">No recent news</h5>
+                                    <h5 class="">No recent news</h5>
                            @endif
                         </div>
                         <!--ts-grid-box end -->

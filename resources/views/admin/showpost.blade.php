@@ -13,7 +13,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-
+                                        <td>S/N</td>
                                         <th> Title </th>
                                         <th> Author </th>
                                         <th> Categories </th>
@@ -27,12 +27,12 @@
                                     
                                     @foreach ($posts as $post)
                                         <tr>
-
+                                          <td>  {{$loop->iteration}}</td>
                                             <td>
                                                 <span class="ps-2">{{ $post->title }}</span>
                                             </td>
-                                            <td> {{ $post->role }} </td>
-                                             <td>{{-- {{$post->category}}--}} </td>
+                                            <td> {{ $post->name }} </td>
+                                             <td>{{$post->category}} </td>
                                             <td> </td>
 
 

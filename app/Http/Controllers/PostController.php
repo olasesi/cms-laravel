@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
+use App\Models\Admin;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -12,7 +13,8 @@ class PostController extends Controller
 
     public function showpost(){
         // $posts = DB::table('users')->rightJoin('posts', 'users.id', '=', 'posts.user_id')->select( 'title', 'role')->get();
-        $posts = DB::table('users')->rightJoin('posts', 'users.id', '=', 'posts.user_id')->select( 'title', 'role')->get();
+        $posts = DB::table('posts')->join('users', 'users.id', '=', 'posts.user_id')->join('admins', 'admins.id', '=', 'posts.admin_id')->join('sections', 'sections.id', '=', 'posts.section_id')->select( 'title', 'admins.name', 'category')->get();
+
         return view('admin.showpost',['posts'=>$posts]);
 
     }
@@ -21,7 +23,7 @@ class PostController extends Controller
 
     public function createpost(){
 
-        $category = DB::table('category_sections')->select('category', 'id')->orderBy('id', 'asc')->get();
+        $category = DB::table('sections')->select('category', 'id')->orderBy('id', 'asc')->get();
     
        return view('admin.createpost', ['category'=>$category]);
     }
@@ -34,7 +36,7 @@ class PostController extends Controller
             'discussion' => 'required',
             'category' => 'required',
             'publish_time'=> 'required',
-            'body'=> 'nullable',          
+            'body'=> 'nullable',
             'image'=> 'nullable|mimes:jpeg,jpg,png|max:2048',
             'recent' => 'nullable',
             'visibility'=> 'required',
@@ -48,21 +50,22 @@ class PostController extends Controller
             'watch_now' => 'nullable',
             'trending' => 'nullable',
             'more_news' => 'nullable',
-            
-        
-
 
              ]
     );
   
    
-    $post= Post::create([
+    $admin = Admin::find(1)->users()->where('id', auth()->id())->first()->id;
+
+   // dd($admin);
+       $post= Post::create([
         'title' => $request->title,
         'slug' => Str::slug($request->title),
         'user_id' => auth()->id(),
         'excerpt' => $request->excerpt,
         'discussion' => $request->discussion,
-        'category_section_id' => $request->category,
+        'section_id' => $request->category,
+        'admin_id' => $admin,
         'body' => $request->body,
         'image' => $request->image,
         'publish_time' => $request->publish_time,

@@ -36,9 +36,9 @@ class CreatePostsTable extends Migration
             $table->string('watch_now','3')->nullable();
             $table->string('trending','3')->nullable();
             $table->string('more_news','3')->nullable();
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->string('category_section_id')->nullable();  //To replace this with contrained like that above
-            //$table->foreignId('category_section_id')->constrained('category_section');
+            $table->unsignedBigInteger('admin_id')->nullable();
+            $table->unsignedBigInteger('section_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable(); //To replace this with contrained like that above if possible    $table->foreignId('category_section_id')->constrained('category_section');
             $table->timestamps();
         });
         
