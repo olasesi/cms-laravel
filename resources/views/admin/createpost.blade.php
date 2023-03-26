@@ -78,7 +78,9 @@
                 </div>
                   <div class="input-group col-xs-12">
                     
-                  <input type="file" name="image" class="file-upload-default" id="exampleSelectimage">
+                    <div id="showimageoverview"></div>
+
+                  
                    @if ($errors->has('image'))
                   <span class="errors">{{ $errors->first('image') }}</span>
                    @endif
