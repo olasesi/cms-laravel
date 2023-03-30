@@ -5,6 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin</title> <!-- App name to be put there latter -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    
     
    
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -25,10 +30,11 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{URL::asset('administration/assets/images/favicon.png')}}" />
     
-    
+    <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
     <!-- Styles -->
    
     <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+    
   </head>
   
   <body>
@@ -69,7 +75,8 @@
   </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
-  <script src="{{URL::asset('administration/assets/vendors/js/vendor.bundle.base.js')}}"></script>
+ 
+   <script src="{{URL::asset('administration/assets/vendors/js/vendor.bundle.base.js')}}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="{{URL::asset('administration/assets/vendors/chart.js/Chart.min.js')}}"></script>
@@ -90,6 +97,16 @@
   <script src="{{URL::asset('administration/assets/js/dashboard.js')}}"></script>
   <script src="{{URL::asset('administration/assets/js/custom.js')}}"></script>
   <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/@yaireo/tagify"></script>
+  <script src="https://unpkg.com/@yaireo/tagify@3.1.0/dist/tagify.polyfills.min.js"></script>
+  <script>
+    // The DOM element you wish to replace with Tagify
+var input = document.querySelector('input[name=tags]');
+
+// initialize Tagify on the above input node reference
+new Tagify(input)
+  </script>
   <!-- End custom js for this page -->
 </body>
 </html>

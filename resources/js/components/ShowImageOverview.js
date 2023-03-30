@@ -12,7 +12,7 @@ function ShowImageOverview() {
   
     return (
         <>
-            <input type="file"  name="image" className="file-upload-default "  onChange={handleChange}/>
+            <input type="file"  name="image" className="file-upload-default"  onChange={handleChange}/>
             <img src={file} style={{height: "100px", marginTop:"10px"}}/>
         </>
   

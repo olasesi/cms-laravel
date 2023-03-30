@@ -16,6 +16,7 @@ class Post extends Model
         'discussion',
         'section_id',
         'body',
+        'tags',
         'image',
         'image_path',
         'video_path',

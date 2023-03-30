@@ -21,10 +21,12 @@ class CreatePostsTable extends Migration
             $table->text('excerpt')->nullable();
             $table->text('body')->nullable();
             $table->string('image')->nullable();
+            $table->text('tags')->nullable();
             $table->string('image_path')->nullable();
             $table->string('video_placeholder')->nullable();
             $table->string('video_path')->nullable();
-            $table->string('publish_time');
+            $table->dateTime('publish_time')->nullable();
+            $table->string('pending_preview')->nullable();
             $table->string('discussion');
             $table->string('visibility');
             $table->string('order')->nullable();
