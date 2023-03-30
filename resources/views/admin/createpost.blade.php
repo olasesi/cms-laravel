@@ -1,18 +1,22 @@
 @extends('admin.templates.master')
 @section('content')
+
     <div class="main-panel">
         <div class="row ">
 
             @if (Session::has('success'))
-                <div class="alert alert-success">
+                <div class="alert alert-success alert-dismissible fade show pl-3" role="alert">
                     {{ Session::get('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     @php
                         Session::forget('success');
                     @endphp
                 </div>
             @endif
 
-            
+           
+
+            <button type="button" class="btn btn-primary">Save draft</button>
 
             <div class="col-md-8 grid-margin stretch-card">
                 <div class="card">
@@ -20,8 +24,7 @@
                         <h4 class="card-title">Create post</h4>
                         <p class="card-description"> </p>
 
-
-                      
+                                              
                       <form class="forms-sample" method="POST" action="{{route('admin.savepost')}}" enctype="multipart/form-data">
                             @csrf
 
@@ -36,7 +39,7 @@
                   @endif
                 </div>
                 <div class="form-group">
-                  <label for="exampleExcerpt">Summary/Breaking news (optional)</label>
+                  <label for="exampleExcerpt">Summary/Breaking news</label>
                   <input value="{{(old('excerpt'))}}" type="text" class="form-control" id="exampleExcerpt" name="excerpt" placeholder="Summary">
                   @if ($errors->has('excerpt'))
                   <span class="errors">{{ $errors->first('excerpt') }}</span>
@@ -58,19 +61,18 @@
                 <textarea name="body" id="editor" class="editor">{{(old('body'))?old('body'):''}}</textarea>
                 </div>
                
-
-               
-
-               
                 <div class="form-group">
-                  <label for="exampleSelectpublish">Publish</label>
-                  <select class="form-control" id="exampleSelectpublish" name="publish_time">
-                     <option value="Published" {{(old('publish_time') == 'Published')?'selected':''}}>Publish</option>
-                    <option value="Pending preview" {{(old('publish_time') == 'Pending preview')?'selected':''}}>Pending preview</option>
-                    <option value="Draft" {{(old('publish_time') == 'Draft')?'selected':''}}>Draft</option>
-                  </select>
-                  
-                 
+                  <label for="exampledate1">Publish Date</label>
+                  <input value="{{(old('publish_time'))}}" type="datetime-local" class="form-control" id="exampledate1" placeholder="Publish date" name="publish_time">   
+                </div>
+               
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input value="on" {{ old('pending_preview') == true ? 'checked' : '' }} name="pending_preview" type="checkbox" class="form-check-input"> Pending preview</label>
+                    </div>
+                   </div>
                 </div>
 
                 <div class="form-group">
@@ -99,8 +101,13 @@
             <div class="card-body">
               <h4 class="card-title">Additional options</h4>
               <p class="card-description">  </p>
-              
-                <div class="form-group row">
+  
+              <div class="form-group">
+                <label for="exampletag">Post tags</label>
+              <input type="text" name='tags' class="form-control" value="{{old('tags')}}" class="form-control" autofocus id="exampletag">
+              </div>
+
+                 <div class="form-group row">
                   <label for="exampleSelectDiscussion">Discussion</label>
                   <select class="form-control" id="exampleSelectDiscussion" name="discussion">
                   
@@ -164,7 +171,7 @@
                   </div>
                 </div>
 
-<div class="col-md-6">
+                <div class="col-md-6">
                   <div class="form-group">
                     <div class="form-check">
                       <label class="form-check-label">

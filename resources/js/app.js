@@ -13,7 +13,7 @@ require('./bootstrap');
  */
 
 require('./components/Example');
-require('./components/DashboardInfo');
 require('./components/ValidateInput');
 require('./components/CreateCategory');
 require('./components/ShowImageOverview');
+require('./components/taginput/TagInput');

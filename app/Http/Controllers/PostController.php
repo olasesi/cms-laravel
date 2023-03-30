@@ -29,13 +29,15 @@ class PostController extends Controller
     }
 
     public function savepost(Request $request){
-       
+      
          $request->validate([
             'title' => 'required|max:100|min:5|unique:posts',
             'excerpt' => 'nullable|min:5',
             'discussion' => 'required',
             'category' => 'required',
-            'publish_time'=> 'required',
+            'tags' => 'required',
+            'publish_time'=> 'nullable|date',
+            'pending_preview'=> 'nullable',
             'body'=> 'nullable',
             'image'=> 'nullable|mimes:jpeg,jpg,png|max:2048',
             'recent' => 'nullable',
@@ -54,21 +56,23 @@ class PostController extends Controller
              ]
     );
   
-   
+    //dd($request->all());
     $admin = Admin::find(1)->users()->where('id', auth()->id())->first()->id;
 
-   // dd($admin);
+ 
        $post= Post::create([
         'title' => $request->title,
         'slug' => Str::slug($request->title),
         'user_id' => auth()->id(),
         'excerpt' => $request->excerpt,
+        'tags' => $request->tags,
         'discussion' => $request->discussion,
         'section_id' => $request->category,
         'admin_id' => $admin,
         'body' => $request->body,
         'image' => $request->image,
         'publish_time' => $request->publish_time,
+        'pending_preview' => $request->pending_preview,
         'visibility' => $request->visibility,
         'order' => $request->order,
         'video_path' => $request->video_path,
