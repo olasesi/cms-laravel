@@ -144,9 +144,12 @@ Route::get('/admin/forget-password', [ForgotPasswordController::class, 'showForg
 Route::post('/admin/save-forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.saveforgetpassword');
 Route::get('/admin/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->middleware('alreadyloggin')->name('admin.showresetpassword');
 Route::post('/admin/save-reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->middleware('alreadyloggin')->name('admin.saveresetpassword');
+Route::get('/admin/reset-password/{token}', [ForgotPasswordController::class, 'resetpasswordform'])->name('admin.resetpassword'); 
 
 
-//Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+//search post
+Route::get('/admin/search-post/{id}', [PostController::class, 'searchpost'])->middleware('alreadyloggin')->name('admin.searchpost');
+
 
 
 // Route::get('/admin/forget-password', function(){

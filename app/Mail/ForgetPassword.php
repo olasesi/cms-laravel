@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-//use App\Models\User;
+use App\Models\ResetPassword;
 
 class ForgetPassword extends Mailable
 {
@@ -17,11 +17,11 @@ class ForgetPassword extends Mailable
      *
      * @return void
      */
-    
+    public $token;
 
-    public function __construct()
+    public function __construct(ResetPassword $resetpassword)
     {
-        
+       $this->token = $resetpassword;
     }
 
     /**

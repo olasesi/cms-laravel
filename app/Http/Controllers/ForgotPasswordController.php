@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-//use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ForgetPassword;
 use App\Models\User;
+use App\Models\ResetPassword;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Carbon;
 
@@ -37,18 +37,18 @@ class ForgotPasswordController extends Controller
             'email' => 'required|email|exists:users'
           ]);
   
-        
           $token = Str::random(64);
 
-          $flight = User::where('email', $request->get('email'));
-          $flight->token = $token;
-          $flight->updated_at = Carbon::now();
-          $flight->save();
+          $reset = new ResetPassword;
+          $reset->email = $request->email;
+          $reset->token = $token;
+          $reset->save();
 
-   
-          Mail::to($request->get('email'))->send(new ForgetPassword());
+          $password_reset = ResetPassword::where('email', $request->email)->where('token', $token)->first();
+
+          Mail::to($request->get('email'))->send(new ForgetPassword($password_reset));
   
-          return back()->with('message', 'We have e-mailed your password reset link. Please check your Inbox or spam mail.');
+          return back()->with('message', 'An email has been sent to you on how to reset your password. Please check your inbox or your spam mail.');
       }
       /**
        * Write code on Method
@@ -91,4 +91,3 @@ class ForgotPasswordController extends Controller
           return redirect('/login')->with('message', 'Your password has been changed!');
       }
 }
-

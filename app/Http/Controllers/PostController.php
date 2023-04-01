@@ -122,12 +122,12 @@ class PostController extends Controller
 
     }
 
-    // public function editpost($id){
+    public function seahrchpost($id){
+        //$admin = Post::users()->sections()->where('id', auth()->id())->first()->id;
 
 
 
-
-    // }
+     }
 
 
 
