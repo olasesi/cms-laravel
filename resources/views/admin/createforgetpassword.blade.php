@@ -7,17 +7,20 @@
           <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
+                @if(Session::has('message'))
+                <div class="alert alert-primary text-center" role="alert">
+                    {{ Session::get('message') }}
+                    @php
+                        Session::forget('message');
+                    @endphp 
+                </div>
+                @endif 
                 <h3 class="card-title text-left mb-3">Forget Password</h3>
               
               <form action="{{route('admin.saveforgetpassword')}}" method="POST">
                     @csrf
                   <div class="form-group">
-                     @if($errors->any())
-                    @error('errorMessage')
-                    <div class="errors">{{$message}}</div>
-                    @enderror
-                    @endif 
-
+                     
                     <label>Email *</label>
                     <input type="text" class="form-control p_input @error('email') is-invalid @enderror" name="email" placeholder="Email" value={{ old('email') }} >
                     @error('email')

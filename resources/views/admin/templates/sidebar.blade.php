@@ -61,7 +61,7 @@
           <span class="menu-icon">
             <i class="mdi mdi-image-filter"></i>
           </span>
-          <span class="menu-title">Gallery</span>
+          <span class="menu-title">Newsletter</span>
         </a>
       </li>
 
@@ -140,7 +140,7 @@
         </div>
       </li>
   
-      @if(Auth::user()->role == 'super admin')
+      @if(Auth::user()->user_id == 'admin')
       <li class="nav-item menu-items">
         <a class="nav-link" data-bs-toggle="collapse" href="#settings" aria-expanded="false" aria-controls="settings">
           <span class="menu-icon">
