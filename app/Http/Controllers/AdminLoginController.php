@@ -18,7 +18,7 @@ class AdminLoginController extends Controller
     public function savelogin(Request $request){
         $validatedData = $request->validate([
         'email' => 'required|email',
-       'password'=> 'required|min:6',
+       'password'=> 'required|string|min:6',
        
             ]
      );
@@ -63,7 +63,7 @@ class AdminLoginController extends Controller
             'name' => 'required|max:30|min:3',
              'username' => array('required', 'unique:users', 'min:3', 'max:30', 'regex:/^[A-Z0-9_-]{3,30}$/i'),
              'email' => 'required|email|unique:users',
-             'password'=> 'required|min:6|confirmed',
+             'password'=> 'required|string|min:6|confirmed',
              'role'=> 'required',
              'facebook'=>'nullable|url',
              'twitter' =>'nullable|url',
@@ -130,7 +130,7 @@ class AdminLoginController extends Controller
             'name' => 'required|max:30|min:3',
              'username' => 'required|unique:users|min:3|max:30|regex:/^[A-Z0-9_-]$/i',
              'email' => 'required|email|unique:users',
-             'password'=> 'required|min:6',
+             'password'=> 'required|string|min:6',
              'password_confirmation'=> 'confirmed',
              'role'=> 'required'
         ]

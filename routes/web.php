@@ -139,12 +139,11 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
 
 });
 
-//Route::get('/admin/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::get('/admin/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.forgetpassword');
 Route::post('/admin/save-forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.saveforgetpassword');
-Route::get('/admin/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->middleware('alreadyloggin')->name('admin.showresetpassword');
-Route::post('/admin/save-reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->middleware('alreadyloggin')->name('admin.saveresetpassword');
-Route::get('/admin/reset-password/{token}', [ForgotPasswordController::class, 'resetpasswordform'])->name('admin.resetpassword'); 
+// Route::get('/admin/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->middleware('alreadyloggin')->name('admin.showresetpassword');
+Route::post('/admin/save-reset-password/', [ForgotPasswordController::class, 'submitResetPasswordForm'])->middleware('alreadyloggin')->name('admin.saveresetpassword');
+Route::get('/admin/reset-password/{token}', [ForgotPasswordController::class, 'createresetpasswordform'])->name('admin.resetpassword'); 
 
 
 //search post
