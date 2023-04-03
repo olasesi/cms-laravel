@@ -36,17 +36,28 @@ class ForgotPasswordController extends Controller
           $request->validate([
             'email' => 'required|email|exists:users'
           ]);
-  
-          $token = Str::random(64);
 
-          $reset = new ResetPassword;
-          $reset->email = $request->email;
-          $reset->token = $token;
-          $reset->save();
+          $token = Str::random(64);
+          
+          if(!ResetPassword::where('email', $request->email)->exists()){
+            
+            $reset = new ResetPassword;
+            $reset->email = $request->email;
+            $reset->token = $token;
+            $reset->save();
+
+          }else{
+
+            $select_email = ResetPassword::where('email', $request->email)->first();
+            $select_email->email = $request->email;
+            $select_email->token = $token;
+            $select_email->save();
+            
+          }
 
           $password_reset = ResetPassword::where('email', $request->email)->where('token', $token)->first();
 
-          Mail::to($request->get('email'))->send(new ForgetPassword($password_reset));
+          Mail::to($request->email)->send(new ForgetPassword($password_reset));
   
           return back()->with('message', 'An email has been sent to you on how to reset your password. Please check your inbox or your spam mail.');
       }
@@ -55,8 +66,9 @@ class ForgotPasswordController extends Controller
        *
        * @return response()
        */
-      public function showResetPasswordForm($token) { 
-         return view('admin.createresetpassword', ['token' => $token]);
+      public function createresetpasswordform($token) { 
+        
+        return view('admin.createresetpassword', ['token' => $token]);
       }
   
       /**
@@ -64,21 +76,16 @@ class ForgotPasswordController extends Controller
        *
        * @return response()
        */
-      public function submitResetPasswordForm(Request $request)
+      public function submitResetPasswordForm(Request $request, $token)
       {
           $request->validate([
               'email' => 'required|email|exists:users',
-              'password' => 'required|string|min:6|confirmed',
-              'password_confirm' => 'required'
+              'password' => 'required|min:6|confirmed',
+              'password_confirmation' => 'required'
           ]);
-  
-          $updatePassword = DB::table('password_resets')
-                              ->where([
-                                'email' => $request->email, 
-                                'token' => $request->token
-                              ])
-                              ->first();
-  
+        
+          $updatePassword = ResetPassword::where('email', $request->email)->where('token', $token)->first();
+ 
           if(!$updatePassword){
               return back()->withInput()->with('error', 'Invalid token!');
           }
@@ -86,8 +93,8 @@ class ForgotPasswordController extends Controller
           $user = User::where('email', $request->email)
                       ->update(['password' => Hash::make($request->password)]);
  
-          DB::table('password_resets')->where(['email'=> $request->email])->delete();
+                      ResetPassword::where('email', $request->email)->delete();
   
-          return redirect('/login')->with('message', 'Your password has been changed!');
+          return redirect(route('admin.index'))->with('reset', 'Your password has been successfully changed!');
       }
 }

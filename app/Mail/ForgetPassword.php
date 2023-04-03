@@ -17,11 +17,11 @@ class ForgetPassword extends Mailable
      *
      * @return void
      */
-    public $token;
+    public $reset;
 
     public function __construct(ResetPassword $resetpassword)
     {
-       $this->token = $resetpassword;
+       $this->reset = $resetpassword;
     }
 
     /**

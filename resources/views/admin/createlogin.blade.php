@@ -16,6 +16,15 @@
                     @endphp 
                 </div>
                 @endif 
+
+                @if(Session::has('reset'))
+                <div class="text-success mb-3">
+                    {{ Session::get('reset') }}
+                   @php
+                        Session::forget('reset');
+                    @endphp 
+                </div>
+                @endif 
               
                
                 <form action="{{route('admin.savelogin')}}" method="POST">
@@ -50,13 +59,7 @@
                   <div class="text-center">
                     <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
                   </div>
-                  {{-- <div class="d-flex">
-                    <button class="btn btn-facebook me-2 col">
-                      <i class="mdi mdi-facebook"></i> Facebook </button>
-                    <button class="btn btn-google col">
-                      <i class="mdi mdi-google-plus"></i> Google plus </button>
-                  </div>
-                  <p class="sign-up"><a href="#"></a></p> --}}
+                 
                 </form>
               </div>
             </div>
