@@ -12,15 +12,21 @@ class PostController extends Controller
 {
 
     public function showpost(){
-        // $posts = DB::table('users')->rightJoin('posts', 'users.id', '=', 'posts.user_id')->select( 'title', 'role')->get();
-        $posts = DB::table('posts')->join('users', 'users.id', '=', 'posts.user_id')->join('admins', 'admins.id', '=', 'posts.admin_id')->join('sections', 'sections.id', '=', 'posts.section_id')->select( 'title', 'admins.name', 'category')->get();
+       
+        $posts = DB::table('posts as p')->leftJoin('users', 'users.id', '=', 'p.user_id')->leftJoin('admins', 'admins.id', '=', 'p.admin_id')->leftJoin('sections', 'sections.id', '=', 'p.section_id')->select( 'p.id', 'title', 'admins.name', 'category', 'image_path','color','p.recent', 'p.breaking_news', 'p.most_popular', 'p.favourite', 'p.hot_topics', 'p.watch_now', 'p.trending', 'p.more_news', 'p.created_at')->whereNull('pending_preview')->whereNull('publish_time')->orWhere(function($query) {
+            $query->where('publish_time','<', now());
+        })->orderBy('p.id', 'desc')->paginate(10);
 
         return view('admin.showpost',['posts'=>$posts]);
 
+        
+      
+        //$table->string('visibility');
+
     }
-
-
-
+    
+    
+ 
     public function createpost(){
 
         $category = DB::table('sections')->select('category', 'id')->orderBy('id', 'asc')->get();
@@ -31,11 +37,11 @@ class PostController extends Controller
     public function savepost(Request $request){
       
          $request->validate([
-            'title' => 'required|max:100|min:5|unique:posts',
-            'excerpt' => 'nullable|min:5',
+            'title' => 'required|max:100|min:3|max:100|unique:posts',
+            'excerpt' => 'nullable|min:3',
             'discussion' => 'required',
-            'category' => 'required',
-            'tags' => 'required',
+             'category' => 'required',
+            'tags' => 'nullable',
             'publish_time'=> 'nullable|date',
             'pending_preview'=> 'nullable',
             'body'=> 'nullable',
@@ -52,11 +58,12 @@ class PostController extends Controller
             'watch_now' => 'nullable',
             'trending' => 'nullable',
             'more_news' => 'nullable',
+            
 
              ]
     );
   
-    //dd($request->all());
+
     $admin = Admin::find(1)->users()->where('id', auth()->id())->first()->id;
 
  
@@ -88,11 +95,26 @@ class PostController extends Controller
         
     ]);
     
+    if($request->hasFile('upload')) {
+        $originName = $request->file('upload')->getClientOriginalName();
+        $fileName = pathinfo($originName, PATHINFO_FILENAME);
+        $extension = $request->file('upload')->getClientOriginalExtension();
+        $fileName = $fileName.'_'.time().'.'.$extension;
+    
+        $request->file('upload')->move(public_path('images'), $fileName);
 
+        $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+        $url = asset('images/'.$fileName); 
+        $msg = 'Image uploaded successfully'; 
+        $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
+           
+        @header('Content-type: text/html; charset=utf-8'); 
+        echo $response;
+    }
        
     if ($request->file('image')){
         $file_name = time().'_'.$request->image->getClientOriginalName();
-        $file_path = $request->file('image')->storeAs('images/posts/'.$request->category, $file_name, 'public');
+        $file_path = $request->file('image')->storeAs('images/posts', $file_name, 'public');
     
         $post->update([
             'image' => $file_name,
@@ -121,6 +143,28 @@ class PostController extends Controller
     return back()->with('success', 'Post has been uploaded successfully');
 
     }
+
+    public function upload(Request $request)
+    {
+        if($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName.'_'.time().'.'.$extension;
+        
+            $request->file('upload')->move(public_path('images'), $fileName);
+   
+            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+            $url = asset('images/'.$fileName); 
+            $msg = 'Image uploaded successfully'; 
+            $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
+               
+            @header('Content-type: text/html; charset=utf-8'); 
+            echo $response;
+        }
+    }
+
+
 
     public function seahrchpost($id){
         //$admin = Post::users()->sections()->where('id', auth()->id())->first()->id;

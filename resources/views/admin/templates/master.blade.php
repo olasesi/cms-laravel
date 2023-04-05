@@ -13,28 +13,28 @@
     
    
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{URL::asset('administration/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('administration/assets/vendors/css/vendor.bundle.base.css')}}">
+    <link rel="stylesheet" href="{{asset('administration/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('administration/assets/vendors/css/vendor.bundle.base.css')}}">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="{{URL::asset('administration/assets/vendors/jvectormap/jquery-jvectormap.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('administration/assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('administration/assets/vendors/owl-carousel-2/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('administration/assets/vendors/owl-carousel-2/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('administration/assets/vendors/jvectormap/jquery-jvectormap.css')}}">
+    <link rel="stylesheet" href="{{asset('administration/assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
+    <link rel="stylesheet" href="{{asset('administration/assets/vendors/owl-carousel-2/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('administration/assets/vendors/owl-carousel-2/owl.theme.default.min.css')}}">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="{{URL::asset('administration/assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('administration/assets/css/custom.css')}}">
+    <link rel="stylesheet" href="{{asset('administration/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('administration/assets/css/custom.css')}}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{URL::asset('administration/assets/images/favicon.png')}}" />
+    <link rel="shortcut icon" href="{{asset('administration/assets/images/favicon.png')}}" />
     
     <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
     <!-- Styles -->
    
-    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
-    
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script> --}}
+    <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
   </head>
   
   <body>
@@ -76,26 +76,26 @@
   <!-- container-scroller -->
   <!-- plugins:js -->
  
-   <script src="{{URL::asset('administration/assets/vendors/js/vendor.bundle.base.js')}}"></script>
+   <script src="{{asset('administration/assets/vendors/js/vendor.bundle.base.js')}}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
-  <script src="{{URL::asset('administration/assets/vendors/chart.js/Chart.min.js')}}"></script>
-  <script src="{{URL::asset('administration/assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
-  <script src="{{URL::asset('administration/assets/vendors/jvectormap/jquery-jvectormap.min.js')}}"></script>
-  <script src="{{URL::asset('administration/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-  <script src="{{URL::asset('administration/assets/vendors/owl-carousel-2/owl.carousel.min.js')}}"></script>
-  <script src="{{URL::asset('administration/assets/js/jquery.cookie.js')}}" type="text/javascript"></script>
+  <script src="{{asset('administration/assets/vendors/chart.js/Chart.min.js')}}"></script>
+  <script src="{{asset('administration/assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
+  <script src="{{asset('administration/assets/vendors/jvectormap/jquery-jvectormap.min.js')}}"></script>
+  <script src="{{asset('administration/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+  <script src="{{asset('administration/assets/vendors/owl-carousel-2/owl.carousel.min.js')}}"></script>
+  <script src="{{asset('administration/assets/js/jquery.cookie.js')}}" type="text/javascript"></script>
   <!-- End plugin js for this page -->
   <!-- inject:js -->
-  <script src="{{URL::asset('administration/assets/js/off-canvas.js')}}"></script>
-  <script src="{{URL::asset('administration/assets/js/hoverable-collapse.js')}}"></script>
-  <script src="{{URL::asset('administration/assets/js/misc.js')}}"></script>
-  <script src="{{URL::asset('administration/assets/js/settings.js')}}"></script>
-  <script src="{{URL::asset('administration/assets/js/todolist.js')}}"></script>
+  <script src="{{asset('administration/assets/js/off-canvas.js')}}"></script>
+  <script src="{{asset('administration/assets/js/hoverable-collapse.js')}}"></script>
+  <script src="{{asset('administration/assets/js/misc.js')}}"></script>
+  <script src="{{asset('administration/assets/js/settings.js')}}"></script>
+  <script src="{{asset('administration/assets/js/todolist.js')}}"></script>
   <!-- endinject -->
   <!-- Custom js for this page -->
-  <script src="{{URL::asset('administration/assets/js/dashboard.js')}}"></script>
-  <script src="{{URL::asset('administration/assets/js/custom.js')}}"></script>
+  <script src="{{asset('administration/assets/js/dashboard.js')}}"></script>
+  <script src="{{asset('administration/assets/js/custom.js')}}"></script>
   <script src="{{ asset('js/app.js') }}" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/@yaireo/tagify"></script>
@@ -107,6 +107,19 @@ var input = document.querySelector('input[name=tags]');
 // initialize Tagify on the above input node reference
 new Tagify(input)
   </script>
+  {{-- <script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script> --}}
+<script type="text/javascript">
+  CKEDITOR.replace('body', {
+      filebrowserUploadUrl: "{{route('admin.savepost', ['_token' => csrf_token() ])}}",
+      filebrowserUploadMethod: 'form'
+  });
+</script>
   <!-- End custom js for this page -->
 </body>
 </html>

@@ -23,6 +23,7 @@ class Post extends Model
         'video_placeholder',
         'publish_time',
         'visibility',
+        'pending_preview',
         'order',
         'user_id',
         'admin_id',

@@ -18,6 +18,7 @@ use App\Http\Controllers\PostPageController;
 use App\Http\Controllers\PostTypeSingleController;
 use App\Http\Controllers\SinglePostController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CkeditorController;
 
 
 use App\Mail\ForgetPassword;
@@ -107,6 +108,11 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
     Route::post('edit-post/{id}', [PostController::class, 'editpost'])->middleware('usertype')->name('admin.editpost');
     //Route::patch('update-post/{id}', [PostController::class, 'editpost'])->middleware('usertype')->name('admin.editpost');
 
+    //CKeditor
+ //Route::get('ckeditor', [CkeditorController::class, 'index']);
+ //Route::post('ckeditor/upload', [CkeditorController::class, 'upload'])->name('ckeditor.upload');
+   
+
     //Ad
     Route::get('edit-ad', [AdController::class, 'editad'])->name('admin.editad');
     Route::patch('update-ad', [AdController::class, 'updatead'])->name('admin.updatead');
@@ -138,6 +144,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
     Route::patch('updatequicklink', [QuickLinkController::class, 'updatequicklink'])->name('admin.updatequicklink');
 
 });
+
+ //CKeditor
+ Route::get('ckeditor', [CkeditorController::class, 'index']);
+ Route::post('ckeditor/upload', [CkeditorController::class, 'upload'])->name('ckeditor.upload');
 
 Route::get('/admin/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.forgetpassword');
 Route::post('/admin/save-forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.saveforgetpassword');
