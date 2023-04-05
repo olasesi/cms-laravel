@@ -89,6 +89,8 @@
                 </div>
               
                
+
+
                 <button type="submit" class="btn btn-primary me-2  mt-4">Create post</button>
      
             </div>
@@ -104,7 +106,7 @@
   
               <div class="form-group">
                 <label for="exampletag">Post tags</label>
-              <input type="text" name='tags' class="form-control" value="{{old('tags')}}" class="form-control" autofocus id="exampletag">
+              <input type="text" name='tags' class="form-control" value="{{old('tags')}}" class="form-control"  id="exampletag">
               </div>
 
                  <div class="form-group row">
@@ -197,13 +199,8 @@
 
 
 
-                <script>
-                  ClassicEditor
-                      .create( document.querySelector( '#editor' ) )
-                      .catch( error => {
-                          console.error( error );
-                      } );
-              </script>
+                
+             
               </form>
                     </div>
                 </div>
@@ -217,5 +214,14 @@
       
   
     @endsection
-    <!-- partial -->
+    <script>
+      $(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+    </script>
   </div>
