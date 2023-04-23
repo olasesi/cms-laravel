@@ -18,6 +18,14 @@ class CkeditorController extends Controller
      */
     public function upload(Request $request)
     {
+
+        if($request->hasFile('upload')){
+            $request->validate([
+                'title' => 'required|max:100|min:3|max:100',
+                             ]
+        );
+    }
+       
         if($request->hasFile('upload')) {
             $originName = $request->file('upload')->getClientOriginalName();
             $fileName = pathinfo($originName, PATHINFO_FILENAME);
@@ -34,5 +42,10 @@ class CkeditorController extends Controller
             @header('Content-type: text/html; charset=utf-8'); 
             echo $response;
         }
+
+  
+  
+
+
     }
 }

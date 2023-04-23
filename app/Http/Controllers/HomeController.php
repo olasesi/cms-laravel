@@ -12,24 +12,26 @@ use App\Models\Setting;
 
 class HomeController extends Controller
 {
-    //
+    
+
     public function index()
     {
       
+        $website_info = DB::table('website_info')->get();
         $social_media_links = DB::table('social_medias')->select('name', 'url')->get();
         $top_bar_links = DB::table('top_bar_links')->select('title', 'url')->get();
         $mainmenu_bar_links = DB::table('menus')->select('title', 'content_type')->whereIn('id', [1, 2, 3, 4, 5])->get();
         $mainmenu_all = DB::table('menus')->select('title', 'content_type')->whereIn('id', [6, 7, 8, 9, 10, 11, 12, 13])->get();
         $post_category = DB::table('sections')->select('id', 'category', 'rank')->where('category', '!=', 'Uncategorized')->orderBy('rank', 'asc')->get();
         $ad_banner = DB::table('ads')->select('end_date', 'banner_name', 'image', 'image_path', 'image_url')->get();
-        $website_info = DB::table('website_info')->select('website_name', 'logo_image_path')->get();
+        // $website_info = DB::table('website_info')->select('website_name', 'logo_image_path')->get();
         $quick_links = DB::table('quick_links')->select('link_title', 'url')->get();
 
         $breaking_news = DB::table('posts')->join('admins', 'admins.id', '=', 'posts.admin_id')->join('sections', 'sections.id', '=', 'posts.section_id')->join('users', 'users.id', '=', 'posts.user_id')->where([['breaking_news', '=', 'on'], ['visibility', '=', 'Public'], ['publish_time', '=', 'Published']])->orderBy('order', 'desc')->orderBy('posts.id', 'desc')->get();
 
         $post = DB::table('posts')->join('admins', 'admins.id', '=', 'posts.admin_id')->join('sections', 'sections.id', '=', 'posts.section_id')->join('users', 'users.id', '=', 'posts.user_id')->where([['category', '!=', 'Uncategorized'], ['visibility', '=', 'Public'], ['publish_time', '=', 'Published']])->take(6)->orderBy('order', 'desc')->orderBy('posts.id', 'desc')->get();
 
-        $post_video = DB::table('posts')->join('admins', 'admins.id', '=', 'posts.admin_id')->join('sections', 'sections.id', '=', 'posts.section_id')->join('users', 'users.id', '=', 'posts.user_id')->where([['video_placeholder', '!=', null], ['video_path', '!=', null]])->whereIn('posts.id', [1, 2, 3, 4, 5, 6])->orderBy('order', 'desc')->orderBy('posts.id', 'desc')->get();
+        $post_video = DB::table('posts')->join('admins', 'admins.id', '=', 'posts.admin_id')->join('sections', 'sections.id', '=', 'posts.section_id')->join('users', 'users.id', '=', 'posts.user_id')->where([['video_path', '!=', null]])->whereIn('posts.id', [1, 2, 3, 4, 5, 6])->orderBy('order', 'desc')->orderBy('posts.id', 'desc')->get();
         
         $body_post_slider = DB::table('posts')->join('admins', 'admins.id', '=', 'posts.admin_id')->join('sections', 'sections.id', '=', 'posts.section_id')->join('users', 'users.id', '=', 'posts.user_id')->where([['category', '!=', 'Uncategorized'], ['visibility', '=', 'Public'], ['publish_time', '=', 'Published']])->take(3)->orderBy('order', 'desc')->orderBy('posts.id', 'desc')->get();
 

@@ -308,7 +308,7 @@
                                 @foreach ($watch_now as $each_watch_now)
 
                                 <div class="tab-pane ts-overlay-style fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                                    <div class="item" style="background-image: url(storage/{{$each_watch_now->video_placeholder}})">
+                                    <div class="item">
 
                                         <a class="post-cat ts-orange-bg" style="background-color:{{$each_watch_now->color}}" href="{{route('showsinglecategory', ['id'=>$each_watch_now->category])}}">{{$each_watch_now->category}}</a>
                                         <a href="{{$each_watch_now->video_path}}" class="ts-video-btn">
@@ -359,7 +359,7 @@
                                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
                                  aria-selected="true">
                                     <div class="post-content media">
-                                        <img class="d-flex" src="storage/{{$each_watch_now_side->video_placeholder}}" alt="{{$each_watch_now_side->title}}">
+                                       
                                         <div class="media-body align-self-center">
                                             <h4 class="post-title">
                                                 {{$each_watch_now_side->title}}

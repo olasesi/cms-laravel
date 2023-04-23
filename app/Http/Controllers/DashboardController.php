@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use App\Models\Menu;
 use App\Models\Post;
+use App\Models\Admin;
 use App\Models\Section;
+use Illuminate\Support\Facades\DB;
 
 
 
 class DashboardController extends Controller
 {
     public function index(){
-  
+        
+    //$all_admin = Admin::all();
+
+    //$website_info = DB::table('website_info')->get();
+
     $number_post = Post::all()->count();
     $number_category_section = Section::all()->count() - 1;     //Substract the uncategorized
 
@@ -21,5 +26,7 @@ class DashboardController extends Controller
         
     return view('admin.dashboard', ['number_post' => $number_post, 'number_category_section'=>$number_category_section, 'drafts'=>$drafts, 'pending_preview'=>$pending_preview]);
     }
+
+
 
 }

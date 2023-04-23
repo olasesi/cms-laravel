@@ -5,8 +5,8 @@
             <div class="col-lg-4">
                 <div class="footer-logo">
                     <a href="/">
-                        
-                        <img src="{{asset('storage/'.$website_info[0]->logo_image_path)}}" alt="{{$website_info[0]->website_name}}">
+                       
+                        <img src="{{asset('storage/'.$website_info[1]->value)}}" alt="{{$website_info[0]->value}}">
                     </a>
                 </div>
                 <!-- footer logo end-->
@@ -161,7 +161,7 @@
                     <p>&copy; 
                         <span id="footer-year">
                         </span>, 
-                        {{$website_info[0]->website_name}} .All rights reserved
+                        {{$website_info[0]->value}} .All rights reserved
                     </p>
                 </div>
             </div><!-- col end -->

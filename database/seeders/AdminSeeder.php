@@ -41,20 +41,13 @@ class AdminSeeder extends Seeder
     
         [
         'id' => '4',
-        'name' => 'Contributor',
+        'name' => 'Subscriber',
        'created_at' => Carbon::now(),
        'updated_at' => Carbon::now()
     
         ],
 
-        
-        [
-            'id' => '5',
-            'name' => 'Subscriber',
-           'created_at' => Carbon::now(),
-           'updated_at' => Carbon::now()
-        
-            ],
+    
 
     ]);
     }

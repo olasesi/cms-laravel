@@ -20,9 +20,10 @@ class AdminAuth
 
 
         if(!Auth::check()){
-            return redirect('/admin/login'); //To made to a route later
-            
+            return redirect(route('admin.index'); 
+        
         }
+
         return $next($request);
 
     }   

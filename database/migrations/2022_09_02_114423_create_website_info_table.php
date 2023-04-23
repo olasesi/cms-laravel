@@ -15,10 +15,9 @@ class CreateWebsiteInfoTable extends Migration
     {
         Schema::create('website_info', function (Blueprint $table) {
             $table->id();
-            $table->string('website_name');
-            $table->string('logo_name')->default('default.jpg');
-            $table->string('logo_image_path')->default('/images/logo/default.jpg');
-            $table->timestamps();
+            $table->string('name')->nullable();;
+            $table->string('value')->nullable();
+           $table->timestamps();
         });
     }
 

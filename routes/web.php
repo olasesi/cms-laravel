@@ -43,7 +43,7 @@ Route::get('/posts', [PostPageController::class, 'index'])->name('postpage.index
 //Single post category
 Route::get('/show-single-category/{id}', [PostTypeSingleController::class, 'showsinglecategory'])->name('showsinglecategory');
 //Single post
-Route::get('/show-single-post/{id}', [SinglePostController::class, 'showsinglepost'])->name('showsinglepost');
+Route::get('/post/{postslug}', [SinglePostController::class, 'showsinglepost'])->name('showsinglepost');
 //Single author
 Route::get('/show-author/{id}', [AuthorController::class, 'showauthor'])->name('showauthor');
 
@@ -63,7 +63,7 @@ Route::post('/admin/login', [AdminLoginController::class, 'savelogin'])->middlew
 
 
 
-Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
+Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('users', [AdminLoginController::class, 'showusers'])->name('admin.show');
     Route::get('logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
@@ -106,7 +106,16 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
     Route::get('create-post', [PostController::class, 'createpost'])->middleware('usertype')->name('admin.createpost');
     Route::post('save-post', [PostController::class, 'savepost'])->middleware('usertype')->name('admin.savepost');
     Route::post('edit-post/{id}', [PostController::class, 'editpost'])->middleware('usertype')->name('admin.editpost');
+    Route::delete('delete-post/{id}', [PostController::class, 'deletepost'])->middleware('usertype')->name('admin.deletepost');
+    Route::patch('approve-post/{id}', [PostController::class, 'approvepost'])->middleware('usertype')->name('admin.approvepost');
+    Route::patch('disapprove-post/{id}', [PostController::class, 'disapprovepost'])->middleware('usertype')->name('admin.disapprovepost');
     //Route::patch('update-post/{id}', [PostController::class, 'editpost'])->middleware('usertype')->name('admin.editpost');
+
+
+    //CKeditor
+ Route::get('post2', [CkeditorController::class, 'index']);
+ Route::post('post2/upload', [CkeditorController::class, 'upload'])->name('ckeditor.upload');
+
 
     //CKeditor
  //Route::get('ckeditor', [CkeditorController::class, 'index']);
@@ -145,10 +154,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'isadmin'], function(){
 
 });
 
- //CKeditor
- Route::get('ckeditor', [CkeditorController::class, 'index']);
- Route::post('ckeditor/upload', [CkeditorController::class, 'upload'])->name('ckeditor.upload');
-
+ 
 Route::get('/admin/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.forgetpassword');
 Route::post('/admin/save-forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->middleware('alreadyloggin')->name('admin.saveforgetpassword');
 // Route::get('/admin/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->middleware('alreadyloggin')->name('admin.showresetpassword');

@@ -18,7 +18,8 @@ class PostSeeder extends Seeder
     {
         DB::table('posts')->insert([[
             'id' => 1,
-           'title' => 'Netcix cuts out the chill with an integrated personal trainer on running.',
+           'approve' => 1,
+            'title' => 'Netcix cuts out the chill with an integrated personal trainer on running.',
             'slug' => Str::slug('Netcix cuts out the chill with an integrated personal trainer on running.'),
             'section_id' => '2',
             'tags'=> 'php, laravel',
@@ -28,7 +29,7 @@ class PostSeeder extends Seeder
                         Black farmers in the US’s South faced with continued failure in their efforts to run the successful farms launched a lawsuitSteve Jobs
                         For the first time the Swiss State Secretart for Economic Affair (SECO) has indicated that Uber taxi drivers should
                         Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.",
-            'admin_id' => '1','image' => 'health1.jpg','image_path' => 'images/posts/health1.jpg','video_path' => 'https://www.youtube.com/watch?v=_0UO1NcheAE', 'video_placeholder' => 'https://img.youtube.com/vi/_0UO1NcheAE/default.jpg','publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public', 
+            'image' => 'health1.jpg','image_path' => 'images/posts/health1.jpg','video_path' => 'https://www.youtube.com/watch?v=_0UO1NcheAE', 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public', 
             'order' => null,'recent' => null,'breaking_news' => 'on','most_popular' => null,'favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
             'user_id' => '1',
@@ -37,7 +38,8 @@ class PostSeeder extends Seeder
     
         [
             'id' => 2,
-           'title' => 'Netcix cuts out the chill with an integrated personal trainer on running2. ',
+           'approve' => 1,
+            'title' => 'Netcix cuts out the chill with an integrated personal trainer on running2. ',
             'slug' => Str::slug('Netcix cuts out the chill with an integrated personal trainer on running2.'),
             'section_id' => '2',
             'tags'=> 'php, laravel',
@@ -47,16 +49,17 @@ class PostSeeder extends Seeder
                         Black farmers in the US’s South faced with continued failure in their efforts to run the successful farms launched a lawsuitSteve Jobs
                         For the first time the Swiss State Secretart for Economic Affair (SECO) has indicated that Uber taxi drivers should
                         Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.",
-            'admin_id' => '1','image' => 'health2.jpg','image_path' => 'images/posts/health2.jpg','video_path' => 'https://www.youtube.com/watch?v=_0UO1NcheAE', 'video_placeholder' => 'https://img.youtube.com/vi/_0UO1NcheAE/default.jpg','publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'health2.jpg','image_path' => 'images/posts/health2.jpg','video_path' => 'https://www.youtube.com/watch?v=_0UO1NcheAE', 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => 'on','most_popular' => null,'favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '2',
+            'user_id' => '5',
             'updated_at' => Carbon::now()
         ],
 
         [
             'id' => 3,
-           'title' => 'Parquet Courts on Resisting Nihilism 1',
+           'approve' => 1,
+            'title' => 'Parquet Courts on Resisting Nihilism 1',
             'slug' => Str::slug('Parquet Courts on Resisting Nihilism 1'),
             'section_id' => '4',
             'tags'=> 'php, laravel',
@@ -66,7 +69,7 @@ class PostSeeder extends Seeder
                         Black farmers in the US’s South faced with continued failure in their efforts to run the successful farms launched a lawsuitSteve Jobs
                         For the first time the Swiss State Secretart for Economic Affair (SECO) has indicated that Uber taxi drivers should
                         Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.",
-            'admin_id' => '1','image' => 'travel1.jpg','image_path' => 'images/posts/travel1.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'travel1.jpg','image_path' => 'images/posts/travel1.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => 'on','most_popular' => null,'favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
             'user_id' => '3',
@@ -74,7 +77,8 @@ class PostSeeder extends Seeder
         ],
         [
             'id' => 4,
-           'title' => 'Parquet Courts on Resisting Nihilism 2',
+           'approve' => 1,
+            'title' => 'Parquet Courts on Resisting Nihilism 2',
             'slug' => Str::slug('Parquet Courts on Resisting Nihilism 2'),
             'section_id' => '4',
             'tags'=> 'php, laravel',
@@ -84,16 +88,17 @@ class PostSeeder extends Seeder
                         Black farmers in the US’s South faced with continued failure in their efforts to run the successful farms launched a lawsuitSteve Jobs
                         For the first time the Swiss State Secretart for Economic Affair (SECO) has indicated that Uber taxi drivers should
                         Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.",
-            'admin_id' => '1','image' => 'travel2.jpg','image_path' => 'images/posts/travel2.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'travel2.jpg','image_path' => 'images/posts/travel2.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => 'on','most_popular' => null,'favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '4',
+            'user_id' => '2',
             'updated_at' => Carbon::now()
         ],
         
         [
             'id' => 5,
-           'title' => 'Parquet Courts on Resisting Nihilism 3',
+           'approve' => 0,
+            'title' => 'Parquet Courts on Resisting Nihilism 3',
             'slug' => Str::slug('Parquet Courts on Resisting Nihilism 3'),
             'section_id' => '4',
             'tags'=> 'php, laravel',
@@ -103,7 +108,7 @@ class PostSeeder extends Seeder
                         Black farmers in the US’s South faced with continued failure in their efforts to run the successful farms launched a lawsuitSteve Jobs
                         For the first time the Swiss State Secretart for Economic Affair (SECO) has indicated that Uber taxi drivers should
                         Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.",
-            'admin_id' => '1','image' => 'travel3.jpg','image_path' => 'images/posts/travel3.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'travel3.jpg','image_path' => 'images/posts/travel3.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => 'on','most_popular' => null,'favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
             'user_id' => '5',
@@ -113,7 +118,8 @@ class PostSeeder extends Seeder
         
         [
             'id' => 6,
-           'title' => '18 month old shoots himself by gun',
+           'approve' => 1,
+            'title' => '18 month old shoots himself by gun',
             'slug' => Str::slug('18 month old shoots himself by gun'),
             'section_id' => '6',
             'tags'=> 'php, laravel',
@@ -121,17 +127,18 @@ class PostSeeder extends Seeder
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                        ",
-            'admin_id' => '1','image' => 'sports1.jpg','image_path' => 'images/posts/sports1.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'sports1.jpg','image_path' => 'images/posts/sports1.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => 'on','breaking_news' => null,'most_popular' => null,'favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '6',
+            'user_id' => '2',
             'updated_at' => Carbon::now()
         ]
         ,
         
         [
             'id' => 7,
-           'title' => 'Hands on with Apple Watch Series 4',
+           'approve' => 1,
+            'title' => 'Hands on with Apple Watch Series 4',
             'slug' => Str::slug('Hands on with Apple Watch Series 4'),
             'section_id' => '7',
             'tags'=> 'php, laravel',
@@ -139,17 +146,18 @@ class PostSeeder extends Seeder
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                        ",
-            'admin_id' => '1','image' => 'tech1.jpg','image_path' => 'images/posts/tech1.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'tech1.jpg','image_path' => 'images/posts/tech1.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => 'on','breaking_news' => null,'most_popular' => null,'favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '7',
+            'user_id' => '3',
             'updated_at' => Carbon::now()
         ]
         ,
         
         [
             'id' => 8,
-           'title' => 'Easy lemon rice (yellow rice)',
+           'approve' => 0,
+            'title' => 'Easy lemon rice (yellow rice)',
             'slug' => Str::slug('Easy lemon rice (yellow rice)'),
             'section_id' => '2',
             'tags'=> 'php, laravel',
@@ -157,265 +165,280 @@ class PostSeeder extends Seeder
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'health3.jpg','image_path' => 'images/posts/health3.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'health3.jpg','image_path' => 'images/posts/health3.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => 'on','breaking_news' => null,'most_popular' => null,'favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '8',
+            'user_id' => '2',
             'updated_at' => Carbon::now()
         ]
         ,
         
         [
             'id' => 9,
-           'title' => '18 month old shoots himself by gun',
-            'slug' => Str::slug('18 month old shoots himself by gun'),
+           'approve' => 1,
+            'title' => '18 month old shoots himself by gun',
+            'slug' => Str::slug('18 month old shoots himself by gun2'),
             'section_id' => '3',
             'tags'=> 'php, laravel',
             'excerpt' => '18 month old shoots himself by gun.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.",
-            'admin_id' => '1','image' => 'fashion1.jpg','image_path' => 'images/posts/fashion1.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'fashion1.jpg','image_path' => 'images/posts/fashion1.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => 'on','breaking_news' => null,'most_popular' => null,'favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '9',
+            'user_id' => '1',
             'updated_at' => Carbon::now()
         ]
         ,
         
         [
             'id' => 10,
-           'title' => 'Apple introduces larger Apple Watch',
-            'slug' => Str::slug('Apple introduces larger Apple Watch'),
+           'approve' => 0,
+            'title' => 'Apple introduces larger Apple Watch',
+            'slug' => Str::slug('Apple introduces larger Apple Watch3'),
             'section_id' => '4',
             'tags'=> 'php, laravel',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'travel4.jpg','image_path' => 'images/posts/travel4.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'travel4.jpg','image_path' => 'images/posts/travel4.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => 'on','breaking_news' => null,'most_popular' => null,'favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '10',
+            'user_id' => '2',
             'updated_at' => Carbon::now()
         ],
         [
             'id' => 11,
-           'title' => 'easy teriyaki chicken broccoli',
-            'slug' => Str::slug('easy teriyaki chicken broccoli'),
+           'approve' => 1,
+            'title' => 'easy teriyaki chicken broccoli',
+            'slug' => Str::slug('easy teriyaki chicken broccoli5'),
             'section_id' => '6',
             'tags'=> 'php, laravel',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'sports2.jpg','image_path' => 'images/posts/sports2.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'sports2.jpg','image_path' => 'images/posts/sports2.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => 'on','breaking_news' => null,'most_popular' => null,'favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '11',
+            'user_id' => '3',
             'updated_at' => Carbon::now()
         ]
         ,
         [
             'id' => 12,
-           'title' => 'easy teriyaki chicken broccoli',
-            'slug' => Str::slug('easy teriyaki chicken broccoli'),
+           'approve' => 1,
+            'title' => 'easy teriyaki chicken broccoli',
+            'slug' => Str::slug('easy teriyaki chicken broccoli6'),
             'section_id' => '6',
             'tags'=> 'php, laravel',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'sports3.jpg','image_path' => 'images/posts/sports3.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'sports3.jpg','image_path' => 'images/posts/sports3.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => null,'most_popular' => null,'favourite' => 'on','hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '12',
+            'user_id' => '2',
             'updated_at' => Carbon::now()
         ]
         ,
         [
             'id' => 13,
-           'title' => 'easy teriyaki chicken broccoli',
-            'slug' => Str::slug('easy teriyaki chicken broccoli'),
+           'approve' => 1,
+            'title' => 'easy teriyaki chicken broccoli',
+            'slug' => Str::slug('easy teriyaki chicken broccoli7'),
             'section_id' => '7',
             'tags'=> 'php, laravel',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'tech2.jpg','image_path' => 'images/posts/tech2.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'tech2.jpg','image_path' => 'images/posts/tech2.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => null,'most_popular' => null,'favourite' => 'on','hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '13',
+            'user_id' => '1',
             'updated_at' => Carbon::now()
         ]
         ,
         [
             'id' => 14,
-           'title' => 'easy teriyaki chicken broccoli',
-            'slug' => Str::slug('easy teriyaki chicken broccoli'),
+           'approve' => 1,
+            'title' => 'easy teriyaki chicken broccoli',
+            'slug' => Str::slug('easy teriyaki chicken broccoli8'),
             'section_id' => '2',
             'tags'=> 'php, laravel',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'health4.jpg','image_path' => 'images/posts/health4.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'health4.jpg','image_path' => 'images/posts/health4.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => null,'most_popular' => null,'favourite' => 'on','hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '14',
+            'user_id' => '2',
             'updated_at' => Carbon::now()
         ]
         ,
         [
             'id' => 15,
-           'title' => 'easy teriyaki chicken broccoli',
-            'slug' => Str::slug('easy teriyaki chicken broccoli'),
+           'approve' => 1,
+            'title' => 'easy teriyaki chicken broccoli',
+            'slug' => Str::slug('easy teriyaki chicken broccoli9'),
             'section_id' => '3',
             'tags'=> 'php, laravel',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'fashion2.jpg','image_path' => 'images/posts/fashion2.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'fashion2.jpg','image_path' => 'images/posts/fashion2.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => null,'most_popular' => null,'favourite' => 'on','hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '15',
+            'user_id' => '2',
             'updated_at' => Carbon::now()
         ]
         ,
         [
             'id' => 16,
-           'title' => 'easy teriyaki chicken broccoli',
-            'slug' => Str::slug('easy teriyaki chicken broccoli'),
+           'approve' => 1,
+            'title' => 'easy teriyaki chicken broccoli',
+            'slug' => Str::slug('easy teriyaki chicken broccoli10'),
             'section_id' => '4',
             'tags'=> 'php, laravel',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'travel5.jpg','image_path' => 'images/posts/travel5.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'travel5.jpg','image_path' => 'images/posts/travel5.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => null,'most_popular' => null,'favourite' => 'on','hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '16',
+            'user_id' => '3',
             'updated_at' => Carbon::now()
         ]
         ,
         [
             'id' => 17,
-           'title' => 'easy teriyaki chicken broccoli',
-            'slug' => Str::slug('easy teriyaki chicken broccoli'),
+           'approve' => 1,
+            'title' => 'easy teriyaki chicken broccoli',
+            'slug' => Str::slug('easy teriyaki chicken broccoli11'),
             'section_id' => '6',
             'tags'=> 'php, laravel',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'sports4.jpg','image_path' => 'images/posts/sports4.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'sports4.jpg','image_path' => 'images/posts/sports4.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => null,'most_popular' => null,'favourite' => 'on','hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '17',
+            'user_id' => '3',
             'updated_at' => Carbon::now()
         ]
         ,
         [
             'id' => 18,
-           'title' => 'easy teriyaki chicken broccoli',
-            'slug' => Str::slug('easy teriyaki chicken broccoli'),
+           'approve' => 1,
+            'title' => 'easy teriyaki chicken broccoli',
+            'slug' => Str::slug('easy teriyaki chicken broccoli12'),
             'section_id' => '4',
             'tags'=> 'php, laravel',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'travel6.jpg','image_path' => 'images/posts/travel6.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'travel6.jpg','image_path' => 'images/posts/travel6.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => null,'most_popular' => 'on','favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '18',
+            'user_id' => '2',
             'updated_at' => Carbon::now()
         ]
         ,
         [
             'id' => 19,
-           'title' => 'easy teriyaki chicken broccoli',
-            'slug' => Str::slug('easy teriyaki chicken broccoli'),
+           'approve' => 1,
+            'title' => 'easy teriyaki chicken broccoli',
+            'slug' => Str::slug('easy teriyaki chicken broccoli13'),
             'section_id' => '7',
             'tags'=> 'php, laravel',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'tech3.jpg','image_path' => 'images/posts/tech3.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'tech3.jpg','image_path' => 'images/posts/tech3.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => null,'most_popular' => 'on','favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '19',
+            'user_id' => '1',
             'updated_at' => Carbon::now()
         ]
         ,
         [
             'id' => 20,
-           'title' => 'easy teriyaki chicken broccoli',
-            'slug' => Str::slug('easy teriyaki chicken broccoli'),
+           'approve' => 1,
+            'title' => 'easy teriyaki chicken broccoli',
+            'slug' => Str::slug('easy teriyaki chicken broccoli14'),
             'section_id' => '3',
             'tags'=> 'php, laravel',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'fashion3.jpg','image_path' => 'images/posts/fashion3.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'fashion3.jpg','image_path' => 'images/posts/fashion3.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => null,'most_popular' => 'on','favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '20',
+            'user_id' => '2',
             'updated_at' => Carbon::now()
         ]
         ,
         [
             'id' => 21,
-           'title' => 'easy teriyaki chicken broccoli',
-            'slug' => Str::slug('easy teriyaki chicken broccoli'),
+           'approve' => 1,
+            'title' => 'easy teriyaki chicken broccoli',
+            'slug' => Str::slug('easy teriyaki chicken broccoli15'),
             'section_id' => '6',
             'tags'=> 'php, laravel',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'sports5.jpg','image_path' => 'images/posts/sports5.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'sports5.jpg','image_path' => 'images/posts/sports5.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => null,'most_popular' => 'on','favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '21',
+            'user_id' => '3',
             'updated_at' => Carbon::now()
         ]
         ,
         [
             'id' => 22,
-           'title' => 'easy teriyaki chicken broccoli',
-            'slug' => Str::slug('easy teriyaki chicken broccoli'),
+           'approve' => 1,
+            'title' => 'easy teriyaki chicken broccoli',
+            'slug' => Str::slug('easy teriyaki chicken broccoli16'),
             'section_id' => '5',
             'tags'=> 'php, laravel',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'music1.jpg','image_path' => 'images/posts/music1.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'music1.jpg','image_path' => 'images/posts/music1.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => null,'most_popular' => 'on','favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '22',
+            'user_id' => '2',
             'updated_at' => Carbon::now()
         ]
         ,
         [
             'id' => 23,
-           'title' => 'easy teriyaki chicken broccoli',
-            'slug' => Str::slug('easy teriyaki chicken broccoli'),
+           'approve' => 1,
+            'title' => 'easy teriyaki chicken broccoli',
+            'slug' => Str::slug('easy teriyaki chicken broccoli17'),
             'section_id' => '4',
             'tags'=> 'php, laravel',
             'excerpt' => 'Apple introduces larger Apple Watch.',
             'body' => "A farmers in the US’s South—faced with continued failure in their efforts to run on successful farms their launched a lawsuit claiming that “white racism” is to the blame for their inability to produce crop yields.
                          Black farmers in the US’s South— faced with continued failure their efforts to run successful farms their launched a lawsuit claiming that “white racism” is to blame for their inability to the produce crop yields and on equivalent to that switched seeds.
                         ",
-            'admin_id' => '1','image' => 'travel7.jpg','image_path' => 'images/posts/travel7.jpg','video_path' => null, 'video_placeholder' => null,'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
+            'image' => 'travel7.jpg','image_path' => 'images/posts/travel7.jpg','video_path' => null, 'publish_time' => null, 'pending_preview'=>null,'discussion' => 'Allow comment','visibility' => 'Public',
             'order' => null,'recent' => null,'breaking_news' => null,'most_popular' => 'on','favourite' => null,'hot_topics' => null,
             'watch_now' => null,'trending' => null,'more_news' => null,'created_at' => Carbon::now(),
-            'user_id' => '23',
+            'user_id' => '1',
             'updated_at' => Carbon::now()
         ]
 

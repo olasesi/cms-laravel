@@ -27,6 +27,9 @@ class DatabaseSeeder extends Seeder
             SectionSeeder::class,
             SettingSeeder::class,
             AdminSeeder::class,
+            CommentSeeder::class,
+            
+
 
         ]);
         // \App\Models\User::factory(10)->create();
