@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->integer('approve')->default(1);
             $table->string('title', 100)->index();
             $table->string('slug');
             $table->text('excerpt')->nullable();
@@ -23,9 +24,9 @@ class CreatePostsTable extends Migration
             $table->string('image')->nullable();
             $table->text('tags')->nullable();
             $table->string('image_path')->nullable();
-            $table->string('video_placeholder')->nullable();
+      
             $table->string('video_path')->nullable();
-            $table->dateTime('publish_time', '2')->nullable();
+            $table->dateTime('publish_time')->nullable();
             $table->string('pending_preview')->nullable();
             $table->string('discussion');
             $table->string('visibility');
@@ -38,9 +39,9 @@ class CreatePostsTable extends Migration
             $table->string('watch_now','2')->nullable();
             $table->string('trending','2')->nullable();
             $table->string('more_news','2')->nullable();
-            $table->unsignedBigInteger('admin_id')->nullable();
+        
             $table->unsignedBigInteger('section_id')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable(); //To replace this with contrained like that above if possible    $table->foreignId('category_section_id')->constrained('category_section');
+            $table->unsignedBigInteger('user_id')->nullable(); 
             $table->timestamps();
         });
         

@@ -14,9 +14,6 @@
                 </div>
             @endif
 
-           
-
-            <button type="button" class="btn btn-primary">Save draft</button>
 
             <div class="col-md-8 grid-margin stretch-card">
                 <div class="card">
@@ -24,7 +21,6 @@
                         <h4 class="card-title">Create post</h4>
                         <p class="card-description"> </p>
 
-                                              
                       <form class="forms-sample" method="POST" action="{{route('admin.savepost')}}" enctype="multipart/form-data">
                             @csrf
 
@@ -104,9 +100,10 @@
               <h4 class="card-title">Additional options</h4>
               <p class="card-description">  </p>
   
+             
               <div class="form-group">
                 <label for="exampletag">Post tags</label>
-              <input type="text" name='tags' class="form-control" value="{{old('tags')}}" class="form-control"  id="exampletag">
+              <input type="text" name='tags' class="form-control" value="{{old('tags')}}" placeholder="Tags"  id="exampletag">
               </div>
 
                  <div class="form-group row">
@@ -134,19 +131,11 @@
               @endif
                 </div>
 
-                <div class="form-group">
+               <div class="form-group">
                   <label for="exampleInputvideopath">Youtube video link</label>
                   <input value="{{old('video_path')}}" type="text" class="form-control" id="exampleInputvideopath" placeholder="e.g http://xyz.com" name="video_path">
                   @if ($errors->has('video_path'))
                       <span class="errors">{{ $errors->first('video_path') }}</span>
-                  @endif
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputvideoid">Youtube video ID</label>
-                  <input value="{{old('video_placeholder')}}" type="text" class="form-control" id="exampleInputvideoid" placeholder="Youtube video ID" name="video_placeholder">
-                  @if ($errors->has('video_placeholder'))
-                      <span class="errors">{{ $errors->first('video_placeholder') }}</span>
                   @endif
                 </div>
                 

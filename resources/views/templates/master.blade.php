@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Basic Page Needs =====================================-->
     <meta charset="utf-8">
@@ -10,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Site Title- -->
-    <title>@yield('title', 'The news')</title> <!-- To get data from the boot method in the database -->
-
+    <title>{{$website_info[0]->value}}</title> <!-- To get data from the boot method in the database -->
+    <link rel="shortcut icon" href="" />
     <!-- CSS
    ==================================================== -->
     <!-- Bootstrap -->
@@ -26,39 +25,14 @@
 
     <!-- IcoFonts -->
     <link rel="stylesheet" href="{{ asset('css/icofonts.css') }}">
-
-    <!-- Owl Carousel -->
     <link rel="stylesheet" href="{{ asset('css/owlcarousel.min.css') }}">
-
-    <!-- slick -->
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
-
-
-
-    <!-- navigation -->
     <link rel="stylesheet" href="{{ asset('css/navigation.css') }}">
-
-    <!-- magnific popup -->
     <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
-
-    <!-- Style -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <!-- Style -->
     <link rel="stylesheet" href="{{ asset('css/colors/color-0.css') }}">
-
-    <!-- Responsive -->
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-    
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
- <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
- <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
- <![endif]-->
-
 </head>
 
 <body class="body-color">
@@ -76,14 +50,11 @@
     }}(document,"script","twitter-wjs");
     // ]]></script>
 
+
 @include('templates.header')
-
-    {{-- View::make("templates.header"); --}}
-
     @yield('content')
+@include('templates.footer')
 
-    @include('templates.footer')
-    {{-- View::make("templates.footer"); --}}
 
 
 

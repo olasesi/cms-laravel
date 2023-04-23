@@ -16,10 +16,14 @@ class AdminLoginController extends Controller
     }
 
     public function savelogin(Request $request){
+        if (Auth::viaRemember()) {
+            $request->session()->regenerate();
+             return redirect()->intended(route('admin.dashboard'));
+        }
         $validatedData = $request->validate([
         'email' => 'required|email',
        'password'=> 'required|string|min:6',
-       
+       'remember_token'=>'nullable'
             ]
      );
 
@@ -35,7 +39,7 @@ class AdminLoginController extends Controller
        
     }
 
-   
+
 
     }
 

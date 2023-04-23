@@ -7,10 +7,7 @@ class TagInput extends React.Component {
     super();
     
     this.state = {
-      tags: [
-        'Tags',
-        'Input'
-      ]
+      tags: ['Tags','Input']
     };
   }
   
@@ -39,15 +36,27 @@ class TagInput extends React.Component {
     return (
       <div className="form-group">
         <label for="exampleInputtags">Tags</label>
-        <ul className="input-tag__tags">
-          { tags.map((tag, i) => (
+
+
+
+<div>
+<div>
+{ tags.map((tag, i) => (
             <li key={tag}>
               {tag}
               <button type="button" onClick={() => { this.removeTag(i); }}>+</button>
             </li>
           ))}
-          <li className="input-tag__tags__input"><input id="exampleInputtags" className="form-control" type="text" onKeyDown={this.inputKeyDown} ref={c => { this.tagInput = c; }} name="post_tags"/></li>
+</div>
+        <ul className="input-tag__tags">
+         
+          
         </ul>
+        <li className="input-tag__tags__input"><input id="exampleInputtags" className="form-control" type="text" onKeyDown={this.inputKeyDown} ref={c => { this.tagInput = c; }} name="post_tags"/></li>
+
+        </div>
+
+        
       </div>
     );
   }

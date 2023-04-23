@@ -1,14 +1,14 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-      <a class="sidebar-brand brand-logo" href="{{route('admin.dashboard')}}"><img src="{{asset('administration/assets/images/logo.svg')}}" alt="logo" /></a>
-      <a class="sidebar-brand brand-logo-mini" href="{{route('admin.dashboard')}}"><img src="{{asset('administration/assets/images/logo-mini.svg')}}" alt="logo" /></a>
+      <a class="sidebar-brand brand-logo" href="{{route('admin.dashboard')}}"><img src="{{asset($website_info[1]->value)}}" alt="{{asset($website_info[0]->value)}}" /></a>
+      <a class="sidebar-brand brand-logo-mini" href="{{route('admin.dashboard')}}"><img src="{{asset($website_info[3]->value)}}" alt="{{asset($website_info[0]->value)}}" /></a>
     </div>
     <ul class="nav">
       <li class="nav-item profile">
         <div class="profile-desc">
           <div class="profile-pic">
             <div class="count-indicator">
-              <img class="img-xs rounded-circle " src="{{asset('administration/assets/images/faces/face15.jpg')}}" alt="">
+              <img class="img-xs rounded-circle " src="{{asset('administration/assets/images/faces/face15.jpg')}}" alt="admin">
               <span class="count bg-success"></span>
             </div>
             <div class="profile-name">
@@ -18,8 +18,15 @@
                 {{Auth::user()->username}}
            
               </h5>
-              <span> {{Auth::user()->role}}</span>
-              
+              <span> 
+                @foreach($all_admin as $each_type)
+                  @if($each_type->id == Auth::user()->admin_id)
+                  {{$each_type->name}}
+                  @endif
+                @endforeach
+
+              </span>
+            
             </div>
           </div>
          
@@ -37,7 +44,7 @@
         </a>
       </li>
 
-@if(Auth::user()->role != 'subscriber')
+      
       <li class="nav-item menu-items">
         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <span class="menu-icon">
@@ -49,13 +56,15 @@
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.showpost')}}">All Posts</a></li>
+            @if(Auth::user()->admin_id != '4') 
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.createpost')}}">Create Post</a></li>
+            @endif
            
           </ul>
         </div>
       </li>
-@endif
-
+      
+ 
       <li class="nav-item menu-items">
         <a class="nav-link" href="pages/forms/basic_elements.html">
           <span class="menu-icon">
@@ -65,7 +74,7 @@
         </a>
       </li>
 
-      @if(Auth::user()->role == 'super admin')
+      @if(Auth::user()->admin_id == '1')
       <li class="nav-item menu-items">
         <a class="nav-link" data-bs-toggle="collapse" href="#category" aria-expanded="false" aria-controls="category" href="pages/tables/basic-table.html">
           <span class="menu-icon">
@@ -78,7 +87,7 @@
         <div class="collapse" id="category">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{route('admin.showcategory')}}">All Categories </a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{route('admin.createcategory')}}"> Add category </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('admin.createcategory')}}"> Create Categories </a></li>
             
           </ul>
         </div>

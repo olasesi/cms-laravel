@@ -186,7 +186,7 @@
 				<div class="col-lg-2 pr-0">
 					<div class="logo">
 						<a href="{{URL::to('/')}}">
-							<img src="{{asset('storage/'.$website_info[0]->logo_image_path)}}" alt="{{$website_info[0]->website_name}}">
+							<img src="{{asset('storage/'.$website_info[1]->value)}}" alt="{{$website_info[0]->value}}">
 						</a>
 					</div>
 
@@ -308,7 +308,7 @@
 															<div class="ts-post-thumb">
 																<a class="post-cat ts-yellow-bg" style="background:{{$each_post_video->color}};" href="{{route('showsinglecategory', ['id'=>$each_post_video->category])}}">{{$each_post_video->category}}</a>
 																<a href="{{route('showsinglepost', ['id'=>$each_post_video->slug])}}">
-																	<img class="img-fluid" src="{{$each_post_video->video_placeholder}}" alt="{{$each_post_video->title}}">
+																	<img class="img-fluid" src="">
 																</a>
 															</div>
 															<div class="post-content">

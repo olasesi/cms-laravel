@@ -10,6 +10,7 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'title',
         'slug',
         'excerpt',
@@ -20,13 +21,12 @@ class Post extends Model
         'image',
         'image_path',
         'video_path',
-        'video_placeholder',
+       'approve',
         'publish_time',
         'visibility',
         'pending_preview',
         'order',
         'user_id',
-        'admin_id',
         'recent',
         'breaking_news',
         'most_popular',
@@ -39,6 +39,9 @@ class Post extends Model
         
     ];
 
-   
+    public function comments()
+    {
+        return $this->belongsToMany('App\Models\Comment', 'comment_post', 'post_id', 'comment_id')->withTimestamps();
+    }
 
 }

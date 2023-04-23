@@ -91,14 +91,14 @@ class UserSeeder extends Seeder
     ],
     [
         'id'=> 5,
-        'admin_id' => '5',
+        'admin_id' => '3',
         'active' => '1',
-        'name' => 'Toke Amaechi',
-        'username' => 'tokeamchi',
-        'email' => 'dadeyemo@esther.net ',
+        'name' => 'ade Ade',
+        'username' => 'adeolu',
+        'email' => 'adeolu@gmail.com',
         'password' => Hash::make('password'),
-        'facebook' => 'https://facebook.com/tokeamchi',
-        'twitter' => 'https://twitter.com/waleat',
+        'facebook' => 'https://facebook.com/adeolu',
+        'twitter' => 'https://twitter.com/adeolu',
         'google_plus' => '',
         'linkedin' => '',
         'bio' => '',
@@ -107,6 +107,7 @@ class UserSeeder extends Seeder
         'created_at' => Carbon::now(),
         'updated_at' => Carbon::now()
     ],
+    
     ]
     
 );
