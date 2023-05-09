@@ -109,7 +109,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
     Route::delete('delete-post/{id}', [PostController::class, 'deletepost'])->middleware('usertype')->name('admin.deletepost');
     Route::patch('approve-post/{id}', [PostController::class, 'approvepost'])->middleware('usertype')->name('admin.approvepost');
     Route::patch('disapprove-post/{id}', [PostController::class, 'disapprovepost'])->middleware('usertype')->name('admin.disapprovepost');
-    //Route::patch('update-post/{id}', [PostController::class, 'editpost'])->middleware('usertype')->name('admin.editpost');
+    Route::patch('update-post/{id}', [PostController::class, 'updatepost'])->middleware('usertype')->name('admin.updatepost');
 
 
     //CKeditor

@@ -210,6 +210,121 @@ class PostController extends Controller
 
      }
 
+     public function editpost($id){
+     
+        $editone = DB::table('posts as p')->leftJoin('sections as s', 's.id', '=', 'section_id')->where('p.slug', $id)->first();
+        
+        $fetchsection = DB::table('sections')->select('id','category')->get();
+
+        return view('admin.editpost',['editone'=>$editone, 'fetchsection'=>$fetchsection]);
+
+    }
+
+    
+    public function updatepost($id){
+     
+        if(Auth::user()->admin_id == 4) {
+            redirect(route('admin.dashboard'));
+        }
+        if($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName.'_'.time().'.'.$extension;
+        
+            $request->file('upload')->move(public_path('images'), $fileName);
+           
+            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+            $url = asset('images/'.$fileName); 
+            $msg = 'Image uploaded successfully'; 
+            $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
+               
+            @header('Content-type: text/html; charset=utf-8'); 
+            echo $response;
+        }
+
+        if($request->input('title')){
+          $request->validate([
+             'title' => 'required|max:100|min:3|max:100',
+             'excerpt' => 'nullable|min:3',
+             'discussion' => 'required',
+            'category' => 'required',
+             'tags' => 'nullable',
+             'publish_time'=> 'nullable|date',
+             'pending_preview'=> 'nullable',
+             'body'=> 'nullable',
+             'image'=> 'nullable|image|mimes:jpeg,jpg,png|max:2048',
+             'recent' => 'nullable',
+             'visibility'=> 'required',
+             'order'=> 'nullable|numeric',
+             'video_path' => 'nullable|url',
+             'breaking_news' => 'nullable',
+             'most_popular' => 'nullable',
+             'favourite' => 'nullable',
+             'hot_topics' => 'nullable',
+             'watch_now' => 'nullable',
+             'trending' => 'nullable',
+             'more_news' => 'nullable',
+            ]
+     );
+    }
+
+      
+    $new_slug = Str::slug($request->title);
+    $slug_no = Post::where('slug', $new_slug)->count();
+    if($slug_no >= 1){
+        $new_slug .= $slug_no + 1;
+    }
+
+       $post= Post::create([
+        'title' => $request->title,
+        'slug' => $new_slug,
+        'user_id' => auth()->id(),
+        'excerpt' => $request->excerpt,
+        'tags' => $request->tags,
+        'discussion' => $request->discussion,
+        'section_id' => $request->category,
+        'body' => $request->body,
+        'image' => $request->image,
+        'publish_time' => $request->publish_time,
+        'pending_preview' => $request->pending_preview,
+        'visibility' => $request->visibility,
+        'order' => $request->order,
+        'video_path' => $request->video_path,
+        'recent' => $request->recent,
+        'breaking_news' => $request->breaking_news,
+        'most_popular' => $request->most_popular,
+        'favourite' => $request->favourite,
+        'hot_topics' => $request->hot_topics,
+        'watch_now' => $request->watch_now,
+        'trending' => $request->trending,
+        'more_news' => $request->more_news,
+        
+    ]);
+    
+    
+       
+    if ($request->file('image')){
+        $file_name = time().'_'.$request->image->getClientOriginalName();
+        $file_path = $request->file('image')->storeAs('images/posts', $file_name, 'public');
+    
+        $post->update([
+            'image' => $file_name,
+            'image_path' => $file_path      //Get file path fixed
+        ]);
+    }else{
+
+        $post->update([
+            'image' => 'default.jpg',
+            'image_path' => 'images/logo/default.jpg',     
+        ]);
+    }
+    
+
+    return back()->with('success', 'Post has been updated successfully');
+
+    }
+
     public function searchpost($id){
         //$admin = Post::users()->sections()->where('id', auth()->id())->first()->id;
 
