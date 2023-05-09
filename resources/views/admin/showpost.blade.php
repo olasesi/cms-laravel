@@ -89,21 +89,21 @@
                                             </td>
                                             <td>
                                                 <div>
-
-                                                    <label class="badge badge-success">{{ $post->visibility }}</label>
+                                                    
+                                                    <label class="badge badge-outline-success mb-1">{{ $post->visibility }}</label>
                                                     @if ($post->pending_preview == 'on')
-                                                        <label class="badge badge-info"> Pending Preview</label>
+                                                        <label class="badge badge-outline-info mb-1"> Pending Preview</label>
                                                     @endif
                                                 </div>
 
 
 
                                                 @if ($post->discussion == 'No commenting allowed')
-                                                    <label class="badge badge-warning"> {{ 'No commenting' }}</label>
+                                                    <label class="badge badge-outline-warning mb-1"> {{ 'No commenting' }}</label>
                                                 @endif
 
 
-                                                <label class="badge badge-primary">Published:
+                                                <label class="badge badge-outline-primary mb-1">Published:
                                                     @if ($post->publish_time == null)
                                                         {{ $post->created_at }}
                                                     @else
